@@ -1,9 +1,10 @@
-# Иконки
+# Иконки BalanceCleaner
 
-Предпочтительный формат для сайта — SVG. Для растрового варианта используйте прозрачный PNG размером 512×512 или 1024×1024.
+В папке хранятся две цветовые версии иконки:
 
-Примеры: `app-icon.svg`, `app-icon.png`, `feature-cleaning.svg`.
-=======
-# Icons
+- `icon-dark.svg` — вариант для тёмной темы, размер исходного SVG 1024×1024;
+- `icon-light.svg` — вариант для светлой темы, размер исходного SVG 1024×1024;
+- `x128-dark.svg` — компактный вариант 128×128 для тёмной темы;
+- `x128-light.svg` — компактный вариант 128×128 для светлой темы.
 
-Use SVG icons for the website whenever possible. For raster fallbacks, use transparent square PNG files at 512×512 or 1024×1024. Suggested names: `app-icon.svg`, `app-icon.png`, `feature-cleaning.svg`.
+Также сохранены PNG-ресурсы `x128.png`, `x256.png`, `x512.png`, `x1024.png` и `icon - Dark.png` / `icon - Light.png`.

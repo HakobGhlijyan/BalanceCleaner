@@ -1,15 +1,12 @@
 # Скриншоты приложения
 
-Добавьте сюда реальные экраны приложения: `dashboard.png`, `cleaning.png`, `insights.png`.
+В этой папке находятся демонстрационные экраны приложения:
 
-Форматы: PNG или JPG. Не используйте персональные данные пользователей.
-=======
-# Screenshots
+- `dashboard_free.PNG` — бесплатная версия dashboard;
+- `dashboard_premium.PNG` — premium dashboard;
+- `cleaning.PNG` — экран очистки;
+- `history.PNG` — история действий;
+- `settings.PNG` — настройки;
+- `support.PNG` — экран поддержки.
 
-Add app screenshots here:
-
-- `dashboard.png` — overview screen
-- `cleaning.png` — cleaning action
-- `insights.png` — insights/statistics
-
-Recommended: PNG or JPG, no personal data, and the same device framing for all three.
+Сейчас это demo-материалы для презентации сайта. Перед публикацией в App Store Connect проверьте размеры, локализацию и отсутствие персональных данных.

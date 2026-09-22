@@ -1,7 +1,5 @@
-# Видео
+# Видео приложения
 
-Добавьте сюда демонстрационные ролики в формате MP4 (H.264) или WebM. Для превью используйте `preview-poster.jpg`.
-=======
-# Videos
+- `how_use demo_video.MP4` — демонстрационный ролик использования приложения.
 
-Add product demos here as MP4 (H.264) or WebM files. Include a lightweight poster image such as `preview-poster.jpg`. Keep videos short and optimized for mobile.
+Видео пока используется только как demo в галерее сайта. Перед публикацией подготовьте оптимизированную версию MP4/H.264 и poster-изображение для мобильных устройств.

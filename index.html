@@ -1,1 +1,178 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07110d"><meta name="description" content="BalanceCleaner — a calmer digital life."><title>BalanceCleaner</title><link rel="stylesheet" href="assets/site.css"></head><body><header class="wrap nav"><a class="brand" href="index.html"><span class="mark">✦</span>BalanceCleaner</a><nav class="links"><a href="#story">About</a><a href="#screens">Screens</a><a href="#video">Video</a><a href="#features">Features</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav><div class="actions"><select class="select" id="language" aria-label="Language"><option>EN</option><option>FR</option><option>ES</option><option>IT</option><option>DE</option><option>RU</option></select><button class="theme" id="theme" aria-label="Toggle theme">☼</button><a class="button" href="preview.html">All demos</a></div></header><main><section class="wrap hero"><div class="eyebrow">A calmer digital life</div><h1>Make room for what matters.</h1><p>BalanceCleaner brings clarity to your digital world with thoughtful tools, a quiet interface, and privacy at its core.</p><div class="hero-actions"><a class="button" href="#screens">Explore the product →</a><a class="button ghost" href="device-preview.html">See device variants</a></div></section><section class="section" id="story"><div class="wrap"><div class="heading"><div><div class="eyebrow">The idea</div><h2>Less noise.<br>More balance.</h2></div><p>A calm product story built around clarity, control and a respectful digital experience.</p></div><div class="story"><article class="panel"><h2>Your digital space, understood.</h2><p>BalanceCleaner helps people see what is taking up space, make confident decisions and keep their everyday devices feeling lighter.</p><p>The website currently presents demo screens and a demo video. Final App Store Connect materials can be added later without changing this structure.</p><div class="stats"><div class="stat"><b>01</b><span>Understand</span></div><div class="stat"><b>02</b><span>Choose</span></div><div class="stat"><b>03</b><span>Balance</span></div></div></article><article class="panel"><div class="eyebrow">Built thoughtfully</div><h2>Simple from the first tap.</h2><p>Focused tools, transparent choices and privacy at the centre of every interaction.</p><a class="button" href="support.html">Talk to the developer →</a></article></div></div></section><section class="section" id="screens"><div class="wrap"><div class="heading"><div><div class="eyebrow">Product screens</div><h2>See the app<br>before it ships.</h2></div><p>These are temporary demo captures. Click “All demos” for the full gallery and fullscreen viewing.</p></div><div class="grid"><article class="card"><img src="assets/screenshots/dashboard_free.PNG" alt="Free dashboard"><h3>Daily balance</h3><p>See your digital space at a glance.</p></article><article class="card"><img src="assets/screenshots/cleaning.PNG" alt="Smart cleaning"><h3>Smart cleaning</h3><p>Review suggestions with confidence.</p></article><article class="card"><img src="assets/screenshots/dashboard_premium.PNG" alt="Premium dashboard"><h3>Premium dashboard</h3><p>A broader view for deeper control.</p></article></div><p style="margin-top:24px"><a class="button ghost" href="preview.html">Open full screen gallery →</a></p></div></section><section class="section" id="video"><div class="wrap"><div class="heading"><div><div class="eyebrow">Product demo</div><h2>See how it works.</h2></div><p>A separate demo video section, presented in the same visual system as the screens.</p></div><figure class="video"><video controls preload="metadata"><source src="assets/videos/how_use%20demo_video.MP4" type="video/mp4"></video><figcaption>How to use BalanceCleaner · temporary demo</figcaption></figure></div></section><section class="section" id="features"><div class="wrap"><div class="heading"><div><div class="eyebrow">Why BalanceCleaner</div><h2>Thoughtfully simple.</h2></div></div><div class="features"><div class="feature"><b>Clear by design</b><span>Focused tools that feel easy from the first tap.</span></div><div class="feature"><b>Privacy first</b><span>Transparent choices and respect for your information.</span></div><div class="feature"><b>Quietly powerful</b><span>Useful insights without unnecessary complexity.</span></div><div class="feature"><b>Made to improve</b><span>Send feedback directly to the developer.</span></div></div></div></section><section class="wrap contact"><div><div class="eyebrow">We’re listening</div><h2>Have an idea?</h2><p>Send feedback, report a problem or ask a question through our support page.</p></div><a class="button" href="support.html">Open support →</a></section></main><footer><div class="wrap foot"><span>© 2026 BalanceCleaner</span><span><a href="preview.html">Open all demos</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></span></div></footer><script>const root=document.documentElement,theme=document.getElementById('theme');function setTheme(v){root.classList.toggle('light',v==='light');theme.textContent=v==='light'?'☾':'☼';localStorage.setItem('balance-theme',v)}setTheme(localStorage.getItem('balance-theme')||'dark');theme.onclick=()=>setTheme(root.classList.contains('light')?'dark':'light');const lang=document.getElementById('language');lang.value=localStorage.getItem('balance-language')||'EN';lang.onchange=()=>localStorage.setItem('balance-language',lang.value);</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07110d">
+<meta name="description" content="BalanceCleaner — a calmer digital life.">
+<title>BalanceCleaner</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="index.html"><span class="mark">✦</span>BalanceCleaner</a>
+  <nav class="links">
+    <a href="#story">About</a>
+    <a href="#screens">Screens</a>
+    <a href="#video">Video</a>
+    <a href="#features">Features</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+  <div class="actions">
+    <select class="select" id="language" aria-label="Language">
+      <option>EN</option>
+      <option>FR</option>
+      <option>ES</option>
+      <option>IT</option>
+      <option>DE</option>
+      <option>RU</option>
+    </select>
+    <button class="theme" id="theme" aria-label="Toggle theme">☼</button>
+    <a class="button" href="preview.html">All demos</a>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div class="eyebrow">A calmer digital life</div>
+    <h1>Make room for what matters.</h1>
+    <p>BalanceCleaner brings clarity to your digital world with thoughtful tools, a quiet interface, and privacy at its core.</p>
+    <div class="hero-actions">
+      <a class="button" href="#screens">Explore the product →</a>
+      <a class="button ghost" href="device-preview.html">See device variants</a>
+    </div>
+  </section>
+
+  <section class="wrap app-store-cta" aria-label="Download on the App Store">
+    <div class="cta-copy">Designed for your device, and the app requires no account.</div>
+    <a class="app-store-button" href="#" aria-label="Download on the App Store">
+      <span class="apple-icon"></span>
+      <span class="button-text">
+        <small>Download on the</small>
+        <strong>App Store</strong>
+      </span>
+    </a>
+    <p class="cta-meta">Free to use • iPhone (iPad compatible) • Premium optional</p>
+  </section>
+
+  <section class="section" id="story">
+    <div class="wrap">
+      <div class="heading">
+        <div>
+          <div class="eyebrow">The idea</div>
+          <h2>Less noise.<br>More balance.</h2>
+        </div>
+        <p>A calm product story built around clarity, control and a respectful digital experience.</p>
+      </div>
+      <div class="story">
+        <article class="panel">
+          <h2>Your digital space, understood.</h2>
+          <p>BalanceCleaner helps people see what is taking up space, make confident decisions and keep their everyday devices feeling lighter.</p>
+          <p>The website currently presents demo screens and a demo video. Final App Store Connect materials can be added later without changing this structure.</p>
+          <div class="stats">
+            <div class="stat"><b>01</b><span>Understand</span></div>
+            <div class="stat"><b>02</b><span>Choose</span></div>
+            <div class="stat"><b>03</b><span>Balance</span></div>
+          </div>
+        </article>
+        <article class="panel">
+          <div class="eyebrow">Built thoughtfully</div>
+          <h2>Simple from the first tap.</h2>
+          <p>Focused tools, transparent choices and privacy at the centre of every interaction.</p>
+          <a class="button" href="support.html">Talk to the developer →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="screens">
+    <div class="wrap">
+      <div class="heading">
+        <div>
+          <div class="eyebrow">Product screens</div>
+          <h2>See the app<br>before it ships.</h2>
+        </div>
+        <p>These are temporary demo captures. Click “All demos” for the full gallery and fullscreen viewing.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <img src="assets/screenshots/dashboard_free.PNG" alt="Free dashboard">
+          <h3>Daily balance</h3>
+          <p>See your digital space at a glance.</p>
+        </article>
+        <article class="card">
+          <img src="assets/screenshots/cleaning.PNG" alt="Smart cleaning">
+          <h3>Smart cleaning</h3>
+          <p>Review suggestions with confidence.</p>
+        </article>
+        <article class="card">
+          <img src="assets/screenshots/dashboard_premium.PNG" alt="Premium dashboard">
+          <h3>Premium dashboard</h3>
+          <p>A broader view for deeper control.</p>
+        </article>
+      </div>
+      <p style="margin-top:24px"><a class="button ghost" href="preview.html">Open full screen gallery →</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="video">
+    <div class="wrap">
+      <div class="heading">
+        <div>
+          <div class="eyebrow">Product demo</div>
+          <h2>See how it works.</h2>
+        </div>
+        <p>A separate demo video section, presented in the same visual system as the screens.</p>
+      </div>
+      <figure class="video">
+        <video controls preload="metadata">
+          <source src="assets/videos/how_use%20demo_video.MP4" type="video/mp4">
+        </video>
+        <figcaption>How to use BalanceCleaner · temporary demo</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="heading">
+        <div><div class="eyebrow">Why BalanceCleaner</div><h2>Thoughtfully simple.</h2></div>
+      </div>
+      <div class="features">
+        <div class="feature"><b>Clear by design</b><span>Focused tools that feel easy from the first tap.</span></div>
+        <div class="feature"><b>Privacy first</b><span>Transparent choices and respect for your information.</span></div>
+        <div class="feature"><b>Quietly powerful</b><span>Useful insights without unnecessary complexity.</span></div>
+        <div class="feature"><b>Made to improve</b><span>Send feedback directly to the developer.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap contact">
+    <div>
+      <div class="eyebrow">We’re listening</div>
+      <h2>Have an idea?</h2>
+      <p>Send feedback, report a problem or ask a question through our support page.</p>
+    </div>
+    <a class="button" href="support.html">Open support →</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 BalanceCleaner</span>
+    <span><a href="preview.html">Open all demos</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></span>
+  </div>
+</footer>
+
+<script>
+const root=document.documentElement,theme=document.getElementById('theme');
+function setTheme(v){root.classList.toggle('light',v==='light');theme.textContent=v==='light'?'☾':'☼';localStorage.setItem('balance-theme',v)}
+setTheme(localStorage.getItem('balance-theme')||'dark');
+theme.onclick=()=>setTheme(root.classList.contains('light')?'dark':'light');
+const lang=document.getElementById('language');
+lang.value=localStorage.getItem('balance-language')||'EN';
+lang.onchange=()=>localStorage.setItem('balance-language',lang.value);
+</script>
+</body>
+</html>

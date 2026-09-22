@@ -1,37 +1,125 @@
 # BalanceCleaner
 
-BalanceCleaner is a responsive landing page for a calmer, clearer and more private digital experience.
+## Что это за проект
 
-## Pages and sections
+BalanceCleaner — адаптивный сайт-презентация приложения с тёмным интерфейсом, зелёно-синими акцентами, анимированным фоном, переключением темы, выбором языка и формой обратной связи.
 
-- `index.html` — dark premium landing page with animated green/blue ambient background, theme switching, English/Russian language switching, App Preview section, feature cards, and feedback form.
-- `privacy.html` — bilingual privacy policy covering the feedback form and FormSubmit processing.
-- `LICENSE` — Apache License 2.0.
+## Основные страницы
 
-## Feedback form
+- `index.html` — главная страница, App Preview, описание функций и форма обратной связи.
+- `support.html` — отдельная страница поддержки для публичного **Support URL** в App Store Connect.
+- `privacy.html` — политика конфиденциальности. Её необходимо поддерживать в соответствии с реальными функциями приложе��ия и формой.
+- `LICENSE` — Apache License 2.0 для исходного кода проекта.
 
-The form collects first name, last name, email, and message in that order. It uses [FormSubmit](https://formsubmit.co/) and sends submissions to `support@balancecleaner.app`.
-
-Before production use:
-
-1. Confirm that the mailbox exists and can receive messages.
-2. Complete FormSubmit's activation email if it is requested after the first submission.
-3. Review FormSubmit's terms and privacy policy.
-4. Keep the privacy policy accurate if the provider, recipient, or fields change.
-5. Add spam protection or replace the provider if the public form receives abuse.
-
-## App Store preparation
-
-The site includes a dedicated App Preview section with placeholders for future product screenshots. Add real, non-sensitive application screenshots under:
+## Структура папок
 
 ```text
-assets/screenshots/dashboard.png
-assets/screenshots/cleaning.png
-assets/screenshots/insights.png
+BalanceCleaner/
+├── index.html
+├── support.html
+├── privacy.html
+├── README.md
+├── LICENSE
+└── assets/
+    ├── screenshots/
+    ├── videos/
+    ├── icons/
+    ├── images/
+    └── app-store/
+        ├── en-US/
+        ├── fr-FR/
+        ├── es-ES/
+        ├── it-IT/
+        ├── de-DE/
+        └── ru-RU/
 ```
 
-The website's preview images are not a substitute for the actual App Store Connect screenshots. In App Store Connect, provide a public Privacy Policy URL, a Support URL, accurate App Privacy disclosures, and screenshots that show real application functionality.
+### `assets/screenshots/`
 
-## License
+Сюда добавляются реальные скриншоты интерфейса приложения, которые используются в блоке App Preview.
 
-This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
+Рекомендуемые имена:
+
+- `dashboard.png` — главный экран или обзор;
+- `cleaning.png` — экран очистки;
+- `insights.png` — статистика и аналитика.
+
+Используйте PNG или JPG. Не добавляйте личные данные пользователей. Все изображения лучше делать в одном стиле и с одинаковым размером устройства.
+
+### `assets/videos/`
+
+Сюда помещаются демонстрационные видео приложения и анимации.
+
+Рекомендуемые форматы:
+
+- MP4 с кодеком H.264 — основной вариант;
+- WebM — вариант для веба;
+- `preview-poster.jpg` — постер, который показывается до запуска видео.
+
+Видео должны быть короткими, оптимизированными для мобильных устройств и не должны содержать приватные данные.
+
+### `assets/icons/`
+
+Сюда помещаются иконки приложения и иконки функций.
+
+Рекомендуется:
+
+- SVG — для иконок сайта;
+- PNG с прозрачным фоном — запасной вариант;
+- квадратные PNG размером 512×512 или 1024×1024;
+- имена файлов в нижнем регистре через дефис: `app-icon.svg`, `feature-cleaning.svg`.
+
+### `assets/images/`
+
+Сюда помещаются маркетинговые изображения и фотографии:
+
+- WebP — предпочтительно для фотографий;
+- JPG — для непрозрачных изображений;
+- PNG — если нужна прозрачность.
+
+### `assets/app-store/`
+
+Здесь хранятся финальные локализованные материалы для App Store Connect. Для каждого языка используется отдельная папка: `en-US`, `fr-FR`, `es-ES`, `it-IT`, `de-DE`, `ru-RU`.
+
+Не путайте эти материалы с превью сайта: в App Store Connect нужно загружать реальные скриншоты приложения, а не CSS-макет сайта.
+
+## Форма обратной связи
+
+Форма собирает имя, фамилию, email и сообщение именно в этом порядке. Сейчас используется FormSubmit, отправляющий обращения на `support@balancecleaner.app`.
+
+Перед публикацией:
+
+1. Убедитесь, что почтовый ящик существует.
+2. Отправьте тестовую форму.
+3. Завершите активацию FormSubmit, если она будет запрошена.
+4. Проверьте политику конфиденциальности FormSubmit.
+5. Обновите `privacy.html`, если изменится сервис, получатель или список полей.
+
+## App Store Connect
+
+Для App Store Connect подготовьте:
+
+- публичный URL политики конфиденциальности: `/privacy.html`;
+- публичный Support URL: `/support.html`;
+- рабочий контакт разработчика;
+- точные сведения в разделе App Privacy;
+- реальные скриншоты приложения для нужных размеров устройств;
+- описания и материалы для поддерживаемых языков.
+
+Пример URL после публикации сайта:
+
+```text
+https://your-domain.example/support.html
+https://your-domain.example/privacy.html
+```
+
+Это статический сайт. Для HTTPS и публичного доступа его можно разместить через GitHub Pages, Netlify, Vercel или другой хостинг. Перед добавлением URL в App Store Connect обязательно проверьте, что обе страницы открываются без авторизации.
+
+## Ветки
+
+- `main` — основная версия сайта;
+- `module-1-initial-website-state` — резервная точка модуля 1, к которой можно вернуться.
+
+## Лицензия
+
+Проект распространяется по Apache License 2.0. Подробности находятся в файле `LICENSE`.

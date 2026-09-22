@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f7">
+  <meta name="description" content="BalanceCleaner — a calm, private way to keep your digital life in balance.">
+  <title>BalanceCleaner — Make space for what matters</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f5f7;
+      --surface: rgba(255, 255, 255, .72);
+      --surface-solid: #fff;
+      --text: #161617;
+      --muted: #6e6e73;
+      --line: rgba(22, 22, 23, .1);
+      --accent: #0071e3;
+      --accent-strong: #005bb5;
+      --mint: #b9f4dc;
+      --lavender: #ddd5ff;
+      --shadow: 0 24px 70px rgba(28, 29, 35, .12);
+      --radius: 28px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #000; --surface: rgba(28, 28, 30, .78); --surface-solid: #1c1c1e; --text: #f5f5f7; --muted: #a1a1a6; --line: rgba(255,255,255,.13); --accent: #2997ff; --accent-strong: #64b5ff; --shadow: 0 24px 70px rgba(0,0,0,.35); }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--text); background: var(--bg); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.02em; }
+    .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(145deg, #53e6a4, #3b82f6); box-shadow: 0 6px 16px rgba(59,130,246,.22); }
+    .brand-mark svg { width: 21px; fill: none; stroke: white; stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-links { display: none; gap: 28px; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--text); }
+    .hero { display: grid; gap: 42px; align-items: center; padding: 65px 0 95px; }
+    .eyebrow { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { max-width: 680px; margin: 14px 0 20px; font-size: clamp(3.2rem, 11vw, 6.6rem); line-height: .96; letter-spacing: -.075em; }
+    .lead { max-width: 530px; margin: 0 0 30px; color: var(--muted); font-size: clamp(1.1rem, 2.4vw, 1.35rem); line-height: 1.45; }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; }
+    .app-store { display: inline-flex; align-items: center; gap: 10px; padding: 10px 17px 10px 14px; color: #fff; background: #000; border-radius: 12px; box-shadow: 0 8px 18px rgba(0,0,0,.18); transition: transform .2s, box-shadow .2s; }
+    .app-store:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(0,0,0,.25); }
+    .app-store svg { width: 24px; height: 28px; fill: #fff; }
+    .app-store small { display: block; font-size: 9px; line-height: 1; }
+    .app-store strong { display: block; margin-top: 3px; font-size: 18px; line-height: 1; letter-spacing: -.04em; }
+    .text-link { color: var(--accent); font-weight: 600; }
+    .text-link:hover { color: var(--accent-strong); }
+    .visual { position: relative; min-height: 470px; display: grid; place-items: center; }
+    .glow { position: absolute; width: 75%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--mint), transparent 68%); filter: blur(12px); opacity: .8; }
+    .phone { position: relative; width: min(275px, 72vw); padding: 10px; border: 7px solid #1d1d1f; border-radius: 43px; background: #1d1d1f; box-shadow: var(--shadow); transform: rotate(4deg); }
+    .phone-screen { overflow: hidden; min-height: 510px; padding: 25px 18px; border-radius: 31px; background: linear-gradient(150deg, #edfdf6 0%, #f7f4ff 100%); color: #151517; }
+    .status { display: flex; justify-content: space-between; padding: 0 5px 31px; font-size: 10px; font-weight: 700; }
+    .screen-title { margin: 0; font-size: 25px; letter-spacing: -.06em; }
+    .screen-subtitle { margin: 3px 0 20px; color: #72727a; font-size: 11px; }
+    .score { display: flex; align-items: center; justify-content: space-between; padding: 18px; border-radius: 20px; background: rgba(255,255,255,.74); box-shadow: 0 10px 25px rgba(72,56,130,.08); }
+    .score b { display: block; font-size: 37px; letter-spacing: -.08em; }
+    .score span { color: #39a977; font-size: 10px; font-weight: 700; }
+    .ring { width: 58px; height: 58px; padding: 6px; border: 5px solid #50d79f; border-right-color: #d9f8eb; border-radius: 50%; }
+    .ring i { display: block; width: 100%; height: 100%; border-radius: 50%; background: #edfdf6; }
+    .mini-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+    .mini-card { padding: 15px 12px; border-radius: 16px; background: rgba(255,255,255,.65); }
+    .mini-card svg { width: 19px; fill: none; stroke: #6f61d8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .mini-card b { display: block; margin-top: 12px; font-size: 16px; }
+    .mini-card small { color: #77777e; font-size: 9px; }
+    .features { padding: 85px 0; border-top: 1px solid var(--line); }
+    .section-heading { max-width: 610px; margin-bottom: 38px; }
+    h2 { margin: 10px 0; font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1; letter-spacing: -.065em; }
+    .section-heading p { color: var(--muted); font-size: 1.1rem; }
+    .feature-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .feature { padding: 27px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); backdrop-filter: blur(18px); }
+    .feature-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 22px; border-radius: 15px; background: var(--lavender); color: #6254cf; }
+    .feature:nth-child(2) .feature-icon { background: var(--mint); color: #159667; }
+    .feature:nth-child(3) .feature-icon { background: #ffe3b7; color: #bd7412; }
+    .feature:nth-child(4) .feature-icon { background: #cfe5ff; color: #2477cd; }
+    .feature svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .feature h3 { margin: 0 0 7px; font-size: 20px; letter-spacing: -.03em; }
+    .feature p { margin: 0; color: var(--muted); font-size: 15px; }
+    .contact { padding: 25px 0 100px; }
+    .contact-card { display: grid; gap: 30px; padding: 35px; border-radius: var(--radius); background: var(--text); color: var(--bg); }
+    .contact-card .eyebrow { color: #70dcb1; }
+    .contact-card h2 { max-width: 550px; }
+    .contact-card p { max-width: 470px; color: color-mix(in srgb, var(--bg) 68%, transparent); }
+    .contact-info { display: grid; gap: 19px; align-content: center; }
+    .contact-info span { display: block; margin-bottom: 3px; color: #98989d; font-size: 12px; }
+    .contact-info a { font-size: 17px; font-weight: 600; }
+    footer { padding: 24px 0 35px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a:hover { color: var(--text); }
+    @media (min-width: 680px) { .nav-links { display: flex; } .feature-grid { grid-template-columns: repeat(2, 1fr); } .contact-card { grid-template-columns: 1.3fr 1fr; padding: 55px; } }
+    @media (min-width: 900px) { .hero { grid-template-columns: 1.08fr .92fr; padding: 100px 0 130px; } .visual { min-height: 570px; } .phone { width: 300px; } .phone-screen { min-height: 550px; } .feature-grid { grid-template-columns: repeat(4, 1fr); } }
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="index.html" aria-label="BalanceCleaner home"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M5 15.5 9 11l3 3 7-7"/><path d="M18 7h1v1"/></svg></span>BalanceCleaner</a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#features">Features</a><a href="#contact">Contact</a><a href="privacy.html">Privacy</a></nav>
+  </header>
+  <main>
+    <section class="wrap hero">
+      <div><div class="eyebrow">A calmer digital life</div><h1>Make space for what matters.</h1><p class="lead">BalanceCleaner helps you clear the clutter, understand your habits, and keep your iPhone feeling beautifully yours.</p><div class="actions"><a class="app-store" href="#" aria-label="Download BalanceCleaner on the App Store"><svg viewBox="0 0 24 28"><path d="M19.7 14.8c0-3.1 2.5-4.6 2.6-4.7-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1.1-2.1 0-4.1 1.3-5.2 3.3-2.2 3.9-.6 9.7 1.6 12.9 1.1 1.5 2.3 3.2 3.9 3.1 1.6-.1 2.2-1 4.1-1 1.9 0 2.5 1 4.1.9 1.7 0 2.7-1.5 3.8-3.1 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.4-1.3-3.4-5.4zM16.6 5.7c.9-1.1 1.5-2.6 1.3-4.1-1.3.1-2.8.9-3.7 2-.8.9-1.5 2.5-1.3 3.9 1.4.1 2.8-.7 3.7-1.8z"/></svg><span><small>Download on the</small><strong>App Store</strong></span></a><a class="text-link" href="#features">Explore features →</a></div></div>
+      <div class="visual" aria-label="BalanceCleaner app preview"><div class="glow"></div><div class="phone"><div class="phone-screen"><div class="status"><span>9:41</span><span>● ◼︎ ▰</span></div><h2 class="screen-title">Good morning.</h2><p class="screen-subtitle">Your balance is looking good.</p><div class="score"><div><b>86</b><span>+12% this week</span></div><div class="ring"><i></i></div></div><div class="mini-cards"><div class="mini-card"><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></svg><b>1.2 GB</b><small>Cleaned today</small></div><div class="mini-card"><svg viewBox="0 0 24 24"><path d="M4 17V9m5 8V5m6 12v-5m5 5V3"/></svg><b>4.8 h</b><small>Screen balance</small></div></div></div></div></div>
+    </section>
+    <section class="features" id="features"><div class="wrap"><div class="section-heading"><div class="eyebrow">Thoughtfully simple</div><h2>Everything in balance.</h2><p>Useful tools that do one thing well — giving you a clearer, quieter iPhone.</p></div><div class="feature-grid">
+      <article class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></div><h3>Smart cleaning</h3><p>Find duplicate photos and unused clutter, then make room with a single thoughtful swipe.</p></article>
+      <article class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg></div><h3>Better balance</h3><p>See your digital habits at a glance and build a rhythm that works for your day.</p></article>
+      <article class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg></div><h3>Clear insights</h3><p>Simple, beautiful summaries turn your data into decisions — without the noise.</p></article>
+      <article class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 21s8-3.8 8-10V5l-8-3-8 3v6c0 6.2 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Private by design</h3><p>Your data stays on your device. No tracking, no selling, no surprises.</p></article>
+    </div></div></section>
+    <section class="wrap contact" id="contact"><div class="contact-card"><div><div class="eyebrow">We’re here to help</div><h2>Questions? Let’s talk.</h2><p>Whether you have feedback, need a hand, or simply want to say hello, our small team reads every message.</p></div><div class="contact-info"><div><span>Email</span><a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a></div><div><span>Typical response time</span><strong>Within 1–2 business days</strong></div><div><span>Also on</span><a href="#">Telegram ↗</a></div></div></div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><span>© 2026 BalanceCleaner. Made with care.</span><nav class="footer-links"><a href="privacy.html">Privacy Policy</a><a href="mailto:support@balancecleaner.app">Support</a><a href="#">Terms of Use</a></nav></div></footer>
+</body>
+</html>

@@ -1,37 +1,27 @@
-# BalanceCleaner
-
-BalanceCleaner is a responsive landing page for a calmer, clearer and more private digital experience.
-
-## Pages and sections
-
-- `index.html` — dark premium landing page with animated green/blue ambient background, theme switching, English/Russian language switching, App Preview section, feature cards, and feedback form.
-- `privacy.html` — bilingual privacy policy covering the feedback form and FormSubmit processing.
-- `LICENSE` — Apache License 2.0.
-
-## Feedback form
-
-The form collects first name, last name, email, and message in that order. It uses [FormSubmit](https://formsubmit.co/) and sends submissions to `support@balancecleaner.app`.
-
-Before production use:
-
-1. Confirm that the mailbox exists and can receive messages.
-2. Complete FormSubmit's activation email if it is requested after the first submission.
-3. Review FormSubmit's terms and privacy policy.
-4. Keep the privacy policy accurate if the provider, recipient, or fields change.
-5. Add spam protection or replace the provider if the public form receives abuse.
-
-## App Store preparation
-
-The site includes a dedicated App Preview section with placeholders for future product screenshots. Add real, non-sensitive application screenshots under:
+# Project structure
 
 ```text
-assets/screenshots/dashboard.png
-assets/screenshots/cleaning.png
-assets/screenshots/insights.png
+BalanceCleaner/
+├── index.html
+├── privacy.html
+├── README.md
+├── LICENSE
+└── assets/
+    ├── screenshots/       # PNG/JPG app screenshots for the preview section
+    ├── videos/            # MP4/WebM product demos; poster image recommended
+    ├── icons/             # SVG preferred; PNG fallback at 512x512 or larger
+    ├── images/            # JPG/PNG/WebP marketing images
+    └── app-store/         # final App Store Connect exports
 ```
 
-The website's preview images are not a substitute for the actual App Store Connect screenshots. In App Store Connect, provide a public Privacy Policy URL, a Support URL, accurate App Privacy disclosures, and screenshots that show real application functionality.
+## Asset guidelines
 
-## License
+- App screenshots: PNG or JPG, exactly matching the source device capture; use descriptive names such as `dashboard.png`, `cleaning.png`, and `insights.png`.
+- Videos: MP4 (H.264) or WebM, with a lightweight poster such as `preview-poster.jpg`. Do not upload private user data.
+- Icons: SVG is preferred for the website; use a square transparent PNG fallback, ideally 1024×1024 or at least 512×512.
+- Images: WebP or JPG for photos; PNG for transparency. Keep filenames lowercase with hyphens.
+- App Store screenshots: keep final localized exports in `assets/app-store/<locale>/`.
 
-This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
+The site now includes a six-language dropdown: English, French, Spanish, Italian, German, and Russian. The theme control uses an animated sun/moon transition and the header is a floating glass panel.
+
+The feedback form collects first name, last name, email, and message through FormSubmit. Keep `privacy.html` synchronized with the actual provider and fields before publishing.

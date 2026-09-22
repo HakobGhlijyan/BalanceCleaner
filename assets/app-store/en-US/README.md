@@ -1,5 +1,5 @@
-# App Store Connect — English
+# Demo and final materials
 
-Store the final English App Store Connect screenshots, preview video, promotional text, subtitle, description, and keywords here.
+The website currently shows demo screenshots and a demo video from `assets/screenshots/` and `assets/videos/`. Before App Store submission, copy approved localized exports into the matching folders under `assets/app-store/`.
 
-Current website demo assets are available in `assets/screenshots/` and `assets/videos/`; copy approved localized exports here before submission.
+The homepage links to `preview.html`, where the demo video and screenshot gallery are presented with explanations for each action.

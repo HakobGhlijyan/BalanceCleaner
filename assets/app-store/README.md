@@ -1,7 +1,12 @@
-# Материалы App Store Connect
+# App Store Connect localized materials
 
-Храните локализованные материалы в папках `en-US`, `fr-FR`, `es-ES`, `it-IT`, `de-DE` и `ru-RU`.
-=======
-# App Store exports
+Final App Store Connect exports are organized by locale:
 
-Store final localized App Store Connect screenshots in folders such as `en-US`, `fr-FR`, `es-ES`, `it-IT`, `de-DE`, and `ru-RU`.
+- `en-US/` — English
+- `fr-FR/` — Français
+- `es-ES/` — Español
+- `it-IT/` — Italiano
+- `de-DE/` — Deutsch
+- `ru-RU/` — Русский
+
+Place final screenshots, app previews, promotional text, subtitles, descriptions, and keywords inside the matching locale folder. The files in `assets/screenshots/` and `assets/videos/` are currently demo materials used by `preview.html`; they are not final App Store Connect exports.

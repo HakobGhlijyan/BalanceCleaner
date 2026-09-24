@@ -1,1 +1,226 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07110d"><title>BalanceCleaner — Demo gallery</title><link rel="stylesheet" href="assets/site.css"><style>.gallery{padding:70px 0 100px}.gallery .card{cursor:zoom-in}.lightbox{position:fixed;inset:0;z-index:30;display:none;place-items:center;padding:24px;background:#000d}.lightbox.open{display:grid}.lightbox img{max-width:96vw;max-height:92vh;border-radius:14px;object-fit:contain}.lightbox button{position:fixed;top:16px;right:22px;border:0;background:none;color:#fff;font-size:38px;cursor:pointer}</style></head><body><header class="wrap nav"><a class="brand" href="index.html"><span class="mark">✦</span>BalanceCleaner</a><nav class="links"><a href="index.html#screens">Screens</a><a href="index.html#video">Video</a><a href="device-preview.html">Devices</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav><a class="button" href="index.html">Back home</a></header><main class="wrap"><section class="hero" style="text-align:left"><div class="eyebrow">Demo materials</div><h1>All screens.<br>One calm view.</h1><p>Temporary screenshots and video for product presentation. Click any screen to open it fullscreen.</p></section><section class="video"><video controls preload="metadata"><source src="assets/videos/how_use%20demo_video.MP4" type="video/mp4"></video><figcaption>How to use BalanceCleaner · temporary demo</figcaption></section><section class="gallery"><div class="grid"><article class="card"><img src="assets/screenshots/dashboard_free.PNG" alt="Free dashboard"><h3>Free dashboard</h3><p>Overview screen</p></article><article class="card"><img src="assets/screenshots/dashboard_premium.PNG" alt="Premium dashboard"><h3>Premium dashboard</h3><p>Expanded overview</p></article><article class="card"><img src="assets/screenshots/cleaning.PNG" alt="Cleaning"><h3>Smart cleaning</h3><p>Cleaning flow</p></article><article class="card"><img src="assets/screenshots/history.PNG" alt="History"><h3>History</h3><p>Activity timeline</p></article><article class="card"><img src="assets/screenshots/settings.PNG" alt="Settings"><h3>Settings</h3><p>Preferences</p></article><article class="card"><img src="assets/screenshots/support.PNG" alt="Support"><h3>Support</h3><p>Help screen</p></article></div></section></main><div class="lightbox" id="lightbox"><button aria-label="Close">×</button><img id="large" alt="Expanded screenshot"></div><footer><div class="wrap foot"><span>© 2026 BalanceCleaner</span><span><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></span></div></footer><script>const l=document.getElementById('lightbox'),large=document.getElementById('large');document.querySelectorAll('.card img').forEach(i=>i.onclick=()=>{large.src=i.src;large.alt=i.alt;l.classList.add('open');document.body.style.overflow='hidden'});l.onclick=()=>{l.classList.remove('open');document.body.style.overflow=''};document.addEventListener('keydown',e=>e.key==='Escape'&&l.click());const root=document.documentElement;root.classList.toggle('light',localStorage.getItem('balance-theme')==='light')</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07110d">
+  <title>BalanceCleaner — Demo gallery</title>
+
+  <!-- Подключение основных стилей сайта -->
+  <link rel="stylesheet" href="assets/site.css">
+
+  <style>
+    /* =========================================================================
+       1. СТИЛИ ГАЛЕРЕИ И LIGHTBOX (УВЕЛИЧЕНИЕ СКРИНШОТОВ)
+       ========================================================================== */
+    .gallery {
+      padding: 70px 0 100px;
+    }
+
+    /* Курсор-лупа при наведении на скриншот */
+    .gallery .card {
+      cursor: zoom-in;
+    }
+
+    /* Оверлей полноэкранного просмотра (Lightbox) */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      background: #000d;
+    }
+
+    /* Открытое состояние Lightbox */
+    .lightbox.open {
+      display: grid;
+    }
+
+    /* Изображение внутри Lightbox */
+    .lightbox img {
+      max-width: 96vw;
+      max-height: 92vh;
+      border-radius: 14px;
+      object-fit: contain;
+    }
+
+    /* Кнопка закрытия Lightbox */
+    .lightbox button {
+      position: fixed;
+      top: 16px;
+      right: 22px;
+      border: 0;
+      background: none;
+      color: #fff;
+      font-size: 38px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+    1. ШАПКА САЙТА (HEADER)
+  ========================================================================== -->
+  <header class="wrap nav">
+    <a class="brand" href="index.html">
+      <span class="mark">✦</span>BalanceCleaner
+    </a>
+
+    <!-- Навигационные ссылки -->
+    <nav class="links">
+      <a href="index.html#screens">Screens</a>
+      <a href="index.html#video">Video</a>
+      <a href="device-preview.html">Devices</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+
+    <a class="button" href="index.html">Back home</a>
+  </header>
+
+  <!-- =========================================================================
+    2. ОСНОВНОЙ КОНТЕНТ (MAIN)
+  ========================================================================== -->
+  <main class="wrap">
+    
+    <!-- Заголовок и вводный текст галереи -->
+    <section class="hero" style="text-align: left;">
+      <div class="eyebrow">Demo materials</div>
+      <h1>All screens.<br>One calm view.</h1>
+      <p>Temporary screenshots and video for product presentation. Click any screen to open it fullscreen.</p>
+    </section>
+
+    <!-- Видеосекция с демонстрацией -->
+    <section class="video">
+      <video controls preload="metadata">
+        <source src="assets/videos/how_use%20demo_video.MP4" type="video/mp4">
+      </video>
+      <figcaption>How to use BalanceCleaner · temporary demo</figcaption>
+    </section>
+
+    <!-- Сетка галереи скриншотов -->
+    <section class="gallery">
+      <div class="grid">
+        
+        <!-- Карточка 1: Бесплатная панель -->
+        <article class="card">
+          <img src="assets/screenshots/dashboard_free.PNG" alt="Free dashboard">
+          <h3>Free dashboard</h3>
+          <p>Overview screen</p>
+        </article>
+
+        <!-- Карточка 2: Премиум панель -->
+        <article class="card">
+          <img src="assets/screenshots/dashboard_premium.PNG" alt="Premium dashboard">
+          <h3>Premium dashboard</h3>
+          <p>Expanded overview</p>
+        </article>
+
+        <!-- Карточка 3: Умная очистка -->
+        <article class="card">
+          <img src="assets/screenshots/cleaning.PNG" alt="Cleaning">
+          <h3>Smart cleaning</h3>
+          <p>Cleaning flow</p>
+        </article>
+
+        <!-- Карточка 4: История операций -->
+        <article class="card">
+          <img src="assets/screenshots/history.PNG" alt="History">
+          <h3>History</h3>
+          <p>Activity timeline</p>
+        </article>
+
+        <!-- Карточка 5: Настройки -->
+        <article class="card">
+          <img src="assets/screenshots/settings.PNG" alt="Settings">
+          <h3>Settings</h3>
+          <p>Preferences</p>
+        </article>
+
+        <!-- Карточка 6: Поддержка -->
+        <article class="card">
+          <img src="assets/screenshots/support.PNG" alt="Support">
+          <h3>Support</h3>
+          <p>Help screen</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+    3. МОДАЛЬНОЕ ОКНО ПРОСМОТРА (LIGHTBOX)
+    Используется для полноэкранного показа кликнутого скриншота.
+  ========================================================================== -->
+  <div class="lightbox" id="lightbox">
+    <button aria-label="Close">×</button>
+    <img id="large" alt="Expanded screenshot">
+  </div>
+
+  <!-- =========================================================================
+    4. ПОДВАЛ САЙТА (FOOTER)
+  ========================================================================== -->
+  <footer>
+    <div class="wrap foot">
+      <span>© 2026 BalanceCleaner</span>
+      <span>
+        <a href="index.html">Home</a> · 
+        <a href="privacy.html">Privacy</a> · 
+        <a href="support.html">Support</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+    5. ИНТЕРАКТИВНЫЕ СКРИПТЫ (JAVASCRIPT)
+    Управление интерактивным Lightbox и инициализация сохранённой темы.
+  ========================================================================== -->
+  <script>
+    // Элементы модального окна просмотра
+    const lightbox = document.getElementById('lightbox');
+    const largeImg = document.getElementById('large');
+
+    /**
+     * Открытие Lightbox:
+     * При клике на изображение из карточки галереи его путь (src)
+     * и описание (alt) подставляются в увеличенное окно,
+     * блокируется прокрутка основной страницы.
+     */
+    document.querySelectorAll('.card img').forEach(img => {
+      img.onclick = () => {
+        largeImg.src = img.src;
+        largeImg.alt = img.alt;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      };
+    });
+
+    /**
+     * Закрытие Lightbox:
+     * Скрывает модальное окно и возвращает стандартную прокрутку body.
+     */
+    lightbox.onclick = () => {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    // Закрытие Lightbox при нажатии клавиши Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        lightbox.click();
+      }
+    });
+
+    /**
+     * Инициализация цветовой темы:
+     * Проверяет сохранённое значение в localStorage и применяет нужный класс.
+     */
+    const root = document.documentElement;
+    root.classList.toggle('light', localStorage.getItem('balance-theme') === 'light');
+  </script>
+</body>
+</html>

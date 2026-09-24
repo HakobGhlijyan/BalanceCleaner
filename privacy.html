@@ -1,2 +1,300 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Privacy Policy — BalanceCleaner</title><style>:root{color-scheme:dark;--bg:#07110d;--card:#101b17ed;--text:#effff7;--muted:#91aaa0;--line:#d5f7e522;--green:#57d99f;--deep:#1d8060}*:where(*),*:before,*:after{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 12% 0,#57d99f22,transparent 35%),var(--bg);color:var(--text);font:15px/1.7 Inter,system-ui,sans-serif;transition:.4s}.light{color-scheme:light;--bg:#edf8f1;--card:#fff;--text:#10251c;--muted:#587266;--line:#1763442b;--green:#16885d;--deep:#0c6043}a{color:var(--green)}.wrap{width:min(960px,calc(100% - 32px));margin:auto}.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}.brand{color:var(--text);font-weight:800}.nav-right{display:flex;gap:12px;align-items:center}.back{color:var(--muted)}.theme{width:46px;height:40px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text);font-size:25px;cursor:pointer}.hero{padding:85px 0 35px}.eyebrow,.lang{color:var(--green);font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}.hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.9;letter-spacing:-.08em;margin:16px 0}.muted,.card p{color:var(--muted)}.notice,.card{padding:25px;border:1px solid var(--line);border-radius:21px;background:var(--card);box-shadow:0 20px 60px #0002}.notice{border-color:#57d99f66;margin-bottom:18px}.card{margin-bottom:65px}.card section+section{border-top:1px solid var(--line);margin-top:28px;padding-top:28px}.card h2{line-height:1.1}footer{padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted)}.foot{padding:16px 20px;border:1px solid var(--line);border-radius:16px;background:var(--card)}@media(max-width:600px){.nav{gap:10px}.back{font-size:12px}.hero{padding-top:55px}}
-</style></head><body><header class="wrap nav"><a class="brand" href="index.html">BalanceCleaner</a><div class="nav-right"><a class="back" href="index.html">← Back to home</a><button class="theme" id="theme">☼</button></div></header><main class="wrap"><section class="hero"><div class="eyebrow">Your privacy matters</div><h1>Privacy Policy</h1><div class="muted">Last updated: September 22, 2026</div></section><div class="notice"><strong>In short:</strong> BalanceCleaner does not sell personal information. Information is collected only when you voluntarily contact the developer.</div><article class="card"><section><div class="lang">English</div><h2>1. Scope</h2><p>This policy explains how BalanceCleaner handles information when you visit this website, view demos, or contact support.</p></section><section><h2>2. Information you provide</h2><p>If you contact us, you may provide your name, email address and message. Do not send passwords or payment details.</p></section><section><h2>3. How information is used</h2><p>Information is used only to respond, investigate reported problems and improve BalanceCleaner. We do not sell or rent personal information.</p></section><section><h2>4. Local storage</h2><p>Language and theme preferences may be stored locally in your browser. They are not sent to BalanceCleaner.</p></section><section><h2>5. Contact</h2><p>For questions or deletion requests, email <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p></section><section lang="ru"><div class="lang">Русский</div><h2>1. Область действия</h2><p>Политика объясняет обработку информации при посещении сайта, просмотре демо или обращении в поддержку.</p><h2>2. Данные</h2><p>При обращении можно указать имя, email и сообщение. Не отправляйте пароли или платёжные данные.</p><h2>3. Использование</h2><p>Данные используются только для ответа, проверки проблем и улучшения BalanceCleaner. Мы не продаём персональные данные.</p></section></article></main><footer><div class="wrap foot">© 2026 BalanceCleaner · <a href="preview.html">Open all demos</a> · <a href="support.html">Support</a></div></footer><script>const r=document.documentElement,b=document.getElementById('theme');function set(v){r.classList.toggle('light',v==='light');b.textContent=v==='light'?'☾':'☼';localStorage.setItem('balance-theme',v)}set(localStorage.getItem('balance-theme')||'dark');b.onclick=()=>set(r.classList.contains('light')?'dark':'light')</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07110d">
+  <title>Privacy Policy — BalanceCleaner</title>
+
+  <style>
+    /* =========================================================================
+       1. ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И CSS-ПЕРЕМЕННЫЕ (THEMING)
+       ========================================================================== */
+    :root {
+      color-scheme: dark;
+      --bg: #07110d;
+      --card: #101b17ed;
+      --text: #effff7;
+      --muted: #91aaa0;
+      --line: #d5f7e522;
+      --green: #57d99f;
+      --deep: #1d8060;
+    }
+
+    *:where(*),
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 12% 0, #57d99f22, transparent 35%), var(--bg);
+      color: var(--text);
+      font: 15px/1.7 Inter, system-ui, sans-serif;
+      transition: .4s;
+    }
+
+    /* Светлая тема оформления */
+    .light {
+      color-scheme: light;
+      --bg: #edf8f1;
+      --card: #fff;
+      --text: #10251c;
+      --muted: #587266;
+      --line: #1763442b;
+      --green: #16885d;
+      --deep: #0c6043;
+    }
+
+    a {
+      color: var(--green);
+    }
+
+    .wrap {
+      width: min(960px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    /* =========================================================================
+       2. ШАПКА И НАВИГАЦИЯ (HEADER)
+       ========================================================================== */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .back {
+      color: var(--muted);
+    }
+
+    .theme {
+      width: 46px;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--card);
+      color: var(--text);
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* =========================================================================
+       3. ТЕКСТОВЫЙ БЛОК (HERO & POLICY CARDS)
+       ========================================================================== */
+    .hero {
+      padding: 85px 0 35px;
+    }
+
+    .eyebrow,
+    .lang {
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: .9;
+      letter-spacing: -.08em;
+      margin: 16px 0;
+    }
+
+    .muted,
+    .card p {
+      color: var(--muted);
+    }
+
+    /* Информационное плашка-уведомление */
+    .notice,
+    .card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      background: var(--card);
+      box-shadow: 0 20px 60px #0002;
+    }
+
+    .notice {
+      border-color: #57d99f66;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      margin-bottom: 65px;
+    }
+
+    .card section + section {
+      border-top: 1px solid var(--line);
+      margin-top: 28px;
+      padding-top: 28px;
+    }
+
+    .card h2 {
+      line-height: 1.1;
+    }
+
+    /* =========================================================================
+       4. ПОДВАЛ (FOOTER)
+       ========================================================================== */
+    footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .foot {
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+    }
+
+    /* Адаптив под мобильные устройства */
+    @media(max-width: 600px) {
+      .nav {
+        gap: 10px;
+      }
+      .back {
+        font-size: 12px;
+      }
+      .hero {
+        padding-top: 55px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+    1. ШАПКА САЙТА (HEADER)
+    Содержит логотип, ссылку «Назад на главную» и переключатель темы.
+  ========================================================================== -->
+  <header class="wrap nav">
+    <a class="brand" href="index.html">BalanceCleaner</a>
+    
+    <div class="nav-right">
+      <a class="back" href="index.html">← Back to home</a>
+      <!-- Кнопка смены темы (Светлая / Тёмная) -->
+      <button class="theme" id="theme">☼</button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+    2. ОСНОВНОЙ КОНТЕНТ (MAIN)
+  ========================================================================== -->
+  <main class="wrap">
+    
+    <!-- Главный баннер страницы -->
+    <section class="hero">
+      <div class="eyebrow">Your privacy matters</div>
+      <h1>Privacy Policy</h1>
+      <div class="muted">Last updated: September 22, 2026</div>
+    </section>
+
+    <!-- Краткое резюме политики конфиденциальности (TL;DR Notice) -->
+    <div class="notice">
+      <strong>In short:</strong> BalanceCleaner does not sell personal information. Information is collected only when you voluntarily contact the developer.
+    </div>
+
+    <!-- Полный текст политики конфиденциальности -->
+    <article class="card">
+      
+      <!-- Англоязычная версия политики -->
+      <section>
+        <div class="lang">English</div>
+        <h2>1. Scope</h2>
+        <p>This policy explains how BalanceCleaner handles information when you visit this website, view demos, or contact support.</p>
+      </section>
+
+      <section>
+        <h2>2. Information you provide</h2>
+        <p>If you contact us, you may provide your name, email address and message. Do not send passwords or payment details.</p>
+      </section>
+
+      <section>
+        <h2>3. How information is used</h2>
+        <p>Information is used only to respond, investigate reported problems and improve BalanceCleaner. We do not sell or rent personal information.</p>
+      </section>
+
+      <section>
+        <h2>4. Local storage</h2>
+        <p>Language and theme preferences may be stored locally in your browser. They are not sent to BalanceCleaner.</p>
+      </section>
+
+      <section>
+        <h2>5. Contact</h2>
+        <p>For questions or deletion requests, email <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+      </section>
+
+      <!-- Русскоязычная версия политики -->
+      <section lang="ru">
+        <div class="lang">Русский</div>
+        <h2>1. Область действия</h2>
+        <p>Политика объясняет обработку информации при посещении сайта, просмотре демо или обращении в поддержку.</p>
+        
+        <h2>2. Данные</h2>
+        <p>При обращении можно указать имя, email и сообщение. Не отправляйте пароли или платёжные данные.</p>
+        
+        <h2>3. Использование</h2>
+        <p>Данные используются только для ответа, проверки проблем и улучшения BalanceCleaner. Мы не продаём персональные данные.</p>
+      </section>
+
+    </article>
+
+  </main>
+
+  <!-- =========================================================================
+    3. ПОДВАЛ САЙТА (FOOTER)
+  ========================================================================== -->
+  <footer>
+    <div class="wrap foot">
+      © 2026 BalanceCleaner · 
+      <a href="preview.html">Open all demos</a> · 
+      <a href="support.html">Support</a>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+    4. ИНТЕРАКТИВНЫЙ СКРИПТ (JAVASCRIPT)
+    Переключение светлой и тёмной темы с сохранением в localStorage.
+  ========================================================================== -->
+  <script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('theme');
+
+    /**
+     * Устанавливает выбранную тему оформления
+     * @param {string} theme - 'light' или 'dark'
+     */
+    function setTheme(theme) {
+      root.classList.toggle('light', theme === 'light');
+      themeBtn.textContent = theme === 'light' ? '☾' : '☼';
+      localStorage.setItem('balance-theme', theme);
+    }
+
+    // Инициализация темы при загрузке страницы
+    setTheme(localStorage.getItem('balance-theme') || 'dark');
+
+    // Обработчик переключения темы
+    themeBtn.onclick = () => setTheme(root.classList.contains('light') ? 'dark' : 'light');
+  </script>
+
+</body>
+</html>

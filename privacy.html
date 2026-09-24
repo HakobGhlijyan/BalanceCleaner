@@ -6,14 +6,18 @@
   <meta name="theme-color" content="#07110d">
   <title>Privacy Policy — BalanceCleaner</title>
 
+  <!-- Подключение основных CSS-стилей сайта -->
+  <link rel="stylesheet" href="assets/site.css">
+
   <style>
     /* =========================================================================
-       1. ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И CSS-ПЕРЕМЕННЫЕ (THEMING)
+       1. ГЛОБАЛЬНЫЕ И ЛОКАЛЬНЫЕ СТИЛИ СТРАНИЦЫ PRIVACY
        ========================================================================== */
     :root {
       color-scheme: dark;
       --bg: #07110d;
       --card: #101b17ed;
+      --surface2: #13231c;
       --text: #effff7;
       --muted: #91aaa0;
       --line: #d5f7e522;
@@ -21,30 +25,24 @@
       --deep: #1d8060;
     }
 
-    *:where(*),
-    *:before,
-    *:after {
-      box-sizing: border-box;
+    .light {
+      color-scheme: light;
+      --bg: #edf8f1;
+      --card: #fff;
+      --surface2: #e6f3eb;
+      --text: #10251c;
+      --muted: #587266;
+      --line: #1763442b;
+      --green: #16885d;
+      --deep: #0c6043;
     }
 
     body {
       margin: 0;
       background: radial-gradient(circle at 12% 0, #57d99f22, transparent 35%), var(--bg);
       color: var(--text);
-      font: 15px/1.7 Inter, system-ui, sans-serif;
-      transition: .4s;
-    }
-
-    /* Светлая тема оформления */
-    .light {
-      color-scheme: light;
-      --bg: #edf8f1;
-      --card: #fff;
-      --text: #10251c;
-      --muted: #587266;
-      --line: #1763442b;
-      --green: #16885d;
-      --deep: #0c6043;
+      font: 15px/1.7 Inter, system-ui, -apple-system, sans-serif;
+      transition: background .4s, color .4s;
     }
 
     a {
@@ -57,29 +55,33 @@
     }
 
     /* =========================================================================
-       2. ШАПКА И НАВИГАЦИЯ (HEADER)
+       2. ШАПКА И НАВИГАЦИЯ (ДОБАВЛЕНЫ БОКОВЫЕ ОТСТУПЫ, КАК В FOOTER)
        ========================================================================== */
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
+      padding: 16px 20px; /* Добавлен отступ 20px слева и справа */
       border-bottom: 1px solid var(--line);
+      box-sizing: border-box;
     }
 
     .brand {
       color: var(--text);
       font-weight: 800;
+      text-decoration: none;
     }
 
     .nav-right {
       display: flex;
       gap: 12px;
       align-items: center;
+      margin-left: auto;
     }
 
     .back {
       color: var(--muted);
+      text-decoration: none;
     }
 
     .theme {
@@ -94,64 +96,144 @@
     }
 
     /* =========================================================================
-       3. ТЕКСТОВЫЙ БЛОК (HERO & POLICY CARDS)
+       3. СТИЛИ ЗАГОЛОВКА HERO
        ========================================================================== */
-    .hero {
-      padding: 85px 0 35px;
-    }
-
-    .eyebrow,
-    .lang {
-      color: var(--green);
-      font-size: 11px;
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 800;
-      letter-spacing: .17em;
-      text-transform: uppercase;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin: 12px 0;
+      padding-top: 4px;
+      color: var(--text);
     }
 
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: .9;
-      letter-spacing: -.08em;
-      margin: 16px 0;
+    /* =========================================================================
+       4. UI-УЛУЧШЕНИЕ: БЛОК HIGHLIGHTS (КРАТКО О ГЛАВНОМ)
+       ========================================================================== */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
     }
 
-    .muted,
-    .card p {
-      color: var(--muted);
-    }
-
-    /* Информационное плашка-уведомление */
-    .notice,
-    .card {
-      padding: 25px;
+    .highlight-card {
+      padding: 20px;
       border: 1px solid var(--line);
-      border-radius: 21px;
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: 0 10px 30px #0002;
+    }
+
+    .highlight-card .icon {
+      font-size: 26px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .highlight-card h3 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .highlight-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* =========================================================================
+       5. ТАБЫ ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ (7 ЯЗЫКОВ)
+       ========================================================================== */
+    .lang-tabs-wrapper {
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .lang-tabs {
+      display: inline-flex;
+      gap: 8px;
+      padding: 6px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+    }
+
+    .lang-tab {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 10px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+
+    .lang-tab:hover {
+      color: var(--text);
+    }
+
+    .lang-tab.active {
+      background: var(--surface2);
+      color: var(--green);
+      box-shadow: 0 2px 8px #0002;
+    }
+
+    .policy-content {
+      display: none;
+    }
+
+    .policy-content.active {
+      display: block;
+    }
+
+    /* =========================================================================
+       6. КАРТОЧКА И СЕКЦИИ ПОЛИТИКИ
+       ========================================================================== */
+    .policy-card {
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
       background: var(--card);
       box-shadow: 0 20px 60px #0002;
-    }
-
-    .notice {
-      border-color: #57d99f66;
-      margin-bottom: 18px;
-    }
-
-    .card {
       margin-bottom: 65px;
     }
 
-    .card section + section {
+    .policy-card section + section {
       border-top: 1px solid var(--line);
       margin-top: 28px;
       padding-top: 28px;
     }
 
-    .card h2 {
-      line-height: 1.1;
+    .policy-card h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: -.02em;
+    }
+
+    .policy-card p, .policy-card ul {
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .policy-card ul {
+      padding-left: 20px;
+    }
+
+    .policy-card li {
+      margin-bottom: 6px;
     }
 
     /* =========================================================================
-       4. ПОДВАЛ (FOOTER)
+       7. ПОДВАЛ
        ========================================================================== */
     footer {
       padding: 28px 0 40px;
@@ -160,22 +242,26 @@
     }
 
     .foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 16px 20px;
       border: 1px solid var(--line);
       border-radius: 16px;
       background: var(--card);
     }
 
-    /* Адаптив под мобильные устройства */
-    @media(max-width: 600px) {
-      .nav {
-        gap: 10px;
+    .foot-links {
+      margin-left: auto;
+    }
+
+    /* Адаптивность для мобильных устройств */
+    @media (max-width: 768px) {
+      .highlights-grid {
+        grid-template-columns: 1fr;
       }
-      .back {
-        font-size: 12px;
-      }
-      .hero {
-        padding-top: 55px;
+      .policy-card {
+        padding: 22px;
       }
     }
   </style>
@@ -184,15 +270,15 @@
 
   <!-- =========================================================================
     1. ШАПКА САЙТА (HEADER)
-    Содержит логотип, ссылку «Назад на главную» и переключатель темы.
   ========================================================================== -->
   <header class="wrap nav">
-    <a class="brand" href="index.html">BalanceCleaner</a>
-    
+    <a class="brand" href="index.html">
+      <span class="mark">✦</span>BalanceCleaner
+    </a>
+
     <div class="nav-right">
       <a class="back" href="index.html">← Back to home</a>
-      <!-- Кнопка смены темы (Светлая / Тёмная) -->
-      <button class="theme" id="theme">☼</button>
+      <button class="theme" id="theme" aria-label="Toggle theme">☼</button>
     </div>
   </header>
 
@@ -200,61 +286,251 @@
     2. ОСНОВНОЙ КОНТЕНТ (MAIN)
   ========================================================================== -->
   <main class="wrap">
-    
-    <!-- Главный баннер страницы -->
-    <section class="hero">
+
+    <!-- Заголовок страницы -->
+    <section class="hero" style="padding: 60px 0 30px;">
       <div class="eyebrow">Your privacy matters</div>
-      <h1>Privacy Policy</h1>
-      <div class="muted">Last updated: September 22, 2026</div>
+      <h1 class="hero-title">Privacy Policy</h1>
+      <div class="muted">Last updated: September 24, 2026</div>
     </section>
 
-    <!-- Краткое резюме политики конфиденциальности (TL;DR Notice) -->
-    <div class="notice">
-      <strong>In short:</strong> BalanceCleaner does not sell personal information. Information is collected only when you voluntarily contact the developer.
+    <!-- UI Highlight Cards (Краткая выжимка) -->
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <span class="icon">🍎</span>
+        <h3>Apple StoreKit Secure</h3>
+        <p>All balance clearing operations run through official Apple In-App Purchase APIs.</p>
+      </div>
+      <div class="highlight-card">
+        <span class="icon">🛡️</span>
+        <h3>Zero Payment Access</h3>
+        <p>We never see, collect, or store your Apple ID password, credit cards, or billing info.</p>
+      </div>
+      <div class="highlight-card">
+        <span class="icon">🔒</span>
+        <h3>No Data Sales</h3>
+        <p>Your personal details are never sold, rented, or shared with third-party advertisers.</p>
+      </div>
     </div>
 
-    <!-- Полный текст политики конфиденциальности -->
-    <article class="card">
-      
-      <!-- Англоязычная версия политики -->
-      <section>
-        <div class="lang">English</div>
-        <h2>1. Scope</h2>
-        <p>This policy explains how BalanceCleaner handles information when you visit this website, view demos, or contact support.</p>
-      </section>
+    <!-- Табы переключения языков -->
+    <div class="lang-tabs-wrapper">
+      <div class="lang-tabs">
+        <button class="lang-tab active" data-lang="en">🇬🇧 English</button>
+        <button class="lang-tab" data-lang="ru">🇷🇺 Русский</button>
+        <button class="lang-tab" data-lang="fr">🇫🇷 Français</button>
+        <button class="lang-tab" data-lang="de">🇩🇪 Deutsch</button>
+        <button class="lang-tab" data-lang="es">🇪🇸 Español</button>
+        <button class="lang-tab" data-lang="it">🇮🇹 Italiano</button>
+        <button class="lang-tab" data-lang="hy">🇦🇲 Հայերեն</button>
+      </div>
+    </div>
 
-      <section>
-        <h2>2. Information you provide</h2>
-        <p>If you contact us, you may provide your name, email address and message. Do not send passwords or payment details.</p>
-      </section>
+    <!-- Основная карточка с документацией -->
+    <article class="policy-card">
 
-      <section>
-        <h2>3. How information is used</h2>
-        <p>Information is used only to respond, investigate reported problems and improve BalanceCleaner. We do not sell or rent personal information.</p>
-      </section>
+      <!-- ==================== 1. ENGLISH ==================== -->
+      <div class="policy-content active" id="lang-en">
+        <section>
+          <h2>1. Overview & Scope</h2>
+          <p>This Privacy Policy applies to the <strong>BalanceCleaner</strong> iOS application and related web services. BalanceCleaner helps users reset or clear remaining Apple ID account balances (e.g., prior to changing App Store regions) by utilizing tailored In-App Purchases.</p>
+        </section>
 
-      <section>
-        <h2>4. Local storage</h2>
-        <p>Language and theme preferences may be stored locally in your browser. They are not sent to BalanceCleaner.</p>
-      </section>
+        <section>
+          <h2>2. Apple ID & Transaction Processing</h2>
+          <p>BalanceCleaner operates strictly within Apple’s StoreKit framework. When clearing your Apple ID balance:</p>
+          <ul>
+            <li>Transactions are processed directly and securely by Apple Inc.</li>
+            <li>We <strong>do not</strong> have access to your Apple ID password, payment cards, or full billing history.</li>
+            <li>Balance deduction is executed as a standard iOS In-App Purchase handled entirely by iOS.</li>
+          </ul>
+        </section>
 
-      <section>
-        <h2>5. Contact</h2>
-        <p>For questions or deletion requests, email <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
-      </section>
+        <section>
+          <h2>3. Information We Collect</h2>
+          <p>We follow a strict data minimization policy:</p>
+          <ul>
+            <li><strong>Support Contacts:</strong> If you voluntarily reach out via email, we store your email address, name, and message content solely to assist you.</li>
+            <li><strong>Diagnostics & Crash Reports:</strong> Anonymous crash logs provided automatically by iOS (if enabled in your device settings) to fix software errors.</li>
+          </ul>
+        </section>
 
-      <!-- Русскоязычная версия политики -->
-      <section lang="ru">
-        <div class="lang">Русский</div>
-        <h2>1. Область действия</h2>
-        <p>Политика объясняет обработку информации при посещении сайта, просмотре демо или обращении в поддержку.</p>
-        
-        <h2>2. Данные</h2>
-        <p>При обращении можно указать имя, email и сообщение. Не отправляйте пароли или платёжные данные.</p>
-        
-        <h2>3. Использование</h2>
-        <p>Данные используются только для ответа, проверки проблем и улучшения BalanceCleaner. Мы не продаём персональные данные.</p>
-      </section>
+        <section>
+          <h2>4. On-Device Data & Local Storage</h2>
+          <p>Application preferences (such as language or theme choices) are stored locally on your device via <code>UserDefaults</code> or browser <code>localStorage</code>. These settings are never transmitted to external servers.</p>
+        </section>
+
+        <section>
+          <h2>5. Third-Party Services</h2>
+          <p>We rely on trusted infrastructure providers:</p>
+          <ul>
+            <li><strong>Apple Inc.:</strong> Processes In-App Purchases and store infrastructure.</li>
+            <li><strong>FormSubmit:</strong> Handles support form inquiries via email encryption.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>6. Your Rights & Data Deletion</h2>
+          <p>Under GDPR and CCPA, you have the right to access, inspect, or request permanent deletion of any support communications sent to us. Contact us at <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a> to submit a request.</p>
+        </section>
+
+        <section>
+          <h2>7. Contact Us</h2>
+          <p>If you have any questions regarding this Privacy Policy, please email us at <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+        </section>
+      </div>
+
+      <!-- ==================== 2. РУССКИЙ ==================== -->
+      <div class="policy-content" id="lang-ru">
+        <section>
+          <h2>1. Область действия</h2>
+          <p>Настоящая Политика конфиденциальности распространяется на iOS-приложение <strong>BalanceCleaner</strong> и веб-сайт. Приложение помогает пользователям обнулить остаток средств на балансе Apple ID (например, перед сменой региона App Store) с помощью встроенных покупок.</p>
+        </section>
+
+        <section>
+          <h2>2. Обработка операций Apple ID</h2>
+          <p>BalanceCleaner работает строго в рамках фреймворка Apple StoreKit. При списывании баланса:</p>
+          <ul>
+            <li>Все транзакции обрабатываются напрямую компанией Apple Inc.</li>
+            <li>Мы <strong>не получаем</strong> доступ к вашему паролю Apple ID, банковским картам и платёжным реквизитам.</li>
+            <li>Списание проходит как стандартная встроенная покупка под управлением операционной системы iOS.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>3. Собираемые данные</h2>
+          <p>Мы придерживаемся принципа минимального сбора информации:</p>
+          <ul>
+            <li><strong>Обращения в поддержку:</strong> При отправке письма мы сохраняем имя, email и текст сообщения исключительно для ответа на запрос.</li>
+            <li><strong>Анонимная диагностика:</strong> Обезличенные отчеты о сбоях, предоставляемые системой iOS для исправления ошибок.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>4. Локальное хранение</h2>
+          <p>Настройки приложения (язык, тема оформления) хранятся локально на вашем устройстве через <code>UserDefaults</code> или <code>localStorage</code> и не передаются на сторонние сервера.</p>
+        </section>
+
+        <section>
+          <h2>5. Права пользователей</h2>
+          <p>Вы имеете право запросить полный доступ или полное удаление истории переписки с поддержкой. Свяжитесь с нами по адресу <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+        </section>
+      </div>
+
+      <!-- ==================== 3. FRANÇAIS ==================== -->
+      <div class="policy-content" id="lang-fr">
+        <section>
+          <h2>1. Aperçu et champ d'application</h2>
+          <p>Cette politique de confidentialité s'applique à l'application iOS <strong>BalanceCleaner</strong>. Elle aide les utilisateurs à réinitialiser ou vider le solde restant de leur compte Apple ID (par exemple avant de changer de région App Store) via des achats intégrés.</p>
+        </section>
+
+        <section>
+          <h2>2. Traitement des transactions Apple ID</h2>
+          <p>BalanceCleaner fonctionne exclusivement via le framework StoreKit d'Apple. Nous n'avons jamais accès à vos mots de passe Apple ID, cartes bancaires ou informations de facturation. Toutes les transactions sont gérées par Apple Inc.</p>
+        </section>
+
+        <section>
+          <h2>3. Données collectées</h2>
+          <p>Nous ne collectons que les informations transmises volontairement lors d'un contact avec le support (nom, e-mail). Aucune donnée financière n'est stockée par nos soins.</p>
+        </section>
+
+        <section>
+          <h2>4. Contact</h2>
+          <p>Pour toute question ou demande de suppression de données: <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+        </section>
+      </div>
+
+      <!-- ==================== 4. DEUTSCH ==================== -->
+      <div class="policy-content" id="lang-de">
+        <section>
+          <h2>1. Überblick & Geltungsbereich</h2>
+          <p>Diese Datenschutzrichtlinie gilt für die iOS-App <strong>BalanceCleaner</strong>. Die Anwendung hilft Benutzern, ihr verbleibendes Apple-ID-Guthaben (z. B. vor einem Wechsel der App Store-Region) über In-App-Käufe zurückzusetzen.</p>
+        </section>
+
+        <section>
+          <h2>2. Apple ID & Transaktionsabwicklung</h2>
+          <p>BalanceCleaner nutzt das offizielle Apple StoreKit-Framework. Wir haben keinen Zugriff auf Ihr Apple-ID-Passwort, Kreditkarten oder Zahlungsinformationen. Die Abwicklung erfolgt direkt durch Apple Inc.</p>
+        </section>
+
+        <section>
+          <h2>3. Erfasste Daten</h2>
+          <p>Wir speichern nur Daten, die Sie uns bei Supportanfragen senden (E-Mail, Name, Nachricht). Es werden keine persönlichen Finanzdaten gesammelt.</p>
+        </section>
+
+        <section>
+          <h2>4. Kontakt</h2>
+          <p>Bei Fragen zum Datenschutz kontaktieren Sie uns unter: <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+        </section>
+      </div>
+
+      <!-- ==================== 5. ESPAÑOL ==================== -->
+      <div class="policy-content" id="lang-es">
+        <section>
+          <h2>1. Descripción general</h2>
+          <p>Esta Política de privacidad se aplica a la aplicación iOS <strong>BalanceCleaner</strong>. BalanceCleaner ayuda a los usuarios a limpiar o vaciar el saldo restante de su Apple ID (por ejemplo, antes de cambiar de región en App Store) mediante compras dentro de la aplicación.</p>
+        </section>
+
+        <section>
+          <h2>2. Procesamiento de transacciones de Apple ID</h2>
+          <p>BalanceCleaner funciona estrictamente dentro del marco StoreKit de Apple. No tenemos acceso a su contraseña de Apple ID, tarjetas de crédito o datos financieros. Apple Inc. procesa todas las transacciones de forma segura.</p>
+        </section>
+
+        <section>
+          <h2>3. Datos recopilados</h2>
+          <p>Solo conservamos los datos enviados voluntariamente al contactar al soporte técnico (nombre, correo electrónico). No se recopilan ni venden datos personales.</p>
+        </section>
+
+        <section>
+          <h2>4. Contacto</h2>
+          <p>Para consultas o eliminación de datos, escríbanos a: <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+        </section>
+      </div>
+
+      <!-- ==================== 6. ITALIANO ==================== -->
+      <div class="policy-content" id="lang-it">
+        <section>
+          <h2>1. Panoramica</h2>
+          <p>Questa Informativa sulla privacy si applica all'applicazione iOS <strong>BalanceCleaner</strong>, ideata per aiutare gli utenti ad azzerare il saldo residuo dell'Apple ID (ad esempio prima di cambiare regione dell'App Store) tramite acquisti In-App.</p>
+        </section>
+
+        <section>
+          <h2>2. Transazioni e Apple ID</h2>
+          <p>BalanceCleaner opera tramite il framework ufficiale Apple StoreKit. Non abbiamo mai accesso alla password dell'Apple ID, alle carte di credito o ai dettagli di pagamento, gestiti interamente da Apple Inc.</p>
+        </section>
+
+        <section>
+          <h2>3. Dati raccolti</h2>
+          <p>Raccogliamo solo le informazioni fornite volontariamente quando si contatta l'assistenza (nome, e-mail). Nessun dato viene venduto a terzi.</p>
+        </section>
+
+        <section>
+          <h2>4. Contatti</h2>
+          <p>Per domande o richieste di cancellazione dei dati: <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+        </section>
+      </div>
+
+      <!-- ==================== 7. ՀԱՅԵՐԵՆ (ARMENIAN) ==================== -->
+      <div class="policy-content" id="lang-hy">
+        <section>
+          <h2>1. Ընդհանուր դրույթներ</h2>
+          <p>Սույն Գաղտնիության քաղաքականությունը տարածվում է <strong>BalanceCleaner</strong> iOS հավելվածի վրա: Հավելվածն օգնում է օգտատերերին զրոյացնել Apple ID հաշվեկշռի մնացորդը (օրինակ՝ App Store-ի տարածաշրջանը փոխելուց առաջ) ներհավելվածային գնումների միջոցով:</p>
+        </section>
+
+        <section>
+          <h2>2. Apple ID և գործարքների մշակում</h2>
+          <p>BalanceCleaner-ն աշխատում է բացառապես Apple-ի StoreKit համակարգի միջոցով: Մենք հասանելիություն <strong>չունենք</strong> Ձեր Apple ID-ի գաղտնաբառին, բանկային քարտերին կամ ֆինանսական տվյալներին: Բոլոր գործարքները մշակվում են Apple Inc.-ի կողմից:</p>
+        </section>
+
+        <section>
+          <h2>3. Հավաքագրվող տվյալներ</h2>
+          <p>Մենք պահպանում ենք միայն այն տվյալները, որոնք Դուք կամավոր ուղարկում եք աջակցման ծառայությանը (անուն, էլ. փոստ, հաղորդագրություն): Ձեր տվյալները երբեք չեն վաճառվում երրորդ անձանց:</p>
+        </section>
+
+        <section>
+          <h2>4. Կապ մեզ հետ</h2>
+          <p>Հարցերի կամ տվյալների հեռացման հարցումների համար գրեք մեզ. <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>:</p>
+        </section>
+      </div>
 
     </article>
 
@@ -265,35 +541,57 @@
   ========================================================================== -->
   <footer>
     <div class="wrap foot">
-      © 2026 BalanceCleaner · 
-      <a href="preview.html">Open all demos</a> · 
-      <a href="support.html">Support</a>
+      <span>© 2026 BalanceCleaner</span>
+      <span class="foot-links">
+        <a href="preview.html">Open all demos</a> · 
+        <a href="support.html">Support</a>
+      </span>
     </div>
   </footer>
 
   <!-- =========================================================================
-    4. ИНТЕРАКТИВНЫЙ СКРИПТ (JAVASCRIPT)
-    Переключение светлой и тёмной темы с сохранением в localStorage.
+    4. ИНТЕРАКТИВНЫЕ СКРИПТЫ (JAVASCRIPT)
   ========================================================================== -->
   <script>
+    // 1. Управление темой оформления (Light / Dark)
     const root = document.documentElement;
     const themeBtn = document.getElementById('theme');
 
-    /**
-     * Устанавливает выбранную тему оформления
-     * @param {string} theme - 'light' или 'dark'
-     */
     function setTheme(theme) {
       root.classList.toggle('light', theme === 'light');
       themeBtn.textContent = theme === 'light' ? '☾' : '☼';
       localStorage.setItem('balance-theme', theme);
     }
 
-    // Инициализация темы при загрузке страницы
     setTheme(localStorage.getItem('balance-theme') || 'dark');
-
-    // Обработчик переключения темы
     themeBtn.onclick = () => setTheme(root.classList.contains('light') ? 'dark' : 'light');
+
+    // 2. Интерактивный переключатель языковых табов (7 языков)
+    const langTabs = document.querySelectorAll('.lang-tab');
+    const policyContents = document.querySelectorAll('.policy-content');
+
+    function switchLanguage(lang) {
+      langTabs.forEach(tab => {
+        tab.classList.toggle('active', tab.getAttribute('data-lang') === lang);
+      });
+
+      policyContents.forEach(content => {
+        content.classList.toggle('active', content.id === `lang-${lang}`);
+      });
+
+      localStorage.setItem('balance-lang', lang);
+    }
+
+    langTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const lang = tab.getAttribute('data-lang');
+        switchLanguage(lang);
+      });
+    });
+
+    // Восстановление выбранного языка при загрузке
+    const savedLang = localStorage.getItem('balance-lang') || 'en';
+    switchLanguage(savedLang);
   </script>
 
 </body>

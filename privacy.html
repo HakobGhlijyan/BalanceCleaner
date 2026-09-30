@@ -37,12 +37,13 @@
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
         </button>
         <div class="lang-menu lang-menu-down">
-          <button data-val="en">🇬🇧 EN</button>
-          <button data-val="ru">🇷🇺 RU</button>
-          <button data-val="fr">🇫🇷 FR</button>
-          <button data-val="de">🇩🇪 DE</button>
-          <button data-val="es">🇪🇸 ES</button>
-          <button data-val="it">🇮🇹 IT</button>
+          <button data-val="en">🇬🇧 English</button>
+          <button data-val="ru">🇷🇺 Русский</button>
+          <button data-val="fr">🇫🇷 Français</button>
+          <button data-val="de">🇩🇪 Deutsch</button>
+          <button data-val="es">🇪🇸 Español</button>
+          <button data-val="it">🇮🇹 Italiano</button>
+          <button data-val="hy">🇦🇲 Հայերեն</button>
         </div>
       </div>
       <button class="theme" type="button" aria-label="Toggle theme">
@@ -348,65 +349,8 @@
   </footer>
 
 
-  <!-- =========================================================================
-    4. ИНТЕРАКТИВНЫЕ СКРИПТЫ (JAVASCRIPT)
-  ========================================================================== -->
-  <script>
-    // 1. Управление темой оформления (Light / Dark)
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('theme');
-
-    function setTheme(theme) {
-      root.classList.toggle('light', theme === 'light');
-      themeBtn.textContent = theme === 'light' ? '☾' : '☼';
-      localStorage.setItem('balance-theme', theme);
-    }
-
-    setTheme(localStorage.getItem('balance-theme') || 'dark');
-    themeBtn.onclick = () => setTheme(root.classList.contains('light') ? 'dark' : 'light');
-
-    // 2. Интерактивный переключатель языковых табов (7 языков)
-    const langTabs = document.querySelectorAll('.lang-tab');
-    const policyContents = document.querySelectorAll('.policy-content');
-
-    function switchLanguage(lang) {
-      langTabs.forEach(tab => {
-        tab.classList.toggle('active', tab.getAttribute('data-lang') === lang);
-      });
-
-      policyContents.forEach(content => {
-        content.classList.toggle('active', content.id === `lang-${lang}`);
-      });
-
-      localStorage.setItem('balance-lang', lang);
-    }
-
-    langTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const lang = tab.getAttribute('data-lang');
-        switchLanguage(lang);
-      });
-    });
-
-    // Восстановление выбранного языка при загрузке
-    const savedLang = localStorage.getItem('balance-lang') || 'en';
-    switchLanguage(savedLang);
-  </script>
-
-  
   <script src="assets/main.js"></script>
-  <script>
-    document.querySelectorAll('.lang-tab').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.lang-tab').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.policy-content').forEach(s => s.classList.remove('active'));
-        btn.classList.add('active');
-        const contentId = 'lang-' + btn.getAttribute('data-lang');
-        const content = document.getElementById(contentId);
-        if(content) content.classList.add('active');
-      });
-    });
-  </script>
+
 </body>
 
 </html>

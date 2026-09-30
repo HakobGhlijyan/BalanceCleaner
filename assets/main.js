@@ -255,6 +255,16 @@ function applyLanguage(code) {
   document.querySelectorAll('.lang-label').forEach(lbl => {
     lbl.textContent = code.toUpperCase();
   });
+  
+  // Sync Privacy page tabs if they exist
+  const privacyTab = document.querySelector(`.lang-tab[data-lang="${code}"]`);
+  if (privacyTab) {
+    document.querySelectorAll('.lang-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.policy-content').forEach(s => s.classList.remove('active'));
+    privacyTab.classList.add('active');
+    const content = document.getElementById('lang-' + code);
+    if(content) content.classList.add('active');
+  }
   // Bold active in all menus
   document.querySelectorAll('.lang-menu button').forEach(btn => {
     btn.style.fontWeight = btn.dataset.val === code ? '700' : 'normal';
@@ -279,6 +289,16 @@ function applyTheme(mode) {
 }
 
 applyTheme(localStorage.getItem('balance-theme') || 'dark');
+
+
+  // Handle privacy page custom tabs to update global language
+  document.querySelectorAll('.lang-tab').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const code = btn.getAttribute('data-lang');
+      if (code) applyLanguage(code);
+    });
+  });
 
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.theme');
@@ -317,6 +337,16 @@ document.addEventListener('click', function(e) {
 // =========================================================================
 // LANGUAGE SWITCHER DROPDOWNS (multiple on page)
 // =========================================================================
+
+  // Handle privacy page custom tabs to update global language
+  document.querySelectorAll('.lang-tab').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const code = btn.getAttribute('data-lang');
+      if (code) applyLanguage(code);
+    });
+  });
+
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.lang-btn');
   if (btn) {
@@ -438,7 +468,7 @@ class Coverflow {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => new Coverflow());
+document.addEventListener('DOMContentLoaded', () => { if (document.querySelector('.coverflow-container')) new Coverflow(); });
 
 
 
@@ -447,6 +477,8 @@ document.addEventListener('DOMContentLoaded', () => new Coverflow());
 // ACTIVE NAV STATE ON SCROLL
 // =========================================================================
 function setupScrollSpy() {
+  const sections = document.querySelectorAll('main > section');
+  if (!sections.length) return;
   const sections = document.querySelectorAll('main > section');
   const navLinks = document.querySelectorAll('.links a[href^="index.html#"], .links a[href^="#"]');
   
@@ -556,11 +588,12 @@ const tierI18n = {
   }
 };
 
-// Merge tier keys into main i18n dict on language load
-(function mergeTierTranslations() {
-  for (const lang in tierI18n) {
-    if (window.i18n && window.i18n[lang]) {
-      Object.assign(window.i18n[lang], tierI18n[lang]);
-    }
+// Merge tier keys into main i18n dict
+for (const lang in tierI18n) {
+  if (dictionaries[lang]) {
+    Object.assign(dictionaries[lang], tierI18n[lang]);
+  } else {
+    // If language doesn't exist in main dicts yet, create it or copy from en
+    dictionaries[lang] = Object.assign({}, dictionaries.en, tierI18n[lang]);
   }
-})();
+}

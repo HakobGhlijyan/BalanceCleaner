@@ -182,12 +182,6 @@
   }
   
   /* Video mockups: smaller width */
-  .video-grid .video-mockup {
-    width: 220px !important;
-  }
-  .mockup-wrap {
-    width: 220px !important;
-  }
   
   /* Sub-header banner */
   .sub-header-banner {
@@ -335,10 +329,6 @@
   }
   
   /* Video mockups: even smaller */
-  .video-grid .video-mockup,
-  .mockup-wrap {
-    width: 180px !important;
-  }
   
   /* Nav: tighter */
   .nav {
@@ -498,4 +488,13 @@
   body { background: #fff !important; color: #000 !important; }
   .hero { padding: 20px 0 !important; }
   .section { padding: 20px 0 !important; page-break-inside: avoid; }
+}
+
+@media (max-width: 560px) {
+  .mockup-label {
+    font-size: 10px;
+  }
+  .video-grid {
+    gap: 6px !important;
+  }
 }

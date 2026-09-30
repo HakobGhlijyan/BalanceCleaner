@@ -866,7 +866,7 @@ footer a:hover {
 }
 .mockup-wrap {
   position: relative;
-  width: 280px;
+  width: 100%;
   max-width: 100%;
 }
 .mockup-frame {
@@ -1078,18 +1078,14 @@ main > section {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
-  overflow-x: auto;
-  gap: 20px !important;
+  overflow: visible;
+  gap: 12px !important;
   padding-bottom: 20px;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE */
-}
-.video-grid::-webkit-scrollbar {
-  display: none;
+  width: 100%;
 }
 .video-grid .video-mockup {
-  flex: 0 0 auto;
-  width: 280px;
+  flex: 1 1 0;
+  min-width: 0;
 }
 .video-mockup .mockup-wrap {
   width: 100% !important;

@@ -32,14 +32,20 @@
       <a href="privacy.html" data-i18n="privacy">Privacy</a>
     </nav>
     <div class="actions">
-      <select class="select" id="language" aria-label="Language">
-        <option value="en">EN</option>
-        <option value="fr">FR</option>
-        <option value="es">ES</option>
-        <option value="it">IT</option>
-        <option value="de">DE</option>
-        <option value="ru">RU</option>
-      </select>
+      <div class="custom-lang" id="customLangSwitcher">
+        <button class="lang-btn" id="langBtn" aria-label="Select language">
+          <span id="langCurrent">EN</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <button data-val="en">EN</button>
+          <button data-val="fr">FR</button>
+          <button data-val="es">ES</button>
+          <button data-val="it">IT</button>
+          <button data-val="de">DE</button>
+          <button data-val="ru">RU</button>
+        </div>
+      </div>
       <button class="theme" id="theme" type="button" aria-label="Toggle theme">
         <span class="theme-icon">☼</span>
       </button>
@@ -138,7 +144,16 @@
               </div>
           </div>
           
+          
+          <div class="indicators" id="indicators">
+              <div class="indicator active" data-index="0"></div>
+              <div class="indicator" data-index="1"></div>
+              <div class="indicator" data-index="2"></div>
+              <div class="indicator" data-index="3"></div>
+              <div class="indicator" data-index="4"></div>
+          </div>
           <div class="coverflow-controls">
+
               <button class="control-btn" id="prevBtn">‹</button>
               <button class="control-btn" id="playPauseBtn">❚❚</button>
               <button class="control-btn" id="nextBtn">›</button>
@@ -157,16 +172,47 @@
           <p data-i18n="videoLead">Video demo wrapped in an iPhone 18 Pro mockup.</p>
         </div>
 
-        <figure class="video" style="max-width: 320px; margin: 0 auto; position: relative; background: transparent;">
-          <!-- Mockup Frame (Top Layer) -->
-          <img src="assets/mockups/iPhone 18 Pro.png" alt="iPhone Mockup" style="position: relative; width: 100%; z-index: 10; pointer-events: none; display: block;">
+        
+        <div class="video-grid" style="display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; justify-content: center; flex-wrap: wrap;">
           
-          <!-- Video Layer (Underneath the mockup frame) -->
-          <!-- Adjust top/left/width/height % to fit the screen window of the mockup perfectly -->
-          <video controls preload="metadata" style="position: absolute; top: 2.5%; left: 6.5%; width: 87%; height: 95%; z-index: 1; border-radius: 36px; object-fit: cover; background: #000;">
-            <source src="#" type="video/mp4">
-          </video>
-        </figure>
+          <!-- Mockup: iPhone 18 Pro -->
+          <div class="video-mockup" style="position: relative; width: 220px; flex-shrink: 0;">
+            <img src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro" style="width: 100%; position: relative; z-index: 10; pointer-events: none; display: block;">
+            <video controls preload="metadata" style="position: absolute; top: 2.5%; left: 6.5%; width: 87%; height: 95%; z-index: 1; border-radius: 28px; object-fit: cover; background: #000;">
+              <source src="#" type="video/mp4">
+            </video>
+            <p style="text-align: center; margin-top: 10px; font-weight: 600; color: var(--muted);">iPhone 18 Pro</p>
+          </div>
+
+          <!-- Mockup: iPhone 17 -->
+          <div class="video-mockup" style="position: relative; width: 220px; flex-shrink: 0;">
+            <img src="assets/mockups/iPhone 17.png" alt="iPhone 17" style="width: 100%; position: relative; z-index: 10; pointer-events: none; display: block;">
+            <video controls preload="metadata" style="position: absolute; top: 2%; left: 5%; width: 90%; height: 96%; z-index: 1; border-radius: 28px; object-fit: cover; background: #000;">
+              <source src="#" type="video/mp4">
+            </video>
+            <p style="text-align: center; margin-top: 10px; font-weight: 600; color: var(--muted);">iPhone 17</p>
+          </div>
+
+          <!-- Mockup: iPhone 16 Pro -->
+          <div class="video-mockup" style="position: relative; width: 220px; flex-shrink: 0;">
+            <img src="assets/mockups/iPhone 16 pro.png" alt="iPhone 16 Pro" style="width: 100%; position: relative; z-index: 10; pointer-events: none; display: block;">
+            <video controls preload="metadata" style="position: absolute; top: 2.5%; left: 6.5%; width: 87%; height: 95%; z-index: 1; border-radius: 28px; object-fit: cover; background: #000;">
+              <source src="#" type="video/mp4">
+            </video>
+            <p style="text-align: center; margin-top: 10px; font-weight: 600; color: var(--muted);">iPhone 16 Pro</p>
+          </div>
+
+          <!-- Mockup: iPhone SE -->
+          <div class="video-mockup" style="position: relative; width: 220px; flex-shrink: 0;">
+            <img src="assets/mockups/iPhone SE.png" alt="iPhone SE" style="width: 100%; position: relative; z-index: 10; pointer-events: none; display: block;">
+            <video controls preload="metadata" style="position: absolute; top: 12%; left: 7%; width: 86%; height: 76%; z-index: 1; object-fit: cover; background: #000;">
+              <source src="#" type="video/mp4">
+            </video>
+            <p style="text-align: center; margin-top: 10px; font-weight: 600; color: var(--muted);">iPhone SE</p>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
@@ -217,12 +263,11 @@
   <!-- =========================================================================
     3. ПОДВАЛ САЙТА (FOOTER)
   ========================================================================== -->
+  <div style="text-align: center; margin-bottom: 20px;"><a href="#" class="footer-app-store-link"><img src="assets/app-store/app-store-badge.svg" alt="Download on the App Store" style="height: 44px; display: inline-block;"></a></div>
   <footer>
     
     <div class="wrap foot" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-      <a href="#" aria-label="Download on the App Store" style="transition: opacity 0.3s; display: inline-block;">
-        <img src="assets/app-store/app-store-badge.svg" alt="Download on the App Store" style="height: 44px; display: block;">
-      </a>
+      
       <div>
         © 2026 BalanceCleaner · 
         <a href="privacy.html">Privacy</a>

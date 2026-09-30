@@ -9,262 +9,7 @@
   <!-- Подключение основных CSS-стилей сайта -->
   <link rel="stylesheet" href="assets/site.css">
 
-  <style>
-    /* =========================================================================
-       1. ГЛОБАЛЬНЫЕ И ЛОКАЛЬНЫЕ СТИЛИ СТРАНИЦЫ PRIVACY
-       ========================================================================== */
-    :root {
-      color-scheme: dark;
-      --bg: #07110d;
-      --card: #101b17ed;
-      --surface2: #13231c;
-      --text: #effff7;
-      --muted: #91aaa0;
-      --line: #d5f7e522;
-      --green: #57d99f;
-      --deep: #1d8060;
-    }
-
-    .light {
-      color-scheme: light;
-      --bg: #edf8f1;
-      --card: #fff;
-      --surface2: #e6f3eb;
-      --text: #10251c;
-      --muted: #587266;
-      --line: #1763442b;
-      --green: #16885d;
-      --deep: #0c6043;
-    }
-
-    body {
-      margin: 0;
-      background: radial-gradient(circle at 12% 0, #57d99f22, transparent 35%), var(--bg);
-      color: var(--text);
-      font: 15px/1.7 Inter, system-ui, -apple-system, sans-serif;
-      transition: background .4s, color .4s;
-    }
-
-    a {
-      color: var(--green);
-    }
-
-    .wrap {
-      width: min(960px, calc(100% - 32px));
-      margin: auto;
-    }
-
-    /* =========================================================================
-       2. ШАПКА И НАВИГАЦИЯ (ДОБАВЛЕНЫ БОКОВЫЕ ОТСТУПЫ, КАК В FOOTER)
-       ========================================================================== */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 20px; /* Добавлен отступ 20px слева и справа */
-      border-bottom: 1px solid var(--line);
-      box-sizing: border-box;
-    }
-
-    .brand {
-      color: var(--text);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .nav-right {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-left: auto;
-    }
-
-    .back {
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    .theme {
-      width: 46px;
-      height: 40px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: var(--card);
-      color: var(--text);
-      font-size: 25px;
-      cursor: pointer;
-    }
-
-    /* =========================================================================
-       3. СТИЛИ ЗАГОЛОВКА HERO
-       ========================================================================== */
-    .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin: 12px 0;
-      padding-top: 4px;
-      color: var(--text);
-    }
-
-    /* =========================================================================
-       4. UI-УЛУЧШЕНИЕ: БЛОК HIGHLIGHTS (КРАТКО О ГЛАВНОМ)
-       ========================================================================== */
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .highlight-card {
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--card);
-      box-shadow: 0 10px 30px #0002;
-    }
-
-    .highlight-card .icon {
-      font-size: 26px;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .highlight-card h3 {
-      margin: 0 0 6px;
-      font-size: 15px;
-      color: var(--text);
-    }
-
-    .highlight-card p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* =========================================================================
-       5. ТАБЫ ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ (7 ЯЗЫКОВ)
-       ========================================================================== */
-    .lang-tabs-wrapper {
-      margin-bottom: 24px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-    }
-
-    .lang-tabs {
-      display: inline-flex;
-      gap: 8px;
-      padding: 6px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--card);
-    }
-
-    .lang-tab {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 10px;
-      background: transparent;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all .2s;
-    }
-
-    .lang-tab:hover {
-      color: var(--text);
-    }
-
-    .lang-tab.active {
-      background: var(--surface2);
-      color: var(--green);
-      box-shadow: 0 2px 8px #0002;
-    }
-
-    .policy-content {
-      display: none;
-    }
-
-    .policy-content.active {
-      display: block;
-    }
-
-    /* =========================================================================
-       6. КАРТОЧКА И СЕКЦИИ ПОЛИТИКИ
-       ========================================================================== */
-    .policy-card {
-      padding: 32px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--card);
-      box-shadow: 0 20px 60px #0002;
-      margin-bottom: 65px;
-    }
-
-    .policy-card section + section {
-      border-top: 1px solid var(--line);
-      margin-top: 28px;
-      padding-top: 28px;
-    }
-
-    .policy-card h2 {
-      margin: 0 0 12px;
-      font-size: 20px;
-      line-height: 1.2;
-      letter-spacing: -.02em;
-    }
-
-    .policy-card p, .policy-card ul {
-      color: var(--muted);
-      margin: 0 0 12px;
-    }
-
-    .policy-card ul {
-      padding-left: 20px;
-    }
-
-    .policy-card li {
-      margin-bottom: 6px;
-    }
-
-    /* =========================================================================
-       7. ПОДВАЛ
-       ========================================================================== */
-    footer {
-      padding: 28px 0 40px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-    }
-
-    .foot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 20px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--card);
-    }
-
-    .foot-links {
-      margin-left: auto;
-    }
-
-    /* Адаптивность для мобильных устройств */
-    @media (max-width: 768px) {
-      .highlights-grid {
-        grid-template-columns: 1fr;
-      }
-      .policy-card {
-        padding: 22px;
-      }
-    }
-  </style>
+  
   <link rel="stylesheet" href="assets/theme-fixes.css">
 </head>
 <body>
@@ -286,14 +31,20 @@
       <a href="privacy.html" data-i18n="privacy">Privacy</a>
     </nav>
     <div class="actions">
-      <select class="select" id="language" aria-label="Language">
-        <option value="en">EN</option>
-        <option value="fr">FR</option>
-        <option value="es">ES</option>
-        <option value="it">IT</option>
-        <option value="de">DE</option>
-        <option value="ru">RU</option>
-      </select>
+      <div class="custom-lang" id="customLangSwitcher">
+        <button class="lang-btn" id="langBtn" aria-label="Select language">
+          <span id="langCurrent">EN</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <button data-val="en">EN</button>
+          <button data-val="fr">FR</button>
+          <button data-val="es">ES</button>
+          <button data-val="it">IT</button>
+          <button data-val="de">DE</button>
+          <button data-val="ru">RU</button>
+        </div>
+      </div>
       <button class="theme" id="theme" type="button" aria-label="Toggle theme">
         <span class="theme-icon">☼</span>
       </button>
@@ -303,7 +54,7 @@
   <!-- =========================================================================
     2. ОСНОВНОЙ КОНТЕНТ (MAIN)
   ========================================================================== -->
-  <main class="wrap">
+  <main class="wrap" style="text-align: center;">
 
     <!-- Заголовок страницы -->
     <section class="hero" style="padding: 60px 0 30px;">
@@ -557,12 +308,11 @@
   <!-- =========================================================================
     3. ПОДВАЛ САЙТА (FOOTER)
   ========================================================================== -->
+  <div style="text-align: center; margin-bottom: 20px;"><a href="#" class="footer-app-store-link"><img src="assets/app-store/app-store-badge.svg" alt="Download on the App Store" style="height: 44px; display: inline-block;"></a></div>
   <footer>
     
     <div class="wrap foot" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-      <a href="#" aria-label="Download on the App Store" style="transition: opacity 0.3s; display: inline-block;">
-        <img src="assets/app-store/app-store-badge.svg" alt="Download on the App Store" style="height: 44px; display: block;">
-      </a>
+      
       <div>
         © 2026 BalanceCleaner · 
         <a href="privacy.html">Privacy</a>

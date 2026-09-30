@@ -613,3 +613,88 @@ footer a:hover {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* =========================================================================
+   CUSTOM LANGUAGE SWITCHER
+   ========================================================================== */
+.custom-lang {
+  position: relative;
+  display: inline-block;
+}
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.lang-btn:hover {
+  background: var(--surface);
+}
+.lang-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  min-width: 80px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+.lang-menu.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.lang-menu button {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  padding: 10px 16px;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+.lang-menu button:hover {
+  background: var(--surface2);
+}
+.lang-menu button:first-child { border-radius: 12px 12px 0 0; }
+.lang-menu button:last-child { border-radius: 0 0 12px 12px; }
+
+/* =========================================================================
+   CAROUSEL INDICATORS
+   ========================================================================== */
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.indicator.active {
+  background: var(--text);
+  transform: scale(1.3);
+}

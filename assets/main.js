@@ -177,7 +177,7 @@ fill('ru', {
   privCard2Title: 'Нет доступа к платежам',
   privCard2Desc: 'Мы никогда не видим, не собираем и не храним ваш пароль Apple ID, данные карт или платёжную информацию.',
   privCard3Title: 'Данные не продаются',
-  privCard3Desc: 'Ваши личные данные никогда не передаются третьим лицам и рекламодателям.',,
+  privCard3Desc: 'Ваши личные данные никогда не передаются третьим лицам и рекламодателям.',
   top: 'Наверх',
   devicePreview: 'Предпросмотр устройств', devicePreviewTitle: 'Все экраны, все модели.', devicePreviewDesc: 'Прокручивайте горизонтально, чтобы посмотреть все скриншоты. На iPhone 18 Pro показаны реальные снимки — остальные готовы для ваших материалов.', comingSoon: 'Скоро'
 });
@@ -205,7 +205,7 @@ fill('fr', {
   privacyTitle: 'Politique de confidentialité',
   privCard1Title: 'Apple StoreKit Sécurisé',
   privCard2Title: 'Zéro accès aux paiements',
-  privCard3Title: 'Aucune vente de données',,
+  privCard3Title: 'Aucune vente de données',
   top: 'Accueil',
   devicePreview: 'Aperçu des appareils', devicePreviewTitle: 'Tous les écrans, tous les modèles.', devicePreviewDesc: 'Faites défiler horizontalement pour voir toutes les captures d\'écran. L\'iPhone 18 Pro affiche de vraies captures.', comingSoon: 'Bientôt'
 });
@@ -233,7 +233,7 @@ fill('de', {
   privacyTitle: 'Datenschutzerklärung',
   privCard1Title: 'Apple StoreKit-Sicherheit',
   privCard2Title: 'Kein Zahlungszugriff',
-  privCard3Title: 'Keine Datenweitergabe',,
+  privCard3Title: 'Keine Datenweitergabe',
   top: 'Start',
   devicePreview: 'Geräte Vorschau', devicePreviewTitle: 'Alle Bildschirme, alle Modelle.', devicePreviewDesc: 'Scrollen Sie horizontal, um alle Screenshots zu sehen. iPhone 18 Pro zeigt echte Bilder.', comingSoon: 'Demnächst'
 });
@@ -261,7 +261,7 @@ fill('es', {
   privacyTitle: 'Política de privacidad',
   privCard1Title: 'Apple StoreKit seguro',
   privCard2Title: 'Sin acceso a pagos',
-  privCard3Title: 'Sin venta de datos',,
+  privCard3Title: 'Sin venta de datos',
   top: 'Inicio',
   devicePreview: 'Vista previa de dispositivos', devicePreviewTitle: 'Todas las pantallas, todos los modelos.', devicePreviewDesc: 'Desplácese horizontalmente para ver las capturas. El iPhone 18 Pro muestra capturas reales.', comingSoon: 'Próximamente'
 });
@@ -289,7 +289,7 @@ fill('it', {
   privacyTitle: 'Informativa sulla privacy',
   privCard1Title: 'Apple StoreKit sicuro',
   privCard2Title: 'Nessun accesso ai pagamenti',
-  privCard3Title: 'Nessuna vendita di dati',,
+  privCard3Title: 'Nessuna vendita di dati',
   top: 'Inizio',
   devicePreview: 'Anteprima dispositivi', devicePreviewTitle: 'Tutti gli schermi, tutti i modelli.', devicePreviewDesc: 'Scorri orizzontalmente per vedere tutti gli screenshot. iPhone 18 Pro mostra veri screenshot.', comingSoon: 'In arrivo'
 });
@@ -367,7 +367,7 @@ fill('hy', {
     privCard2Title: 'Վճարումների հասանելիություն չկա',
     privCard2Desc: 'Մենք երբեք չենք տեսնում և չենք պահպանում ձեր քարտերի տվյալները:',
     privCard3Title: 'Տվյալների վաճառք չկա',
-    privCard3Desc: 'Ձեր անձնական տվյալները երբեք չեն փոխանցվում երրորդ կողմերին:',,
+    privCard3Desc: 'Ձեր անձնական տվյալները երբեք չեն փոխանցվում երրորդ կողմերին:',
   top: 'Գլխավոր',
   devicePreview: 'Սարքի դիտում', devicePreviewTitle: 'Բոլոր էկրանները, բոլոր մոդելները.', devicePreviewDesc: 'Ոլորեք հորիզոնական՝ բոլոր սքրինշոթերը տեսնելու համար: iPhone 18 Pro-ն ցույց է տալիս իրական սքրինշոթեր:', comingSoon: 'Շուտով'
 });
@@ -498,15 +498,6 @@ function applyTheme(mode) {
 
 applyTheme(localStorage.getItem('balance-theme') || 'dark');
 
-
-  // Handle privacy page custom tabs to update global language
-  document.querySelectorAll('.lang-tab').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const code = btn.getAttribute('data-lang');
-      if (code) applyLanguage(code);
-    });
-  });
 
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.theme');
@@ -682,15 +673,24 @@ function setupScrollSpy() {
 
 document.addEventListener('DOMContentLoaded', () => {
   setupScrollSpy();
-  
+
+  // Privacy page: language tabs click
+  document.querySelectorAll('.lang-tab').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const code = btn.getAttribute('data-lang');
+      if (code) applyLanguage(code);
+    });
+  });
+
   // Static page active state (for Support and Privacy)
   const path = window.location.pathname;
   if (path.includes('support.html')) {
     const link = document.querySelector('.links a[href="support.html"]');
-    if (link) link.classList.add('active');
+    if (link) { link.classList.add('active'); updateNavCapsules(); }
   } else if (path.includes('privacy.html')) {
     const link = document.querySelector('.links a[href="privacy.html"]');
-    if (link) link.classList.add('active');
+    if (link) { link.classList.add('active'); updateNavCapsules(); }
   }
 });
 

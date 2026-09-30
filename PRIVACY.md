@@ -9,4 +9,4 @@ BalanceCleaner is built on the principle of absolute privacy and zero data colle
 4. **No Tracking**: The website does not use Google Analytics or Facebook Pixels.
 
 ## Support Data
-When a user contacts support via `support@balancecleaner.app`, we only retain their email and message content for the duration needed to resolve the issue. We do not sell or share this data.
+When a user contacts support via `balancecleanerapp@gmail.com`, we only retain their email and message content for the duration needed to resolve the issue. We do not sell or share this data.

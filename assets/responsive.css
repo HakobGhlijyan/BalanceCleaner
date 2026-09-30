@@ -157,13 +157,13 @@
     padding: 40px 0;
   }
   
-  /* Coverflow: smaller items */
+  /* Coverflow: slightly smaller on tablets */
   .coverflow-container {
-    height: clamp(250px, 45vh, 450px);
+    height: clamp(300px, 50vh, 550px);
   }
   .coverflow-item {
-    width: clamp(140px, 28vh, 240px);
-    height: clamp(220px, 42vh, 380px);
+    width: clamp(180px, 30vh, 300px);
+    height: clamp(280px, 48vh, 480px);
   }
   
   /* Privacy language tabs */
@@ -307,13 +307,13 @@
   .button-text small { font-size: 14px; }
   .button-text strong { font-size: 1.5rem; }
   
-  /* Coverflow: very small */
+  /* Coverflow: compact for phones */
   .coverflow-container {
-    height: clamp(220px, 40vh, 380px);
+    height: clamp(260px, 45vh, 420px);
   }
   .coverflow-item {
-    width: clamp(120px, 25vh, 200px);
-    height: clamp(190px, 38vh, 320px);
+    width: clamp(150px, 28vh, 240px);
+    height: clamp(240px, 42vh, 380px);
   }
   
   /* Control buttons */
@@ -356,6 +356,7 @@
     height: 24px;
   }
   .lang-btn {
+    height: 36px;
     padding: 6px 10px;
     font-size: 13px;
   }

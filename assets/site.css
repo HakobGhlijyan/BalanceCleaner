@@ -562,30 +562,30 @@ footer a:hover {
 .coverflow-wrapper {
 	width: 100%;
 	position: relative;
-	padding: 20px 0 60px;
+	padding: 30px 0 70px;
     overflow: hidden;
 }
 
 .coverflow-container {
 	width: 100%;
-	height: clamp(300px, 50vh, 550px);
+	height: clamp(380px, 60vh, 680px);
 	position: relative;
 	transform-style: preserve-3d;
 	margin: 0 auto;
-	perspective: 1200px;
+	perspective: 1400px;
 }
 
 .coverflow-item {
 	position: absolute;
-	width: clamp(180px, 30vh, 320px);
-	height: clamp(280px, 46vh, 480px);
+	width: clamp(220px, 34vh, 380px);
+	height: clamp(340px, 55vh, 600px);
 	left: 50%;
 	top: 50%;
 	transform-origin: center center;
 	transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.6s, z-index 0s;
-	border-radius: 20px;
+	border-radius: 24px;
 	overflow: hidden;
-	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
 .coverflow-item img {
@@ -644,11 +644,12 @@ footer a:hover {
   display: flex;
   align-items: center;
   gap: 6px;
+  height: 40px;
   background: var(--surface2);
   border: 1px solid var(--line);
   color: var(--text);
-  padding: 8px 14px;
-  border-radius: 12px;
+  padding: 0 14px;
+  border-radius: 10px;
   cursor: pointer;
   font-family: inherit;
   font-weight: 600;
@@ -1328,4 +1329,16 @@ main > section {
 }
 body {
   transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+
+/* Header Link Centering */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+@media (max-width: 850px) {
+  .nav-center { display: none; }
 }

@@ -575,13 +575,13 @@ class Coverflow {
 
   render() {
     const mobile = window.innerWidth < 768;
-    const spacing = mobile ? 120 : 195;
+    const spacing = mobile ? 160 : 260;
     this.items.forEach((item, i) => {
       let off = i - this.current;
       if (off > this.total / 2) off -= this.total;
       if (off < -this.total / 2) off += this.total;
       const x = off * spacing;
-      const z = off === 0 ? 160 : Math.abs(off) === 1 ? 0 : -120;
+      const z = off === 0 ? 200 : Math.abs(off) === 1 ? 0 : -140;
       const ry = off === 0 ? 0 : off * -35;
       const sc = off === 0 ? 1 : Math.abs(off) === 1 ? 0.85 : Math.abs(off) === 2 ? 0.7 : 0.5;
       const op = Math.abs(off) > 2 ? 0 : Math.abs(off) === 2 ? 0.45 : Math.abs(off) === 1 ? 0.78 : 1;

@@ -29,8 +29,18 @@
       gap: 24px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding-bottom: 12px;
+      padding: 0 40px 20px 40px; /* Padding so cards aren't flush against edge */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
     }
+    .device-screen-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .device-screen-scroll::before, .device-screen-scroll::after {
+      content: '';
+      flex: 0 0 1px; /* Extra space to ensure full scroll reach */
+    }
+
     .device-screen-scroll::-webkit-scrollbar { height: 4px; }
     .device-screen-scroll::-webkit-scrollbar-track { background: var(--surface2); border-radius: 2px; }
     .device-screen-scroll::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 2px; }
@@ -38,14 +48,14 @@
       position: relative;
       flex-shrink: 0;
       scroll-snap-align: start;
-      width: 320px;
+      width: 260px;
     }
     .device-card .frame { width: 100%; display: block; position: relative; z-index: 2; pointer-events: none; }
     .device-card .screen {
       position: absolute;
       z-index: 1;
-      object-fit: contain;
-      background: #000;
+      object-fit: cover;
+      background: #fff;
     }
     .device-card .screen-placeholder {
       position: absolute;
@@ -131,7 +141,7 @@
         <div class="device-screen-scroll">
           <div class="device-card frame-18pro">
             <img class="frame" src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro">
-            <video preload="metadata" class="screen" controls style="background:#000;">
+            <video preload="metadata" class="screen" controls style="background:#fff;">
               <source src="#" type="video/mp4">
             </video>
           </div>
@@ -168,7 +178,7 @@
         <div class="device-screen-scroll">
           <div class="device-card frame-17">
             <img class="frame" src="assets/mockups/iPhone 17.png" alt="iPhone 17">
-            <video preload="metadata" class="screen" controls style="background:#000;">
+            <video preload="metadata" class="screen" controls style="background:#fff;">
               <source src="#" type="video/mp4">
             </video>
           </div>
@@ -193,7 +203,7 @@
         <div class="device-screen-scroll">
           <div class="device-card frame-16pro">
             <img class="frame" src="assets/mockups/iPhone 16 pro.png" alt="iPhone 16 Pro">
-            <video preload="metadata" class="screen" controls style="background:#000;">
+            <video preload="metadata" class="screen" controls style="background:#fff;">
               <source src="#" type="video/mp4">
             </video>
           </div>
@@ -218,7 +228,7 @@
         <div class="device-screen-scroll">
           <div class="device-card frame-se">
             <img class="frame" src="assets/mockups/iPhone SE.png" alt="iPhone SE">
-            <video preload="metadata" class="screen" controls style="background:#000;">
+            <video preload="metadata" class="screen" controls style="background:#fff;">
               <source src="#" type="video/mp4">
             </video>
           </div>

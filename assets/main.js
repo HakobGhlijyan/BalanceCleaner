@@ -25,6 +25,15 @@ const dictionaries = {
     thoughtful: 'Built thoughtfully',
     simple: 'Simple from the first tap.',
     simpleText: 'Focused tools, transparent choices and privacy at the centre of every interaction.',
+
+    supportTitle: 'How can we help?',
+    supportLead: 'Send a question, bug report, suggestion, or privacy request. We respond by email.',
+    supportContact: 'Use the form or email <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.',
+    supportNote: 'For bug reports, include your device and app version. Never send passwords or payment details.',
+    supportName: 'Name',
+    supportEmail: 'Email',
+    supportMessage: 'Message',
+    supportSend: 'Send Message →',
     talk: 'Talk to the developer →',
     screenLabel: 'Product screens',
     screenTitle: 'See the app<br>before it ships.',
@@ -108,6 +117,15 @@ fill('ru', {
   thoughtful: 'Продумано с заботой',
   simple: 'Просто с первого нажатия.',
   simpleText: 'Понятные инструменты, прозрачные решения и приватность в центре.',
+
+  supportTitle: 'Чем мы можем помочь?',
+  supportLead: 'Задайте вопрос, сообщите об ошибке или предложите идею. Мы отвечаем по email.',
+  supportContact: 'Используйте форму или напишите на <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.',
+  supportNote: 'Для отчетов об ошибках укажите устройство и версию приложения. Не отправляйте пароли и данные карт.',
+  supportName: 'Имя',
+  supportEmail: 'Email',
+  supportMessage: 'Сообщение',
+  supportSend: 'Отправить →',
   talk: 'Связаться с разработчиком →',
   screenLabel: 'Экраны продукта',
   screenTitle: 'Посмотрите приложение<br>до запуска.',
@@ -170,6 +188,12 @@ fill('fr', {
   explore: 'Découvrir le produit →',
   ideaLabel: 'L\'idée',
   storyTitle: 'Moins de bruit.<br>Plus d\'équilibre.',
+
+  supportTitle: 'Comment pouvons-nous aider ?',
+  supportLead: 'Envoyez une question, signalez un bug ou proposez une idée. Nous répondons par email.',
+  supportContact: 'Utilisez le formulaire ou écrivez à <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.',
+  supportNote: 'Pour les rapports de bugs, incluez votre appareil et la version de l\'application.',
+  supportName: 'Nom', supportEmail: 'Email', supportMessage: 'Message', supportSend: 'Envoyer →',
   talk: 'Parler au développeur →',
   openSupport: 'Ouvrir l\'assistance →',
   faqTitle: 'Questions fréquentes',
@@ -190,6 +214,12 @@ fill('de', {
   explore: 'Produkt entdecken →',
   ideaLabel: 'Die Idee',
   storyTitle: 'Weniger Lärm.<br>Mehr Balance.',
+
+  supportTitle: 'Wie können wir helfen?',
+  supportLead: 'Senden Sie eine Frage, einen Fehlerbericht oder einen Vorschlag. Wir antworten per E-Mail.',
+  supportContact: 'Nutzen Sie das Formular oder schreiben Sie an <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.',
+  supportNote: 'Fügen Sie für Fehlerberichte Ihr Gerät und die App-Version hinzu.',
+  supportName: 'Name', supportEmail: 'E-Mail', supportMessage: 'Nachricht', supportSend: 'Senden →',
   talk: 'Entwickler kontaktieren →',
   openSupport: 'Support öffnen →',
   faqTitle: 'Häufige Fragen',
@@ -210,6 +240,12 @@ fill('es', {
   explore: 'Explorar el producto →',
   ideaLabel: 'La idea',
   storyTitle: 'Menos ruido.<br>Más balance.',
+
+  supportTitle: '¿Cómo podemos ayudar?',
+  supportLead: 'Envíe una pregunta, un informe de error o una sugerencia. Respondemos por correo electrónico.',
+  supportContact: 'Use el formulario o escriba a <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.',
+  supportNote: 'Para informes de errores, incluya su dispositivo y la versión de la aplicación.',
+  supportName: 'Nombre', supportEmail: 'Correo', supportMessage: 'Mensaje', supportSend: 'Enviar →',
   talk: 'Hablar con el desarrollador →',
   openSupport: 'Abrir soporte →',
   faqTitle: 'Preguntas frecuentes',
@@ -230,6 +266,12 @@ fill('it', {
   explore: 'Scopri il prodotto →',
   ideaLabel: 'L\'idea',
   storyTitle: 'Meno rumore.<br>Più equilibrio.',
+
+  supportTitle: 'Come possiamo aiutare?',
+  supportLead: 'Invia una domanda, un rapporto su un bug o un suggerimento. Rispondiamo via email.',
+  supportContact: 'Usa il modulo o scrivi a <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.',
+  supportNote: 'Per i bug, includi il tuo dispositivo e la versione dell\'app.',
+  supportName: 'Nome', supportEmail: 'Email', supportMessage: 'Messaggio', supportSend: 'Invia →',
   talk: 'Parla con lo sviluppatore →',
   openSupport: 'Apri supporto →',
   faqTitle: 'Domande frequenti',
@@ -238,6 +280,82 @@ fill('it', {
   privCard1Title: 'Apple StoreKit sicuro',
   privCard2Title: 'Nessun accesso ai pagamenti',
   privCard3Title: 'Nessuna vendita di dati',
+});
+
+fill('hy', {
+    about: 'Մասին', screens: 'Էկրաններ', video: 'Վիդեո', features: 'Հնարավորություններ',
+    support: 'Աջակցություն', privacy: 'Գաղտնիություն',
+    subHeaderText: 'Հասանելի է iPhone-ի համար', subHeaderBtn: 'Ներբեռնել',
+    eyebrow: 'Ավելի հանգիստ թվային կյանք',
+    title: 'Զրոյացրեք Apple ID-ի մնացորդը:<br>Փոխեք տարածաշրջանը:',
+    lead: 'BalanceCleaner-ը թույլ է տալիս զրոյացնել մնացորդը իրական գնումների միջոցով՝ որպեսզի առանց խոչընդոտների փոխեք App Store-ի տարածաշրջանը:',
+    explore: 'Բացահայտել →',
+    ideaLabel: 'Գաղափարը',
+    storyTitle: 'Ավելի քիչ աղմուկ:<br>Ավելի շատ բալանս:',
+    storyLead: 'Հանգիստ պրոդուկտ՝ ստեղծված պարզության, վերահսկողության և հարգանքի հիման վրա:',
+    storyCardTitle: 'Ձեր թվային տարածքը՝ պարզ:',
+    storyText: 'BalanceCleaner-ը օգնում է տեսնել, թե ինչն է զբաղեցնում տարածքը, և վստահ որոշումներ կայացնել:',
+    understand: 'Հասկանալ', choose: 'Ընտրել', balance: 'Բալանսավորել',
+    thoughtful: 'Մտածված մանրամասներ',
+    simple: 'Պարզ առաջին իսկ հպումից:',
+    simpleText: 'Պարզ գործիքներ, թափանցիկ ընտրություն և գաղտնիություն:',
+
+    supportTitle: 'Ինչպե՞ս կարող ենք օգնել:',
+    supportLead: 'Ուղարկեք հարց, սխալի մասին զեկույց կամ առաջարկ: Մենք պատասխանում ենք էլ. փոստով:',
+    supportContact: 'Օգտագործեք ձևը կամ գրեք <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>:',
+    supportNote: 'Սխալների դեպքում նշեք ձեր սարքը և տարբերակը:',
+    supportName: 'Անուն', supportEmail: 'Էլ. փոստ', supportMessage: 'Հաղորդագրություն', supportSend: 'Ուղարկել →',
+    talk: 'Կապվել ծրագրավորողի հետ →',
+    screenLabel: 'Պրոդուկտի էկրանները',
+    screenTitle: 'Տեսեք հավելվածը<br>մինչև թողարկումը:',
+    videoLabel: 'Վիդեո ցուցադրություն',
+    videoTitle: 'Տեսեք, թե ինչպես է այն աշխատում:',
+    videoLead: 'Ցուցադրություն բոլոր աջակցվող iPhone մոդելներով:',
+    why: 'Ինչու BalanceCleaner',
+    featuresTitle: 'Պարզ և մտածված:',
+    clear: 'Պարզ դիզայն', clearText: 'Գործիքներ, որոնք հեշտ է օգտագործել առաջին իսկ հպումից:',
+    private: 'Գաղտնիություն', privateText: 'Թափանցիկ որոշումներ և հարգանք ձեր տվյալների նկատմամբ:',
+    quiet: 'Հանգիստ ուժ', quietText: 'Օգտակար տվյալներ՝ առանց բարդությունների:',
+    improve: 'Շարունակական բարելավում', improveText: 'Ուղարկեք արձագանք անմիջապես ծրագրավորողին:',
+    listening: 'Մենք լսում ենք', idea: 'Ունե՞ք գաղափար:',
+    ideaText: 'Ուղարկեք ձեր կարծիքը կամ հարցը աջակցության բաժնի միջոցով:',
+    openSupport: 'Բացել աջակցությունը →',
+    faqTitle: 'Հաճախ տրվող հարցեր',
+    faq1q: 'Ի՞նչ է BalanceCleaner-ը:',
+    faq1a: 'BalanceCleaner-ը թույլ է տալիս զրոյացնել Apple ID-ի մնացորդը՝ առանց գրանցման:',
+    faq2q: 'Ինչպե՞ս է աշխատում բալանսի զրոյացումը:',
+    faq2a: 'Մինչ հաստատելը դուք տեսնում եք մնացորդի և հաշվարկի ճշգրիտ բաշխումը:',
+    faq3q: 'Արդյո՞ք իմ տվյալները ապահով են:',
+    faq3a: 'Այո: Ամեն ինչ կատարվում է ձեր սարքում Apple-ի StoreKit-ի միջոցով: Մենք տվյալներ չենք հավաքում:',
+    faq4q: 'Արդյո՞ք անհրաժեշտ է հաշիվ:',
+    faq4a: 'Ոչ, գրանցում չի պահանջվում:',
+    faq5q: 'Ի՞նչ է Pro-ն:',
+    faq5a: 'Pro-ն բացում է գործարքների ամբողջական պատմությունը, PDF արտահանումը և այլ կարգավորումներ: Հիմնական գործառույթը անվճար է:',
+    guideLabel: 'Ակնարկ',
+    guideTitle: 'Զրոյացնել Apple ID բալանսը',
+    guideDesc: 'Apple ID տարածաշրջանը փոխելու համար բալանսը պետք է լինի զրո:',
+    step1Title: 'Ստուգեք մնացորդը',
+    step1Desc: 'Բացեք App Store-ի կարգավորումները և գտեք մնացորդը:',
+    step2Title: 'Հաշվարկեք և գնեք',
+    step2Desc: 'Եթե գինը գերազանցում է մնացորդը, Apple-ը կգանձի մնացածը քարտից:',
+    step3Title: 'Տարածաշրջանի հաջող փոփոխություն',
+    step3Desc: 'Զրոյացումից հետո վերադարձեք Apple ID և փոխեք տարածաշրջանը:',
+    donationTitle: 'Ձեր վճարումը որպես աջակցություն',
+    donationDesc: 'Վճարելով մնացորդը՝ դուք աջակցում եք անկախ iOS մշակմանը:',
+    donationFooter: 'Շնորհակալություն հավելվածը անվճար պահելու համար:',
+    guideNeedHelp: 'Օգնության կարիք ունե՞ք:',
+    guideSupportTitle: 'Դիմեք Apple-ի աջակցությանը',
+    guideSupportDesc: 'Եթե մնացորդը փոքր է նվազագույն գնից, դիմեք անմիջապես Apple-ին:',
+    guideSupportWeb: 'Apple Բիլինգ',
+    proFeaturesTitle: 'Պրեմիում հնարավորություններ',
+    privacyEyebrow: 'ՁԵՐ ԳԱՂՏՆԻՈՒԹՅՈՒՆԸ ԿԱՐԵՎՈՐ Է',
+    privacyTitle: 'Գաղտնիության քաղաքականություն',
+    privCard1Title: 'Apple StoreKit Անվտանգություն',
+    privCard1Desc: 'Բոլոր գործարքներն իրականացվում են Apple In-App Purchase API-ի միջոցով:',
+    privCard2Title: 'Վճարումների հասանելիություն չկա',
+    privCard2Desc: 'Մենք երբեք չենք տեսնում և չենք պահպանում ձեր քարտերի տվյալները:',
+    privCard3Title: 'Տվյալների վաճառք չկա',
+    privCard3Desc: 'Ձեր անձնական տվյալները երբեք չեն փոխանցվում երրորդ կողմերին:'
 });
 
 // =========================================================================
@@ -333,13 +451,13 @@ function applyLanguage(code) {
   });
   
   // Sync Privacy page tabs if they exist
-  const privacyTab = document.querySelector(`.lang-tab[data-lang="${code}"]`);
-  if (privacyTab) {
+  const content = document.getElementById('lang-' + code);
+  if (content) {
     document.querySelectorAll('.lang-tab').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.policy-content').forEach(s => s.classList.remove('active'));
-    privacyTab.classList.add('active');
-    const content = document.getElementById('lang-' + code);
-    if(content) content.classList.add('active');
+    const privacyTab = document.querySelector('.lang-tab[data-lang="' + code + '"]');
+    if (privacyTab) privacyTab.classList.add('active');
+    content.classList.add('active');
   }
   // Bold active in all menus
   document.querySelectorAll('.lang-menu button').forEach(btn => {
@@ -394,7 +512,7 @@ document.addEventListener('click', function(e) {
     'transform:translate(-50%,-50%)',
     'z-index:9999',
     'pointer-events:none',
-    'transition:width 0.8s ease, height 0.8s ease, opacity 0.4s ease 0.4s'
+    'transition:width 0.5s ease-out, height 0.5s ease-out, opacity 0.3s ease-in 0.15s'
   ].join(';');
   document.body.appendChild(overlay);
 
@@ -405,9 +523,9 @@ document.addEventListener('click', function(e) {
   overlay.style.height = maxDim;
 
   // Apply theme mid-transition for smooth feel
-  setTimeout(() => applyTheme(next), 300);
-  setTimeout(() => { overlay.style.opacity = '0'; }, 400);
-  setTimeout(() => overlay.remove(), 850);
+  setTimeout(() => applyTheme(next), 200);
+  setTimeout(() => { overlay.style.opacity = '0'; }, 200);
+  setTimeout(() => overlay.remove(), 600);
 });
 
 // =========================================================================

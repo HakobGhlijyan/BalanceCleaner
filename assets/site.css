@@ -640,9 +640,10 @@ footer a:hover {
 }
 .lang-menu {
   position: absolute;
-  top: 100%;
+  top: auto;
+  bottom: 100%;
   right: 0;
-  margin-top: 6px;
+  margin-bottom: 6px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -652,7 +653,7 @@ footer a:hover {
   min-width: 80px;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-10px);
+  transform: translateY(10px);
   transition: all 0.2s ease;
   z-index: 100;
 }
@@ -735,4 +736,157 @@ footer a:hover {
   padding: 0 24px 24px;
   color: var(--muted);
   line-height: 1.6;
+}
+
+/* =========================================================================
+   SUB-HEADER BANNER
+   ========================================================================== */
+.sub-header-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin: 12px auto 0;
+  transition: background 0.6s ease, border-color 0.6s ease;
+}
+.sub-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* =========================================================================
+   FOOTER REDESIGN
+   ========================================================================== */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 0 28px;
+  margin-top: 80px;
+  transition: border-color 0.6s ease;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.footer-left strong { font-size: 16px; color: var(--text); }
+.footer-left a { color: var(--muted); text-decoration: none; }
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.social-icon { color: var(--muted); transition: color 0.2s; }
+.social-icon:hover { color: var(--green); }
+
+/* Language menu: opens up */
+.lang-menu-up {
+  top: auto !important;
+  bottom: 100% !important;
+  margin-top: 0 !important;
+  margin-bottom: 6px;
+  transform: translateY(10px) !important;
+}
+.lang-menu-up.show {
+  transform: translateY(0) !important;
+}
+
+/* Language menu: opens down */
+.lang-menu-down {
+  top: 100% !important;
+  bottom: auto !important;
+  margin-top: 6px;
+  transform: translateY(-10px) !important;
+}
+.lang-menu-down.show {
+  transform: translateY(0) !important;
+}
+
+/* =========================================================================
+   VIDEO GRID (4 MOCKUPS)
+   ========================================================================== */
+.video-grid {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+.video-mockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.mockup-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0;
+  text-align: center;
+}
+.mockup-wrap {
+  position: relative;
+  width: 200px;
+}
+.mockup-frame {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+  display: block;
+}
+.mockup-video {
+  position: absolute;
+  top: var(--vid-top);
+  left: var(--vid-left);
+  width: var(--vid-w);
+  height: var(--vid-h);
+  z-index: 1;
+  border-radius: var(--vid-radius);
+  object-fit: cover;
+  background: #000;
+}
+
+/* =========================================================================
+   APPLE BANNER PLACEHOLDER
+   ========================================================================== */
+.apple-banner-placeholder {
+  margin: 40px auto;
+}
+.banner-inner {
+  text-align: center;
+  border: 2px dashed var(--line);
+  border-radius: 20px;
+  padding: 50px 20px;
+  color: var(--muted);
+}
+.banner-inner h3 { margin-bottom: 8px; color: var(--text); }
+.banner-inner a { color: var(--green); }
+
+/* =========================================================================
+   THEME: All elements transition smoothly
+   ========================================================================== */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, opacity;
+  transition-duration: 0.6s;
+  transition-timing-function: ease;
+}
+/* But don't affect transforms/sizes for animations */
+.coverflow-item, .reveal, .lang-menu, .social-icon {
+  transition-property: transform, opacity, background-color, border-color, color;
 }

@@ -4,25 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07110d">
-  <meta name="description" content="BalanceCleaner — a calmer digital life.">
+  <meta name="description" content="BalanceCleaner — Smart Balance Cleaner for iPhone.">
   <title>BalanceCleaner</title>
-
-  <!-- Подключение основных CSS-стилей -->
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/theme-fixes.css">
 </head>
 <body>
 
   <!-- =========================================================================
-    1. ШАПКА САЙТА (HEADER & NAVIGATION)
-    Содержит логотип, главную навигацию, селектор языков, переключатель темы
-    и кнопку перехода к демо-версиям.
+    HEADER & NAVIGATION
   ========================================================================== -->
-    <header class="wrap nav">
+  <header class="wrap nav">
     <a class="brand" href="index.html">
       <img class="brand-icon" src="assets/icons/x1024.svg" alt="BalanceCleaner icon">
       <span>BalanceCleaner</span>
     </a>
+
     <nav class="links">
       <a href="#story" data-i18n="about">About</a>
       <a href="#screens" data-i18n="screens">Screens</a>
@@ -31,73 +28,62 @@
       <a href="support.html" data-i18n="support">Support</a>
       <a href="privacy.html" data-i18n="privacy">Privacy</a>
     </nav>
-    
+
+    <div class="actions">
+      <div class="custom-lang">
+        <button class="lang-btn" aria-label="Select language">
+          <span class="lang-label">EN</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
+        </button>
+        <div class="lang-menu lang-menu-down">
+          <button data-val="en">🇬🇧 EN</button>
+          <button data-val="ru">🇷🇺 RU</button>
+          <button data-val="fr">🇫🇷 FR</button>
+          <button data-val="de">🇩🇪 DE</button>
+          <button data-val="es">🇪🇸 ES</button>
+          <button data-val="it">🇮🇹 IT</button>
+        </div>
       </div>
+      <button class="theme" type="button" aria-label="Toggle theme">
         <span class="theme-icon">☼</span>
       </button>
     </div>
   </header>
 
-  <!-- SUB-HEADER DOWNLOAD BANNER -->
-  <div class="sub-header-banner wrap" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; background: var(--surface2); border: 1px solid var(--line); border-radius: 16px; margin: 20px auto;">
-    <div>
-      <strong>BalanceCleaner</strong>
-      <span style="color: var(--muted); margin-left: 8px; font-size: 14px;">Available for iPhone</span>
+  <!-- SUB-HEADER: App Store Banner -->
+  <div class="sub-header-banner wrap">
+    <div class="sub-header-left">
+      <img src="assets/app-store/app-store-badge.svg" alt="App Store" style="height: 28px;">
+      <span data-i18n="subHeaderText">Available for iPhone</span>
     </div>
-    <a href="#" class="button" style="padding: 8px 16px; font-size: 14px; background: var(--green); color: #000; font-weight: 600;">Download App</a>
+    <a href="#" class="button" style="padding: 8px 20px; font-size: 14px;" data-i18n="subHeaderBtn">Download</a>
   </div>
 
-
   <!-- =========================================================================
-    2. ОСНОВНОЙ КОНТЕНТ (MAIN CONTENT)
+    MAIN CONTENT
   ========================================================================== -->
   <main>
-    
-    <!-- SECTION 2.1: HERO BLOCK (Главный баннер) -->
+
+    <!-- HERO SECTION -->
     <section class="wrap hero">
       <div class="eyebrow" data-i18n="eyebrow">A calmer digital life</div>
       <h1 data-i18n="title">Make room for what matters.</h1>
       <p data-i18n="lead">BalanceCleaner brings clarity to your digital world with thoughtful tools, a quiet interface, and privacy at its core.</p>
-      
       <div class="hero-actions">
         <a class="button" href="#screens" data-i18n="explore">Explore the product →</a>
-        
       </div>
     </section>
 
-    
-    
-    <!-- SECTION: FAQ -->
-    <section class="section reveal" id="faq">
-      <div class="wrap">
-        <div class="heading" style="text-align: center; margin-bottom: 40px;">
-          <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
-        </div>
-        <div class="faq-list" style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
-          <details class="faq-item">
-            <summary>What is BalanceCleaner?</summary>
-            <div class="faq-content">BalanceCleaner helps you free up space on your device by identifying large files, duplicates, and clutter, while strictly respecting your privacy.</div>
-          </details>
-          <details class="faq-item">
-            <summary>Is my data safe?</summary>
-            <div class="faq-content">Yes. We believe in privacy first. All processing happens locally on your device. We do not upload your photos or files to any server.</div>
-          </details>
-          <details class="faq-item">
-            <summary>Do I need an account to use the app?</summary>
-            <div class="faq-content">No account is required. You can download and start using BalanceCleaner immediately.</div>
-          </details>
-        </div>
+    <!-- APPLE MARKETING BANNER PLACEHOLDER -->
+    <section class="wrap apple-banner-placeholder" id="banner">
+      <div class="banner-inner">
+        <h3>Apple App Store Banner</h3>
+        <p>Place your generated badge/banner from <a href="https://toolbox.marketingtools.apple.com/en-us/app-store/us" target="_blank">Apple Marketing Toolbox</a> here.</p>
       </div>
     </section>
 
-    <!-- SECTION 2.2: APPLE BANNER PLACEHOLDER -->
-    <section class="wrap" style="margin: 60px auto; text-align: center; border: 2px dashed var(--line); border-radius: 20px; padding: 60px 20px; color: var(--muted);">
-      <h3 style="margin-bottom: 10px; color: var(--text);">Apple App Store Banner</h3>
-      <p>Place your generated HTML from <a href="https://toolbox.marketingtools.apple.com/en-us/app-store/us" target="_blank" style="color: var(--green);">Apple Marketing Toolbox</a> here.</p>
-    </section>
-
-    <!-- SECTION 2.3: STORY / ABOUT (История и концепция продукта) -->
-    <section class="section" id="story">
+    <!-- ABOUT / STORY SECTION -->
+    <section class="section reveal" id="story">
       <div class="wrap">
         <div class="heading">
           <div>
@@ -108,12 +94,9 @@
         </div>
 
         <div class="story">
-          <!-- Карточка 1: Концепция и статистика -->
           <article class="panel">
             <h2 data-i18n="storyCardTitle">Your digital space, understood.</h2>
             <p data-i18n="storyText">BalanceCleaner helps people see what is taking up space, make confident decisions and keep their everyday devices feeling lighter.</p>
-            <p data-i18n="demoNotice">The website currently presents demo screens and a demo video. Final App Store Connect materials can be added later.</p>
-            
             <div class="stats">
               <div class="stat"><b>01</b><span data-i18n="understand">Understand</span></div>
               <div class="stat"><b>02</b><span data-i18n="choose">Choose</span></div>
@@ -121,7 +104,6 @@
             </div>
           </article>
 
-          <!-- Карточка 2: Обратная связь -->
           <article class="panel">
             <div class="eyebrow" data-i18n="thoughtful">Built thoughtfully</div>
             <h2 data-i18n="simple">Simple from the first tap.</h2>
@@ -132,9 +114,7 @@
       </div>
     </section>
 
-    <!-- SECTION 2.4: SCREENSHOTS GALLERY (Скриншоты интерфейса) -->
-    
-    <!-- SECTION: SCREENS CAROUSEL -->
+    <!-- SCREENS: Coverflow Carousel with App Store screenshots -->
     <section class="section reveal" id="screens">
       <div class="wrap">
         <div class="heading">
@@ -144,44 +124,46 @@
           </div>
         </div>
       </div>
-      
-      <div class="coverflow-wrapper">
-          <div class="coverflow-container" id="coverflowContainer">
-              <div class="coverflow-item" data-index="0">
-                  <img src="assets/screenshots/Page 1ai-store-black.png" class="portfolio-image" alt="Screen 1">
-              </div>
-              <div class="coverflow-item" data-index="1">
-                  <img src="assets/screenshots/Page 2ai-store-black.png" class="portfolio-image" alt="Screen 2">
-              </div>
-              <div class="coverflow-item" data-index="2">
-                  <img src="assets/screenshots/Page 3ai-store-black.png" class="portfolio-image" alt="Screen 3">
-              </div>
-              <div class="coverflow-item" data-index="3">
-                  <img src="assets/screenshots/Page 4ai-store-black.png" class="portfolio-image" alt="Screen 4">
-              </div>
-              <div class="coverflow-item" data-index="4">
-                  <img src="assets/screenshots/Page 5ai-store-black.png" class="portfolio-image" alt="Screen 5">
-              </div>
-          </div>
-          
-          
-          <div class="indicators" id="indicators">
-              <div class="indicator active" data-index="0"></div>
-              <div class="indicator" data-index="1"></div>
-              <div class="indicator" data-index="2"></div>
-              <div class="indicator" data-index="3"></div>
-              <div class="indicator" data-index="4"></div>
-          </div>
-          <div class="coverflow-controls">
 
-              <button class="control-btn" id="prevBtn">‹</button>
-              <button class="control-btn" id="playPauseBtn">❚❚</button>
-              <button class="control-btn" id="nextBtn">›</button>
+      <div class="coverflow-wrapper">
+        <div class="coverflow-container" id="coverflowContainer">
+          <div class="coverflow-item" data-index="0">
+            <img src="assets/screenshots/Page 1ai-store-black.png" class="portfolio-image" alt="Smart Balance Cleaner">
           </div>
+          <div class="coverflow-item" data-index="1">
+            <img src="assets/screenshots/Page 2ai-store-black.png" class="portfolio-image" alt="Calculate & Split">
+          </div>
+          <div class="coverflow-item" data-index="2">
+            <img src="assets/screenshots/Page 3ai-store-black.png" class="portfolio-image" alt="Track Every Cleared Balance">
+          </div>
+          <div class="coverflow-item" data-index="3">
+            <img src="assets/screenshots/Page 4ai-store-black.png" class="portfolio-image" alt="How It Works">
+          </div>
+          <div class="coverflow-item" data-index="4">
+            <img src="assets/screenshots/Page 5ai-store-black.png" class="portfolio-image" alt="Pro Features">
+          </div>
+        </div>
+
+        <div class="indicators" id="indicators">
+          <div class="indicator active" data-index="0"></div>
+          <div class="indicator" data-index="1"></div>
+          <div class="indicator" data-index="2"></div>
+          <div class="indicator" data-index="3"></div>
+          <div class="indicator" data-index="4"></div>
+        </div>
+
+        <div class="coverflow-controls">
+          <button class="control-btn" id="prevBtn">‹</button>
+          <button class="control-btn" id="playPauseBtn">❚❚</button>
+          <button class="control-btn" id="nextBtn">›</button>
+        </div>
+        <div style="text-align:center; margin-top:16px;">
+          <a class="button ghost" href="device-preview.html" style="font-size:14px;">View all device sizes →</a>
+        </div>
       </div>
     </section>
 
-    
+    <!-- VIDEO DEMO: 4 Mockups -->
     <section class="section reveal" id="video">
       <div class="wrap">
         <div class="heading">
@@ -189,55 +171,60 @@
             <div class="eyebrow" data-i18n="videoLabel">Product demo</div>
             <h2 data-i18n="videoTitle">See how it works.</h2>
           </div>
-          <p data-i18n="videoLead">Video demo wrapped in an iPhone 18 Pro mockup.</p>
+          <p data-i18n="videoLead">Demo across all supported iPhone models.</p>
         </div>
 
-        
-        <div class="video-grid" style="display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; justify-content: center; flex-wrap: wrap;">
-          
-          <!-- Mockup: iPhone 18 Pro -->
-          <div class="video-mockup" style="position: relative; width: 220px; flex-shrink: 0;">
-            <img src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro" style="width: 100%; position: relative; z-index: 10; pointer-events: none; display: block;">
-            <video controls preload="metadata" style="position: absolute; top: 2.5%; left: 6.5%; width: 87%; height: 95%; z-index: 1; border-radius: 28px; object-fit: cover; background: #000;">
-              <source src="#" type="video/mp4">
-            </video>
-            <p style="text-align: center; margin-top: 10px; font-weight: 600; color: var(--muted);">iPhone 18 Pro</p>
+        <div class="video-grid">
+
+          <!-- iPhone 18 Pro — with 6 real screenshots as poster images -->
+          <div class="video-mockup">
+            <p class="mockup-label">iPhone 18 Pro</p>
+            <div class="mockup-wrap" style="--vid-top:2.5%; --vid-left:6.5%; --vid-w:87%; --vid-h:95%; --vid-radius:28px;">
+              <img src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro mockup" class="mockup-frame">
+              <video preload="metadata" class="mockup-video" poster="assets/screenshots/Screenshot iPhone 18 Pro 1.png">
+                <source src="#" type="video/mp4">
+              </video>
+            </div>
           </div>
 
-          <!-- Mockup: iPhone 17 -->
-          <div class="video-mockup" style="position: relative; width: 220px; flex-shrink: 0;">
-            <img src="assets/mockups/iPhone 17.png" alt="iPhone 17" style="width: 100%; position: relative; z-index: 10; pointer-events: none; display: block;">
-            <video controls preload="metadata" style="position: absolute; top: 2%; left: 5%; width: 90%; height: 96%; z-index: 1; border-radius: 28px; object-fit: cover; background: #000;">
-              <source src="#" type="video/mp4">
-            </video>
-            <p style="text-align: center; margin-top: 10px; font-weight: 600; color: var(--muted);">iPhone 17</p>
+          <!-- iPhone 17 -->
+          <div class="video-mockup">
+            <p class="mockup-label">iPhone 17</p>
+            <div class="mockup-wrap" style="--vid-top:2%; --vid-left:5%; --vid-w:90%; --vid-h:96%; --vid-radius:28px;">
+              <img src="assets/mockups/iPhone 17.png" alt="iPhone 17 mockup" class="mockup-frame">
+              <video preload="metadata" class="mockup-video">
+                <source src="#" type="video/mp4">
+              </video>
+            </div>
           </div>
 
-          <!-- Mockup: iPhone 16 Pro -->
-          <div class="video-mockup" style="position: relative; width: 220px; flex-shrink: 0;">
-            <img src="assets/mockups/iPhone 16 pro.png" alt="iPhone 16 Pro" style="width: 100%; position: relative; z-index: 10; pointer-events: none; display: block;">
-            <video controls preload="metadata" style="position: absolute; top: 2.5%; left: 6.5%; width: 87%; height: 95%; z-index: 1; border-radius: 28px; object-fit: cover; background: #000;">
-              <source src="#" type="video/mp4">
-            </video>
-            <p style="text-align: center; margin-top: 10px; font-weight: 600; color: var(--muted);">iPhone 16 Pro</p>
+          <!-- iPhone 16 Pro -->
+          <div class="video-mockup">
+            <p class="mockup-label">iPhone 16 Pro</p>
+            <div class="mockup-wrap" style="--vid-top:2.5%; --vid-left:6.5%; --vid-w:87%; --vid-h:95%; --vid-radius:28px;">
+              <img src="assets/mockups/iPhone 16 pro.png" alt="iPhone 16 Pro mockup" class="mockup-frame">
+              <video preload="metadata" class="mockup-video">
+                <source src="#" type="video/mp4">
+              </video>
+            </div>
           </div>
 
-          <!-- Mockup: iPhone SE -->
-          <div class="video-mockup" style="position: relative; width: 220px; flex-shrink: 0;">
-            <img src="assets/mockups/iPhone SE.png" alt="iPhone SE" style="width: 100%; position: relative; z-index: 10; pointer-events: none; display: block;">
-            <video controls preload="metadata" style="position: absolute; top: 12%; left: 7%; width: 86%; height: 76%; z-index: 1; object-fit: cover; background: #000;">
-              <source src="#" type="video/mp4">
-            </video>
-            <p style="text-align: center; margin-top: 10px; font-weight: 600; color: var(--muted);">iPhone SE</p>
+          <!-- iPhone SE -->
+          <div class="video-mockup">
+            <p class="mockup-label">iPhone SE</p>
+            <div class="mockup-wrap" style="--vid-top:12%; --vid-left:7%; --vid-w:86%; --vid-h:76%; --vid-radius:10px;">
+              <img src="assets/mockups/iPhone SE.png" alt="iPhone SE mockup" class="mockup-frame">
+              <video preload="metadata" class="mockup-video">
+                <source src="#" type="video/mp4">
+              </video>
+            </div>
           </div>
 
         </div>
-
       </div>
     </section>
 
-
-    <!-- SECTION 2.6: FEATURES (Ключевые особенности) -->
+    <!-- FEATURES SECTION -->
     <section class="section" id="features">
       <div class="wrap">
         <div class="heading">
@@ -246,7 +233,6 @@
             <h2 data-i18n="featuresTitle">Thoughtfully simple.</h2>
           </div>
         </div>
-
         <div class="features">
           <div class="feature">
             <b data-i18n="clear">Clear by design</b>
@@ -268,10 +254,41 @@
       </div>
     </section>
 
-    <!-- SECTION 2.7: CONTACT / SUPPORT CTA (Обратная связь) -->
+    <!-- FAQ SECTION -->
+    <section class="section reveal" id="faq">
+      <div class="wrap">
+        <div class="heading" style="text-align: center; margin-bottom: 40px;">
+          <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary data-i18n="faq1q">What is BalanceCleaner?</summary>
+            <div class="faq-content" data-i18n="faq1a">BalanceCleaner lets you easily select or enter the exact custom amount you want to zero out in your Apple ID account balance — no account registration required.</div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq2q">How does the balance split work?</summary>
+            <div class="faq-content" data-i18n="faq2a">See the precise breakdown of your remaining balance and calculated parts before confirming any operation. Everything is shown clearly before you proceed.</div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq3q">Is my data safe?</summary>
+            <div class="faq-content" data-i18n="faq3a">Yes. All processing happens locally on your device via Apple's StoreKit framework. We do not collect, store or upload any personal data.</div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq4q">Do I need an account?</summary>
+            <div class="faq-content" data-i18n="faq4a">No account is required. Download and start immediately.</div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq5q">What is Pro?</summary>
+            <div class="faq-content" data-i18n="faq5a">Pro unlocks full transaction history, PDF export, and advanced settings. The core cleaner is free for everyone.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
     <section class="wrap contact">
       <div>
-        <div class="eyebrow" data-i18n="listening">We’re listening</div>
+        <div class="eyebrow" data-i18n="listening">We're listening</div>
         <h2 data-i18n="idea">Have an idea?</h2>
         <p data-i18n="ideaText">Send feedback, report a problem or ask a question through our support page.</p>
       </div>
@@ -280,60 +297,42 @@
 
   </main>
 
-  <!-- =========================================================================
-    3. ПОДВАЛ САЙТА (FOOTER)
-  ========================================================================== -->
-  <div style="text-align: center; margin-bottom: 20px;"><a href="#" class="footer-app-store-link"><img src="assets/app-store/app-store-badge.svg" alt="Download on the App Store" style="height: 44px; display: inline-block;"></a></div>
-  
-  <!-- NEW FOOTER REDESIGN -->
-  <footer class="site-footer" style="padding: 40px 0; border-top: 1px solid var(--line); margin-top: 60px;">
-    <div class="wrap" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-      <div class="footer-left" style="display: flex; align-items: center; gap: 16px;">
-        <strong style="font-size: 18px; color: var(--text);">BalanceCleaner</strong>
-        <span style="color: var(--muted);">© 2026</span>
-        <a href="privacy.html" style="color: var(--muted); text-decoration: none;">Privacy</a>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-left">
+        <strong>BalanceCleaner</strong>
+        <span>© 2026</span>
+        <a href="privacy.html" data-i18n="privacy">Privacy</a>
       </div>
-      
-      <div class="footer-right" style="display: flex; align-items: center; gap: 16px;">
-        <!-- Social Icons (Placeholders) -->
-        <a href="#" aria-label="Twitter/X" style="color: var(--muted);">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.7 2.13 2.94 4 2.98C6.35 18.52 4.45 19.16 2.4 19.16c-.34 0-.68-.02-1.02-.06C3.25 20.29 5.57 21 8.08 21c8.08 0 12.5-6.69 12.5-12.5 0-.19 0-.38-.01-.57.86-.62 1.6-1.39 2.19-2.26z"/></svg>
+      <div class="footer-right">
+        <a href="#" aria-label="Twitter/X" class="social-icon">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.7 2.13 2.94 4 2.98-1.33 1.02-3.23 1.66-5.28 1.66-.34 0-.68-.02-1.02-.06C3.25 20.29 5.57 21 8.08 21c8.08 0 12.5-6.69 12.5-12.5 0-.19 0-.38-.01-.57.86-.62 1.6-1.39 2.19-2.26z"/></svg>
         </a>
-        <a href="#" aria-label="Instagram" style="color: var(--muted);">
+        <a href="#" aria-label="Instagram" class="social-icon">
           <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.67 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.25-.15-4.77-1.69-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.85 3.9 2.31 7.15 2.16c1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-4.27.19-6.78 2.7-6.97 6.98C.01 8.33 0 8.74 0 12s.01 3.67.08 4.95c.19 4.28 2.7 6.79 6.97 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.27-.19 6.78-2.7 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.19-4.28-2.7-6.79-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-11.53a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
         </a>
-
-        <!-- Actions -->
-        <div class="actions" style="display: flex; gap: 12px; align-items: center; margin-left: 20px;">
-          <!-- Language Switcher -->
-          <div class="custom-lang" id="customLangSwitcher">
-            <button class="lang-btn" id="langBtn" aria-label="Select language">
-              <span id="langCurrent">EN</span>
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
-            </button>
-            <div class="lang-menu" id="langMenu">
-              <button data-val="en">EN</button>
-              <button data-val="fr">FR</button>
-              <button data-val="es">ES</button>
-              <button data-val="it">IT</button>
-              <button data-val="de">DE</button>
-              <button data-val="ru">RU</button>
-            </div>
-          </div>
-          <!-- Theme Switcher -->
-          <button class="theme" id="theme" type="button" aria-label="Toggle theme">
-            <span class="theme-icon">☼</span>
+        <div class="custom-lang">
+          <button class="lang-btn" aria-label="Select language">
+            <span class="lang-label">EN</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
           </button>
+          <div class="lang-menu lang-menu-up">
+            <button data-val="en">🇬🇧 EN</button>
+            <button data-val="ru">🇷🇺 RU</button>
+            <button data-val="fr">🇫🇷 FR</button>
+            <button data-val="de">🇩🇪 DE</button>
+            <button data-val="es">🇪🇸 ES</button>
+            <button data-val="it">🇮🇹 IT</button>
+          </div>
         </div>
+        <button class="theme" type="button" aria-label="Toggle theme">
+          <span class="theme-icon">☼</span>
+        </button>
       </div>
     </div>
   </footer>
 
-
-  <!-- =========================================================================
-    4. ИНТЕРАКТИВНЫЕ СКРИПТЫ (JAVASCRIPT)
-    Управление локализацией (i18n) и переключением светлой/тёмной темы.
-  ========================================================================== -->
   <script src="assets/main.js"></script>
 </body>
 </html>

@@ -371,65 +371,47 @@ class Coverflow {
 document.addEventListener('DOMContentLoaded', () => new Coverflow());
 
 
+
+
 // =========================================================================
-// SPA SECTION TOGGLING (For index.html)
+// ACTIVE NAV STATE ON SCROLL
 // =========================================================================
-function activateSection(id) {
-  const target = document.getElementById(id);
-  if (!target || !target.classList.contains('section')) return;
+function setupScrollSpy() {
+  const sections = document.querySelectorAll('main > section');
+  const navLinks = document.querySelectorAll('.links a[href^="index.html#"], .links a[href^="#"]');
   
-  // Hide all sections, apple banner, hero
-  document.querySelectorAll('main > section').forEach(sec => {
-    sec.style.display = 'none';
-  });
-  
-  // Show target
-  target.style.display = 'flex';
-  
-  // Update nav active states
-  document.querySelectorAll('.links a').forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-  });
-  
-  // Trigger reveal on the newly visible section
-  target.classList.add('active');
-  window.scrollTo(0, 0);
+  if (sections.length === 0 || navLinks.length === 0) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        let id = entry.target.getAttribute('id');
+        if (!id) return;
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          const href = link.getAttribute('href');
+          if (href === '#' + id || href === 'index.html#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+
+  sections.forEach(sec => observer.observe(sec));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Only apply on index.html where these sections exist
-  if (!document.querySelector('main > section.hero')) return;
-
-  // Logo brings back to home
-  const brand = document.querySelector('.brand');
-  if (brand && window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
-    brand.addEventListener('click', e => {
-      e.preventDefault();
-      document.querySelectorAll('main > section').forEach(sec => {
-        sec.style.display = 'block';
-      });
-      // But keep our display:flex for regular sections?
-      // Actually let's just reload the page for Home to be safe and reset state
-      window.location.href = 'index.html';
-    });
-  }
-
-
-  const links = document.querySelectorAll('.links a[href^="#"]');
-  links.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const id = link.getAttribute('href').substring(1);
-      activateSection(id);
-    });
-  });
-
-  // Handle 'Explore the product' in Hero
-  const exploreBtn = document.querySelector('a[href="#screens"]');
-  if (exploreBtn) {
-    exploreBtn.addEventListener('click', e => {
-      e.preventDefault();
-      activateSection('screens');
-    });
+  setupScrollSpy();
+  
+  // Static page active state (for Support and Privacy)
+  const path = window.location.pathname;
+  if (path.includes('support.html')) {
+    const link = document.querySelector('.links a[href="support.html"]');
+    if (link) link.classList.add('active');
+  } else if (path.includes('privacy.html')) {
+    const link = document.querySelector('.links a[href="privacy.html"]');
+    if (link) link.classList.add('active');
   }
 });

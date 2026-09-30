@@ -836,13 +836,7 @@ footer a:hover {
 /* =========================================================================
    VIDEO GRID (4 MOCKUPS)
    ========================================================================== */
-.video-grid {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 20px 0;
-}
+
 .video-mockup {
   display: flex;
   flex-direction: column;
@@ -949,4 +943,81 @@ footer a:hover {
 .links a.active {
   color: var(--green) !important;
   font-weight: 600;
+}
+
+
+
+}
+
+
+.video-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  width: 100%;
+  max-width: 100%;
+}
+.video-mockup .mockup-wrap {
+  width: 100% !important;
+  max-width: 280px;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .video-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 600px) {
+  .video-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Policy visibility */
+.policy-content {
+  display: none;
+}
+.policy-content.active {
+  display: block;
+}
+
+.lang-tabs-wrapper {
+  width: 100%;
+  margin-bottom: 24px;
+}
+.lang-tabs {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+.lang-tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+.lang-tab:hover, .lang-tab.active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+@media (max-width: 768px) {
+  .lang-tabs {
+    flex-wrap: wrap;
+  }
+  .lang-tab {
+    flex: 1 1 30%;
+  }
+}
+
+.policy-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--surface2);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
 }

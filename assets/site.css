@@ -213,7 +213,6 @@ a {
   flex-direction: column;
   justify-content: center;
   padding: 88px 0;
-  border-top: 1px solid var(--line);
 }
 
 .heading {
@@ -581,7 +580,9 @@ footer a:hover {
 .coverflow-item img {
     width: 100%;
     height: 100%;
-    object-fit: contain; background: transparent;
+    object-fit: cover;
+    border-radius: 20px;
+    background: #fff;
 }
 
 .coverflow-controls {
@@ -750,15 +751,15 @@ footer a:hover {
    ========================================================================== */
 .sub-header-banner {
   width: 100%;
-  max-width: 1200px;
+  max-width: min(1160px, calc(100% - 32px));
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px 20px;
   background: var(--surface2);
   border: 1px solid var(--line);
   border-radius: 14px;
-  margin: 12px auto 0;
+  margin: 20px auto 0;
   transition: background 0.6s ease, border-color 0.6s ease;
 }
 .sub-header-left {
@@ -775,7 +776,6 @@ footer a:hover {
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 32px 0 28px;
-  margin-top: 80px;
   transition: border-color 0.6s ease;
 }
 .footer-inner {
@@ -1189,4 +1189,88 @@ main > section {
 .wrap.contact {
   padding: 60px 0;
   text-align: center;
+}
+
+/* FAQ centered */
+#faq .heading { justify-content: center; text-align: center; flex-direction: column; align-items: center; }
+#faq .faq-list { max-width: 700px; margin: 0 auto; }
+.faq-item { margin-bottom: 8px; }
+.faq-item summary { font-size: 15px; font-weight: 500; cursor: pointer; padding: 14px 18px; list-style: none; }
+
+/* Device Preview: Video fill */
+.device-mockup-video {
+  position: absolute;
+  top: var(--vid-top, 2.5%);
+  left: var(--vid-left, 6.5%);
+  width: var(--vid-w, 87%);
+  height: var(--vid-h, 95%);
+  object-fit: cover;
+  border-radius: var(--vid-radius, 28px);
+  z-index: 1;
+  background: #000;
+}
+/* Device preview screen scroll - overflow visible for infinite feel */
+.device-screen-scroll {
+  overflow-x: auto;
+  padding: 0 20px 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.device-screen-scroll::-webkit-scrollbar { display: none; }
+
+/* Features grid (4 small cards) */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
+
+.feat {
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+}
+.feat span {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.feat p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Features: 3-step grid */
+@media (max-width: 768px) {
+  #features > .wrap > div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Device Preview: Improve mockup inner fill */
+.device-screen-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #fff;
+  border-radius: 20px;
+}
+.device-card {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+/* Coverflow: ensure screenshots fill without black bars */
+.coverflow-item {
+  background: #1a1a1a;
+}
+.coverflow-item img {
+  border-radius: 20px;
 }

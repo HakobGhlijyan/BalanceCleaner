@@ -12,8 +12,8 @@ const dictionaries = {
     support: 'Support', privacy: 'Privacy',
     subHeaderText: 'Available for iPhone', subHeaderBtn: 'Download',
     eyebrow: 'A calmer digital life',
-    title: 'Make room for what matters.',
-    lead: 'BalanceCleaner brings clarity to your digital world with thoughtful tools, a quiet interface, and privacy at its core.',
+    title: 'Zero your Apple ID balance.<br>Change region freely.',
+    lead: 'BalanceCleaner lets you clear your Apple ID leftover balance using real in-app purchases — so you can switch your App Store region freely.',
     explore: 'Explore the product →',
     ideaLabel: 'The idea',
     storyTitle: 'Less noise.<br>More balance.',
@@ -55,6 +55,32 @@ const dictionaries = {
     faq6a: 'A step-by-step guide to prepare your account for a region change. It checks if your Apple ID balance is zero, subscriptions are canceled, and Family Sharing is left.',
     faq7q: 'What Pro customization is available?',
     faq7a: 'Pro users can change the App background to Starfield and customize the Amount Ring Apple Glow Intent Design.',
+
+    guideLabel: 'Overview',
+    guideTitle: 'Clear Apple ID Balance',
+    guideDesc: 'To change your Apple ID region, your account balance must be exactly zero.',
+    step1Title: 'Check Your Remaining Balance',
+    step1Desc: 'Open App Store account settings and find your exact remaining store credit.',
+    step2Title: 'Calculate and Purchase',
+    step2Desc: 'Buy an item or tip in the app. If price exceeds balance, Apple charges the rest from your credit card.',
+    step3Title: 'Change Region Successfully',
+    step3Desc: 'Once zeroed, return to Apple ID settings and freely switch to your new region.',
+    donationTitle: 'Your Payment as a Donation',
+    donationDesc: 'When you pay your remaining balance ($0.50, $1.00, etc.), you are donating directly to support independent iOS development.',
+    donationFooter: 'Thank you for helping keep this tool alive and free of ads!',
+    guideNeedHelp: 'Need Help?',
+    guideSupportTitle: 'Contact Apple Support',
+    guideSupportDesc: 'If your balance is lower than the lowest purchase price, contact Apple Support directly to manually zero it out.',
+    guideSupportWeb: 'Apple Billing & Subscriptions',
+
+    privacyEyebrow: 'YOUR PRIVACY MATTERS',
+    privacyTitle: 'Privacy Policy',
+    privCard1Title: 'Apple StoreKit Secure',
+    privCard1Desc: 'All balance clearing operations run through official Apple In-App Purchase APIs.',
+    privCard2Title: 'Zero Payment Access',
+    privCard2Desc: 'We never see, collect, or store your Apple ID password, credit cards, or billing info.',
+    privCard3Title: 'No Data Sales',
+    privCard3Desc: 'Your personal details are never sold, rented, or shared with third-party advertisers.',
     proFeaturesTitle: 'Premium Features',
     proFeaturesDesc: 'Unlock full transaction history, export records to PDF, customize the Amount Ring glow, and set a Starfield background.'
   }
@@ -69,8 +95,8 @@ fill('ru', {
   support: 'Поддержка', privacy: 'Приватность',
   subHeaderText: 'Доступно для iPhone', subHeaderBtn: 'Загрузить',
   eyebrow: 'Более спокойная цифровая жизнь',
-  title: 'Освободите место для важного.',
-  lead: 'BalanceCleaner помогает навести порядок в цифровом мире, ставя приватность в основу.',
+  title: 'Обнулите баланс Apple ID.<br>Смените регион свободно.',
+  lead: 'BalanceCleaner позволяет очистить остаток на Apple ID через реальные покупки — чтобы вы могли сменить регион App Store без ограничений.',
   explore: 'Открыть продукт →',
   ideaLabel: 'Идея',
   storyTitle: 'Меньше шума.<br>Больше баланса.',
@@ -107,7 +133,31 @@ fill('ru', {
   faq4q: 'Нужен ли аккаунт?',
   faq4a: 'Аккаунт не нужен. Скачайте и начните сразу.',
   faq5q: 'Что такое Pro?',
-  faq5a: 'Pro открывает полную историю транзакций, экспорт в PDF и расширенные настройки. Основной функционал бесплатен.'
+  faq5a: 'Pro открывает полную историю транзакций, экспорт в PDF и расширенные настройки. Основной функционал бесплатен.',
+  guideLabel: 'Обзор',
+  guideTitle: 'Очистите баланс Apple ID',
+  guideDesc: 'Для смены региона Apple ID баланс должен быть ровно нулевым.',
+  step1Title: 'Проверьте остаток',
+  step1Desc: 'Откройте настройки аккаунта App Store и найдите точный остаток кредита.',
+  step2Title: 'Рассчитайте и купите',
+  step2Desc: 'Купите товар или типовой предмет в приложении. Если цена превышает баланс — Apple спишет остаток с карты.',
+  step3Title: 'Успешная смена региона',
+  step3Desc: 'После обнуления вернитесь в настройки Apple ID и выберите новый регион.',
+  donationTitle: 'Ваш платёж как поддержка',
+  donationDesc: 'Оплачивая остаток ($0.50, $1.00 и т.д.), вы поддерживаете независимую разработку iOS-приложений.',
+  donationFooter: 'Спасибо, что помогаете сохранять этот инструмент живым и без рекламы!',
+  guideNeedHelp: 'Нужна помощь?',
+  guideSupportTitle: 'Обратитесь в службу поддержки Apple',
+  guideSupportDesc: 'Если ваш баланс меньше минимальной цены покупки — свяжитесь с Apple Support напрямую.',
+  guideSupportWeb: 'Биллинг и подписки Apple',
+  privacyEyebrow: 'ВАША ПРИВАТНОСТЬ ВАЖНА',
+  privacyTitle: 'Политика конфиденциальности',
+  privCard1Title: 'Защита Apple StoreKit',
+  privCard1Desc: 'Все операции очистки баланса проходят через официальный Apple In-App Purchase API.',
+  privCard2Title: 'Нет доступа к платежам',
+  privCard2Desc: 'Мы никогда не видим, не собираем и не храним ваш пароль Apple ID, данные карт или платёжную информацию.',
+  privCard3Title: 'Данные не продаются',
+  privCard3Desc: 'Ваши личные данные никогда не передаются третьим лицам и рекламодателям.',
 });
 
 fill('fr', {
@@ -122,7 +172,12 @@ fill('fr', {
   storyTitle: 'Moins de bruit.<br>Plus d\'équilibre.',
   talk: 'Parler au développeur →',
   openSupport: 'Ouvrir l\'assistance →',
-  faqTitle: 'Questions fréquentes'
+  faqTitle: 'Questions fréquentes',
+  privacyEyebrow: 'VOTRE VIE PRIVÉE COMPTE',
+  privacyTitle: 'Politique de confidentialité',
+  privCard1Title: 'Apple StoreKit Sécurisé',
+  privCard2Title: 'Zéro accès aux paiements',
+  privCard3Title: 'Aucune vente de données',
 });
 
 fill('de', {
@@ -137,7 +192,12 @@ fill('de', {
   storyTitle: 'Weniger Lärm.<br>Mehr Balance.',
   talk: 'Entwickler kontaktieren →',
   openSupport: 'Support öffnen →',
-  faqTitle: 'Häufige Fragen'
+  faqTitle: 'Häufige Fragen',
+  privacyEyebrow: 'IHRE PRIVATSPHÄRE IST WICHTIG',
+  privacyTitle: 'Datenschutzerklärung',
+  privCard1Title: 'Apple StoreKit-Sicherheit',
+  privCard2Title: 'Kein Zahlungszugriff',
+  privCard3Title: 'Keine Datenweitergabe',
 });
 
 fill('es', {
@@ -152,7 +212,12 @@ fill('es', {
   storyTitle: 'Menos ruido.<br>Más balance.',
   talk: 'Hablar con el desarrollador →',
   openSupport: 'Abrir soporte →',
-  faqTitle: 'Preguntas frecuentes'
+  faqTitle: 'Preguntas frecuentes',
+  privacyEyebrow: 'TU PRIVACIDAD IMPORTA',
+  privacyTitle: 'Política de privacidad',
+  privCard1Title: 'Apple StoreKit seguro',
+  privCard2Title: 'Sin acceso a pagos',
+  privCard3Title: 'Sin venta de datos',
 });
 
 fill('it', {
@@ -167,7 +232,12 @@ fill('it', {
   storyTitle: 'Meno rumore.<br>Più equilibrio.',
   talk: 'Parla con lo sviluppatore →',
   openSupport: 'Apri supporto →',
-  faqTitle: 'Domande frequenti'
+  faqTitle: 'Domande frequenti',
+  privacyEyebrow: 'LA TUA PRIVACY CONTA',
+  privacyTitle: 'Informativa sulla privacy',
+  privCard1Title: 'Apple StoreKit sicuro',
+  privCard2Title: 'Nessun accesso ai pagamenti',
+  privCard3Title: 'Nessuna vendita di dati',
 });
 
 // =========================================================================

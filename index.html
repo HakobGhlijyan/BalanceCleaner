@@ -59,8 +59,8 @@
     <!-- HERO SECTION -->
     <section class="wrap hero">
       <div class="eyebrow" data-i18n="eyebrow">A calmer digital life</div>
-      <h1 data-i18n="title">Make room for what matters.</h1>
-      <p data-i18n="lead">BalanceCleaner brings clarity to your digital world with thoughtful tools, a quiet interface, and privacy at its core.</p>
+      <h1 data-i18n="title">Zero your Apple ID balance.<br>Change region freely.</h1>
+      <p data-i18n="lead">BalanceCleaner lets you clear your Apple ID leftover balance using real in-app purchases — so you can switch your App Store region without restriction.</p>
       <div class="hero-actions">
         <a class="button" href="#screens" data-i18n="explore">Explore the product →</a>
       </div>
@@ -68,15 +68,6 @@
 
     </section>
 
-    <!-- APPLE MARKETING BANNER PLACEHOLDER -->
-    <section class="wrap apple-banner-placeholder" id="banner">
-      <div class="banner-inner">
-        <h3>Apple App Store Banner</h3>
-        <p>Place your generated badge/banner from <a href="https://toolbox.marketingtools.apple.com/en-us/app-store/us" target="_blank">Apple Marketing Toolbox</a> here.</p>
-      </div>
-
-
-    </section>
 
     <!-- ABOUT / STORY SECTION -->
     <section class="section reveal" id="story">
@@ -296,33 +287,54 @@
     <!-- FEATURES SECTION -->
     <section class="section" id="features">
       <div class="wrap">
-        <div class="heading">
-          <div>
-            <div class="eyebrow" data-i18n="why">Why BalanceCleaner</div>
-            <h2 data-i18n="featuresTitle">Thoughtfully simple.</h2>
+        <div class="heading" style="text-align:center; flex-direction:column; align-items:center;">
+          <div class="eyebrow" data-i18n="why">Why BalanceCleaner</div>
+          <h2 data-i18n="featuresTitle">Thoughtfully simple.</h2>
+        </div>
+
+        <!-- How it works: 3 steps from Guide strings -->
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:40px 0 48px;">
+          <div class="panel" style="padding:28px; text-align:center;">
+            <div style="font-size:32px; margin-bottom:12px;">📊</div>
+            <h3 style="margin-bottom:8px;" data-i18n="step1Title">Check Your Remaining Balance</h3>
+            <p style="color:var(--muted); font-size:14px;" data-i18n="step1Desc">Open App Store account settings and find your exact remaining store credit.</p>
+          </div>
+          <div class="panel" style="padding:28px; text-align:center;">
+            <div style="font-size:32px; margin-bottom:12px;">⚡</div>
+            <h3 style="margin-bottom:8px;" data-i18n="step2Title">Calculate and Purchase</h3>
+            <p style="color:var(--muted); font-size:14px;" data-i18n="step2Desc">Buy an item or tip. If price exceeds balance, Apple charges the rest from your credit card.</p>
+          </div>
+          <div class="panel" style="padding:28px; text-align:center;">
+            <div style="font-size:32px; margin-bottom:12px;">🌍</div>
+            <h3 style="margin-bottom:8px;" data-i18n="step3Title">Change Region Successfully</h3>
+            <p style="color:var(--muted); font-size:14px;" data-i18n="step3Desc">Once zeroed, return to Apple ID settings and freely switch to your new region.</p>
           </div>
         </div>
-        <div class="features">
-          <div class="feature">
-            <b data-i18n="clear">Clear by design</b>
-            <span data-i18n="clearText">Focused tools that feel easy from the first tap.</span>
+
+        <!-- Feature cards -->
+        <div class="features-grid">
+          <div class="feat"><span data-i18n="clear">Clear by design</span><p data-i18n="clearText">Focused tools that feel easy from the first tap.</p></div>
+          <div class="feat"><span data-i18n="private">Privacy first</span><p data-i18n="privateText">Transparent choices and respect for your information.</p></div>
+          <div class="feat"><span data-i18n="quiet">Quietly powerful</span><p data-i18n="quietText">Useful insights without unnecessary complexity.</p></div>
+          <div class="feat"><span data-i18n="improve">Made to improve</span><p data-i18n="improveText">Send feedback directly to the developer.</p></div>
+        </div>
+
+        <!-- Donation note from Guide strings -->
+        <div style="background:var(--surface2); border:1px solid var(--line); border-radius:16px; padding:28px 32px; margin-top:40px;">
+          <h3 style="margin-bottom:8px;" data-i18n="donationTitle">Your Payment as a Donation</h3>
+          <p style="color:var(--muted); max-width:600px;" data-i18n="donationDesc">When you pay your remaining balance ($0.50, $1.00, etc.), you are donating directly to support independent iOS development.</p>
+          <p style="color:var(--green); font-size:14px; margin-top:12px; margin-bottom:0;" data-i18n="donationFooter">Thank you for helping keep this tool alive and free of ads!</p>
+        </div>
+
+        <!-- Need help: Apple Support -->
+        <div style="background:var(--surface2); border:1px solid var(--line); border-radius:16px; padding:24px 32px; margin-top:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+          <div>
+            <h4 style="margin:0 0 6px;" data-i18n="guideNeedHelp">Need Help?</h4>
+            <p style="margin:0; color:var(--muted); font-size:14px;" data-i18n="guideSupportDesc">If your balance is lower than the lowest purchase price, contact Apple Support directly to manually zero it out.</p>
           </div>
-          <div class="feature">
-            <b data-i18n="private">Privacy first</b>
-            <span data-i18n="privateText">Transparent choices and respect for your information.</span>
-          </div>
-          <div class="feature">
-            <b data-i18n="quiet">Quietly powerful</b>
-            <span data-i18n="quietText">Useful insights without unnecessary complexity.</span>
-          </div>
-          <div class="feature">
-            <b data-i18n="improve">Made to improve</b>
-            <span data-i18n="improveText">Send feedback directly to the developer.</span>
-          </div>
+          <a href="https://support.apple.com/billing" target="_blank" class="button" style="padding:10px 20px; font-size:14px;" data-i18n="guideSupportWeb">Apple Billing &amp; Subscriptions</a>
         </div>
       </div>
-
-
     </section>
 
     <!-- FAQ SECTION -->

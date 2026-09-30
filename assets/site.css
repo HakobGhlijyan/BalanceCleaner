@@ -208,12 +208,23 @@ a {
    6. ОБЩИЕ СЕКЦИИ И ЗАГОЛОВКИ (SECTIONS & HEADINGS)
    ========================================================================== */
 .section {
-  scroll-margin-top: 80px;
-  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 88px 0;
+  padding: 50px 0;
+  scroll-margin-top: 80px;
+  position: relative;
+}
+.section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--surface2);
+  border-radius: 4px;
 }
 
 .heading {
@@ -912,7 +923,7 @@ footer a:hover {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
 }
 .faq-item {
@@ -1007,7 +1018,7 @@ footer a:hover {
 }
 
 .policy-card {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
   background: var(--surface2);
   padding: 40px;
@@ -1191,40 +1202,52 @@ main > section {
   text-align: center;
 }
 
-/* FAQ 3-column grid */
+/* FAQ Kinetic Flex Accordion */
 #faq .heading { justify-content: center; text-align: center; flex-direction: column; align-items: center; margin-bottom: 40px; }
 #faq .faq-list { 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
   max-width: 1160px;
   margin: 0 auto;
-  align-items: start;
 }
 .faq-item {
-  margin-bottom: 0;
+  flex: 1 1 calc(33.333% - 16px);
   background: var(--surface2);
   border: 1px solid var(--line);
   border-radius: 16px;
   overflow: hidden;
-  height: max-content;
-  transition: background 0.3s ease;
+  transition: flex 0.5s cubic-bezier(0.23, 1, 0.32, 1), background 0.3s ease;
+  min-width: 250px;
+}
+.faq-item[open] {
+  flex: 1 1 100%;
+  background: var(--surface);
+  border-color: var(--green);
 }
 .faq-item summary { 
   font-size: 15px; 
   font-weight: 600; 
   cursor: pointer; 
-  padding: 8px; 
+  padding: 20px; 
   list-style: none; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-item[open] summary {
+  font-size: 18px;
+  color: var(--green);
 }
 .faq-item p {
-  padding: 0 16px 16px;
+  padding: 0 20px 24px;
   margin: 0;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--muted);
+  line-height: 1.6;
 }
-@media (max-width: 900px) { #faq .faq-list { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { #faq .faq-list { grid-template-columns: 1fr; } }
+.faq-item summary::-webkit-details-marker { display: none; }
+
 
 /* Device Preview: Video fill */
 .device-mockup-video {
@@ -1302,4 +1325,30 @@ main > section {
 }
 .coverflow-item img {
   border-radius: 20px;
+}
+
+/* Contact Banner */
+.contact-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 40px auto 80px;
+}
+@media (max-width: 600px) {
+  .contact-banner { flex-direction: column; text-align: center; gap: 16px; }
+}
+
+/* Theme Transition Blur */
+body {
+  transition: filter 0.2s ease-out, opacity 0.2s ease-out, background-color 0.4s ease, color 0.4s ease;
+}
+.theme-blur {
+  filter: blur(12px);
+  opacity: 0.6;
+  transition: filter 0.15s ease-in, opacity 0.15s ease-in !important;
+  pointer-events: none;
 }

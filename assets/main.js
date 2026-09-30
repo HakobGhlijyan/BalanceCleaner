@@ -497,35 +497,12 @@ applyTheme(localStorage.getItem('balance-theme') || 'dark');
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.theme');
   if (!btn) return;
-
+  
   const next = document.documentElement.classList.contains('light') ? 'dark' : 'light';
-  const color = next === 'light' ? '#edf8f1' : '#07110d';
-
-  const overlay = document.createElement('div');
-  overlay.style.cssText = [
-    'position:fixed',
-    `left:${e.clientX}px`,
-    `top:${e.clientY}px`,
-    'width:0', 'height:0',
-    'border-radius:50%',
-    `background:${color}`,
-    'transform:translate(-50%,-50%)',
-    'z-index:9999',
-    'pointer-events:none',
-    'transition:width 0.5s ease-out, height 0.5s ease-out, opacity 0.3s ease-in 0.15s'
-  ].join(';');
-  document.body.appendChild(overlay);
-
-  // Force reflow then expand
-  overlay.getBoundingClientRect();
-  const maxDim = (Math.max(window.innerWidth, window.innerHeight) * 3) + 'px';
-  overlay.style.width = maxDim;
-  overlay.style.height = maxDim;
-
-  // Apply theme mid-transition for smooth feel
-  setTimeout(() => applyTheme(next), 200);
-  setTimeout(() => { overlay.style.opacity = '0'; }, 200);
-  setTimeout(() => overlay.remove(), 600);
+  
+  document.body.classList.add('theme-blur');
+  setTimeout(() => applyTheme(next), 150);
+  setTimeout(() => document.body.classList.remove('theme-blur'), 300);
 });
 
 // =========================================================================

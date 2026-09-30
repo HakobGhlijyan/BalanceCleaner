@@ -538,3 +538,78 @@ footer a:hover {
     font-size: 1.15rem;
   }
 }
+
+/* =========================================================================
+   CAROUSEL / COVERFLOW STYLES
+   ========================================================================== */
+.coverflow-wrapper {
+	width: 100%;
+	position: relative;
+	padding: 20px 0 60px;
+    overflow: hidden;
+}
+
+.coverflow-container {
+	width: 100%;
+	height: clamp(350px, 60vh, 650px);
+	position: relative;
+	transform-style: preserve-3d;
+	margin: 0 auto;
+	perspective: 1200px;
+}
+
+.coverflow-item {
+	position: absolute;
+	width: clamp(180px, 30vh, 320px);
+	height: clamp(320px, 53vh, 560px);
+	left: 50%;
+	top: 50%;
+	transform-origin: center center;
+	transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.6s, z-index 0s;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.coverflow-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coverflow-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.control-btn {
+    background: var(--surface2);
+    border: 1px solid var(--line);
+    color: var(--text);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: grid;
+    place-items: center;
+    transition: all 0.3s;
+}
+
+.control-btn:hover {
+    background: var(--green);
+    color: #000;
+}
+
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -185,3 +185,160 @@
       
       setTimeout(() => themeBtn.classList.remove('theme-transition'), 2000);
     });
+// Scroll Reveal
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100;
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active');
+        }
+    }
+}
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // Trigger on load
+
+// Coverflow Logic
+class PhotoCoverflow {
+   constructor() {
+      this.items = document.querySelectorAll('.coverflow-item');
+      if (!this.items.length) return;
+      this.totalItems = this.items.length;
+      this.currentIndex = Math.floor(this.totalItems / 2);
+      this.isPlaying = true;
+      this.autoPlayInterval = null;
+      this.autoPlaySpeed = 3000;
+
+      this.init();
+   }
+
+   init() {
+      this.updateCoverflow();
+      this.setupEventListeners();
+      this.startAutoPlay();
+   }
+
+   setupEventListeners() {
+      document.getElementById('prevBtn')?.addEventListener('click', () => { this.stopAutoPlay(); this.prev(); });
+      document.getElementById('nextBtn')?.addEventListener('click', () => { this.stopAutoPlay(); this.next(); });
+      document.getElementById('playPauseBtn')?.addEventListener('click', () => this.toggleAutoPlay());
+
+      // Click to go to item
+      this.items.forEach((item, index) => {
+         item.addEventListener('click', () => {
+            if (this.currentIndex !== index) {
+               this.stopAutoPlay();
+               this.goTo(index);
+            }
+         });
+      });
+
+      // Swipe
+      let startX = 0;
+      const container = document.getElementById('coverflowContainer');
+      if(container) {
+          container.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+          container.addEventListener('touchend', (e) => {
+             const diffX = startX - e.changedTouches[0].clientX;
+             if (Math.abs(diffX) > 50) {
+                this.stopAutoPlay();
+                if (diffX > 0) this.next();
+                else this.prev();
+             }
+          }, { passive: true });
+      }
+
+      window.addEventListener('resize', () => this.updateCoverflow());
+   }
+
+   updateCoverflow() {
+      const isMobile = window.innerWidth <= 768;
+      let baseSpacing = isMobile ? 130 : 200;
+
+      this.items.forEach((item, index) => {
+         let offset = index - this.currentIndex;
+         
+         // Loop logic
+         if (offset > this.totalItems / 2) offset -= this.totalItems;
+         else if (offset < -this.totalItems / 2) offset += this.totalItems;
+
+         let translateX = offset * baseSpacing;
+         let translateZ = 0;
+         let rotateY = 0;
+         let scale = 1;
+         let opacity = 1;
+
+         if (offset === 0) {
+            translateZ = 150;
+            scale = 1;
+         } else if (Math.abs(offset) === 1) {
+            translateZ = 0;
+            rotateY = offset * -35;
+            scale = 0.85;
+            opacity = 0.8;
+         } else if (Math.abs(offset) === 2) {
+            translateZ = -100;
+            rotateY = offset * -45;
+            scale = 0.7;
+            opacity = 0.5;
+         } else {
+            translateZ = -200;
+            rotateY = offset * -60;
+            scale = 0.5;
+            opacity = 0;
+         }
+
+         item.style.transform = `translate(-50%, -50%) translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+         item.style.opacity = opacity;
+         item.style.zIndex = this.totalItems - Math.abs(offset);
+         
+         // Fix visibility for far items to not block clicks
+         item.style.pointerEvents = Math.abs(offset) > 2 ? 'none' : 'auto';
+      });
+   }
+
+   toggleAutoPlay() {
+      const btn = document.getElementById('playPauseBtn');
+      if (this.isPlaying) {
+         this.stopAutoPlay();
+         if(btn) btn.innerHTML = '▶';
+      } else {
+         this.startAutoPlay();
+         if(btn) btn.innerHTML = '❚❚';
+      }
+   }
+
+   startAutoPlay() {
+      this.isPlaying = true;
+      this.autoPlayInterval = setInterval(() => this.next(), this.autoPlaySpeed);
+   }
+
+   stopAutoPlay() {
+      this.isPlaying = false;
+      if (this.autoPlayInterval) {
+         clearInterval(this.autoPlayInterval);
+         this.autoPlayInterval = null;
+      }
+   }
+
+   prev() {
+      this.currentIndex = (this.currentIndex - 1 + this.totalItems) % this.totalItems;
+      this.updateCoverflow();
+   }
+
+   next() {
+      this.currentIndex = (this.currentIndex + 1) % this.totalItems;
+      this.updateCoverflow();
+   }
+
+   goTo(index) {
+      this.currentIndex = index;
+      this.updateCoverflow();
+   }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+   new PhotoCoverflow();
+});

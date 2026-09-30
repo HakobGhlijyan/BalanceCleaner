@@ -59,24 +59,17 @@
       
       <div class="hero-actions">
         <a class="button" href="#screens" data-i18n="explore">Explore the product →</a>
-        <a class="button ghost" href="device-preview.html" data-i18n="devices">See device variants</a>
+        
       </div>
     </section>
 
-    <!-- SECTION 2.2: APP STORE CTA (Блок скачивания) -->
-    <section class="wrap app-store-cta" aria-label="Download on the App Store">
-      <div class="cta-copy" data-i18n="cta">Designed for your device, and the app requires no account.</div>
-      
-      <a class="app-store-button" href="#" aria-label="Download on the App Store">
-        <span class="apple-icon"></span>
-        <span class="button-text">
-          <small>Download on the</small>
-          <strong>App Store</strong>
-        </span>
-      </a>
-
-      <p class="cta-meta" data-i18n="meta">Free to use • iPhone (iPad compatible) • Premium optional</p>
+    
+    <!-- SECTION 2.2: APPLE BANNER PLACEHOLDER -->
+    <section class="wrap" style="margin: 60px auto; text-align: center; border: 2px dashed var(--line); border-radius: 20px; padding: 60px 20px; color: var(--muted);">
+      <h3 style="margin-bottom: 10px; color: var(--text);">Apple App Store Banner</h3>
+      <p>Place your generated HTML from <a href="https://toolbox.marketingtools.apple.com/en-us/app-store/us" target="_blank" style="color: var(--green);">Apple Marketing Toolbox</a> here.</p>
     </section>
+ -->
 
     <!-- SECTION 2.3: STORY / ABOUT (История и концепция продукта) -->
     <section class="section" id="story">
@@ -115,61 +108,69 @@
     </section>
 
     <!-- SECTION 2.4: SCREENSHOTS GALLERY (Скриншоты интерфейса) -->
-    <section class="section" id="screens">
+    
+    <!-- SECTION: SCREENS CAROUSEL -->
+    <section class="section reveal" id="screens">
       <div class="wrap">
         <div class="heading">
           <div>
             <div class="eyebrow" data-i18n="screenLabel">Product screens</div>
             <h2 data-i18n="screenTitle">See the app<br>before it ships.</h2>
           </div>
-          <p data-i18n="screenLead">These are temporary demo captures. Open the gallery for fullscreen viewing.</p>
         </div>
-
-        <div class="grid">
-          <article class="card">
-            <img src="assets/screenshots/Page 1ai-store-black.png" alt="Free dashboard">
-            <h3 data-i18n="dashboard">Daily balance</h3>
-            <p data-i18n="dashboardText">See your digital space at a glance.</p>
-          </article>
-
-          <article class="card">
-            <img src="assets/screenshots/Page 2ai-store-black.png" alt="Smart cleaning">
-            <h3 data-i18n="cleaning">Smart cleaning</h3>
-            <p data-i18n="cleaningText">Review suggestions with confidence.</p>
-          </article>
-
-          <article class="card">
-            <img src="assets/screenshots/Page 3ai-store-black.png" alt="Premium dashboard">
-            <h3 data-i18n="premium">Premium dashboard</h3>
-            <p data-i18n="premiumText">A broader view for deeper control.</p>
-          </article>
-        </div>
-
-        <p style="margin-top: 24px;">
-          <a class="button ghost" href="preview.html" data-i18n="gallery">Open full screen gallery →</a>
-        </p>
+      </div>
+      
+      <div class="coverflow-wrapper">
+          <div class="coverflow-container" id="coverflowContainer">
+              <div class="coverflow-item" data-index="0">
+                  <img src="assets/screenshots/Page 1ai-store-black.png" class="portfolio-image" alt="Screen 1">
+              </div>
+              <div class="coverflow-item" data-index="1">
+                  <img src="assets/screenshots/Page 2ai-store-black.png" class="portfolio-image" alt="Screen 2">
+              </div>
+              <div class="coverflow-item" data-index="2">
+                  <img src="assets/screenshots/Page 3ai-store-black.png" class="portfolio-image" alt="Screen 3">
+              </div>
+              <div class="coverflow-item" data-index="3">
+                  <img src="assets/screenshots/Page 4ai-store-black.png" class="portfolio-image" alt="Screen 4">
+              </div>
+              <div class="coverflow-item" data-index="4">
+                  <img src="assets/screenshots/Page 5ai-store-black.png" class="portfolio-image" alt="Screen 5">
+              </div>
+          </div>
+          
+          <div class="coverflow-controls">
+              <button class="control-btn" id="prevBtn">‹</button>
+              <button class="control-btn" id="playPauseBtn">❚❚</button>
+              <button class="control-btn" id="nextBtn">›</button>
+          </div>
       </div>
     </section>
 
-    <!-- SECTION 2.5: VIDEO DEMO (Демонстрационное видео) -->
-    <section class="section" id="video">
+    
+    <section class="section reveal" id="video">
       <div class="wrap">
         <div class="heading">
           <div>
             <div class="eyebrow" data-i18n="videoLabel">Product demo</div>
             <h2 data-i18n="videoTitle">See how it works.</h2>
           </div>
-          <p data-i18n="videoLead">A separate demo video section, presented in the same visual system as the screens.</p>
+          <p data-i18n="videoLead">Video demo wrapped in an iPhone 18 Pro mockup.</p>
         </div>
 
-        <figure class="video">
-          <video controls preload="metadata">
-            <source src="assets/videos/how_use%20demo_video.MP4" type="video/mp4">
+        <figure class="video" style="max-width: 320px; margin: 0 auto; position: relative; background: transparent;">
+          <!-- Mockup Frame (Top Layer) -->
+          <img src="assets/mockups/iPhone 18 Pro.png" alt="iPhone Mockup" style="position: relative; width: 100%; z-index: 10; pointer-events: none; display: block;">
+          
+          <!-- Video Layer (Underneath the mockup frame) -->
+          <!-- Adjust top/left/width/height % to fit the screen window of the mockup perfectly -->
+          <video controls preload="metadata" style="position: absolute; top: 2.5%; left: 6.5%; width: 87%; height: 95%; z-index: 1; border-radius: 36px; object-fit: cover; background: #000;">
+            <source src="#" type="video/mp4">
           </video>
-          <figcaption data-i18n="videoCaption">How to use BalanceCleaner · temporary demo</figcaption>
         </figure>
       </div>
     </section>
+
 
     <!-- SECTION 2.6: FEATURES (Ключевые особенности) -->
     <section class="section" id="features">
@@ -218,13 +219,17 @@
     3. ПОДВАЛ САЙТА (FOOTER)
   ========================================================================== -->
   <footer>
-    <div class="wrap foot">
-      <span>© 2026 BalanceCleaner</span>
-      <span>
-        <a href="privacy.html" data-i18n="privacy">Privacy</a> · 
-        <a href="support.html" data-i18n="support">Support</a>
-      </span>
+    
+    <div class="wrap foot" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+      <a href="#" aria-label="Download on the App Store" style="transition: opacity 0.3s; display: inline-block;">
+        <img src="assets/app-store/app-store-badge.svg" alt="Download on the App Store" style="height: 44px; display: block;">
+      </a>
+      <div>
+        © 2026 BalanceCleaner · 
+        <a href="privacy.html">Privacy</a>
+      </div>
     </div>
+
   </footer>
 
   <!-- =========================================================================

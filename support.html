@@ -76,10 +76,10 @@
   <!-- =========================================================================
     2. ОСНОВНОЙ КОНТЕНТ (MAIN CONTENT)
   ========================================================================== -->
-  <main class="wrap">
+  <main class="wrap" style="margin-top: 10px;">
     
     <!-- SECTION 2.1: HERO BLOCK (Заголовок страницы поддержки) -->
-    <section class="hero" style="text-align: left;">
+    <section class="hero" style="text-align: left; padding-top: 20px;">
       <div class="eyebrow">Support</div>
       <h1>How can we help?</h1>
       <p>Send a question, bug report, suggestion, or privacy request. We respond by email.</p>
@@ -132,10 +132,17 @@
     3. ПОДВАЛ САЙТА (FOOTER)
   ========================================================================== -->
   <footer>
-    <div class="wrap foot">
-      © 2026 BalanceCleaner · 
-      <a href="privacy.html">Privacy</a>
+    
+    <div class="wrap foot" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+      <a href="#" aria-label="Download on the App Store" style="transition: opacity 0.3s; display: inline-block;">
+        <img src="assets/app-store/app-store-badge.svg" alt="Download on the App Store" style="height: 44px; display: block;">
+      </a>
+      <div>
+        © 2026 BalanceCleaner · 
+        <a href="privacy.html">Privacy</a>
+      </div>
     </div>
+
   </footer>
 
   <script src="assets/main.js"></script>

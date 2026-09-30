@@ -501,8 +501,8 @@ document.addEventListener('click', function(e) {
   const next = document.documentElement.classList.contains('light') ? 'dark' : 'light';
   
   document.body.classList.add('theme-blur');
-  setTimeout(() => applyTheme(next), 150);
-  setTimeout(() => document.body.classList.remove('theme-blur'), 300);
+  setTimeout(() => { applyTheme(next); }, 250);
+  setTimeout(() => { document.body.classList.remove('theme-blur'); }, 500);
 });
 
 // =========================================================================

@@ -52,7 +52,6 @@ body {
   background: radial-gradient(circle at 15% 0, #57d99f22, transparent 35%), var(--bg);
   color: var(--text);
   font: 15px/1.55 Inter, system-ui, sans-serif;
-  transition: background 0.6s ease, background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
 }
 
 a {
@@ -905,17 +904,8 @@ footer a:hover {
 .banner-inner a { color: var(--green); }
 
 /* =========================================================================
-   THEME: All elements transition smoothly
+   THEME: No crossfade — blur only
    ========================================================================== */
-*, *::before, *::after {
-  transition-property: background-color, border-color, color, opacity;
-  transition-duration: 0.6s;
-  transition-timing-function: ease;
-}
-/* But don't affect transforms/sizes for animations */
-.coverflow-item, .reveal, .lang-menu, .social-icon {
-  transition-property: transform, opacity, background-color, border-color, color;
-}
 
 
 /* FAQ Redesign */
@@ -1330,13 +1320,12 @@ main > section {
   .contact-banner { flex-direction: column; text-align: center; gap: 16px; }
 }
 
-/* Theme Transition Blur */
-body {
-  transition: filter 0.2s ease-out, opacity 0.2s ease-out, background-color 0.4s ease, color 0.4s ease;
-}
+/* Theme Transition — Pure Blur */
 .theme-blur {
-  filter: blur(12px);
-  opacity: 0.6;
-  transition: filter 0.15s ease-in, opacity 0.15s ease-in !important;
+  filter: blur(16px);
+  opacity: 0.5;
   pointer-events: none;
+}
+body {
+  transition: filter 0.25s ease, opacity 0.25s ease;
 }

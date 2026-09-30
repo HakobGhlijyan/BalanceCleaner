@@ -9,280 +9,62 @@
   <!-- Подключение основных CSS-стилей сайта -->
   <link rel="stylesheet" href="assets/site.css">
 
-  <style>
-    /* =========================================================================
-       1. ГЛОБАЛЬНЫЕ И ЛОКАЛЬНЫЕ СТИЛИ СТРАНИЦЫ PRIVACY
-       ========================================================================== */
-    :root {
-      color-scheme: dark;
-      --bg: #07110d;
-      --card: #101b17ed;
-      --surface2: #13231c;
-      --text: #effff7;
-      --muted: #91aaa0;
-      --line: #d5f7e522;
-      --green: #57d99f;
-      --deep: #1d8060;
-    }
-
-    .light {
-      color-scheme: light;
-      --bg: #edf8f1;
-      --card: #fff;
-      --surface2: #e6f3eb;
-      --text: #10251c;
-      --muted: #587266;
-      --line: #1763442b;
-      --green: #16885d;
-      --deep: #0c6043;
-    }
-
-    body {
-      margin: 0;
-      background: radial-gradient(circle at 12% 0, #57d99f22, transparent 35%), var(--bg);
-      color: var(--text);
-      font: 15px/1.7 Inter, system-ui, -apple-system, sans-serif;
-      transition: background .4s, color .4s;
-    }
-
-    a {
-      color: var(--green);
-    }
-
-    .wrap {
-      width: min(960px, calc(100% - 32px));
-      margin: auto;
-    }
-
-    /* =========================================================================
-       2. ШАПКА И НАВИГАЦИЯ (ДОБАВЛЕНЫ БОКОВЫЕ ОТСТУПЫ, КАК В FOOTER)
-       ========================================================================== */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 20px; /* Добавлен отступ 20px слева и справа */
-      border-bottom: 1px solid var(--line);
-      box-sizing: border-box;
-    }
-
-    .brand {
-      color: var(--text);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .nav-right {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-left: auto;
-    }
-
-    .back {
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    .theme {
-      width: 46px;
-      height: 40px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: var(--card);
-      color: var(--text);
-      font-size: 25px;
-      cursor: pointer;
-    }
-
-    /* =========================================================================
-       3. СТИЛИ ЗАГОЛОВКА HERO
-       ========================================================================== */
-    .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin: 12px 0;
-      padding-top: 4px;
-      color: var(--text);
-    }
-
-    /* =========================================================================
-       4. UI-УЛУЧШЕНИЕ: БЛОК HIGHLIGHTS (КРАТКО О ГЛАВНОМ)
-       ========================================================================== */
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .highlight-card {
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--card);
-      box-shadow: 0 10px 30px #0002;
-    }
-
-    .highlight-card .icon {
-      font-size: 26px;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .highlight-card h3 {
-      margin: 0 0 6px;
-      font-size: 15px;
-      color: var(--text);
-    }
-
-    .highlight-card p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* =========================================================================
-       5. ТАБЫ ПЕРЕКЛЮЧЕНИЯ ЯЗЫКОВ (7 ЯЗЫКОВ)
-       ========================================================================== */
-    .lang-tabs-wrapper {
-      margin-bottom: 24px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-    }
-
-    .lang-tabs {
-      display: inline-flex;
-      gap: 8px;
-      padding: 6px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--card);
-    }
-
-    .lang-tab {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 10px;
-      background: transparent;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all .2s;
-    }
-
-    .lang-tab:hover {
-      color: var(--text);
-    }
-
-    .lang-tab.active {
-      background: var(--surface2);
-      color: var(--green);
-      box-shadow: 0 2px 8px #0002;
-    }
-
-    .policy-content {
-      display: none;
-    }
-
-    .policy-content.active {
-      display: block;
-    }
-
-    /* =========================================================================
-       6. КАРТОЧКА И СЕКЦИИ ПОЛИТИКИ
-       ========================================================================== */
-    .policy-card {
-      padding: 32px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--card);
-      box-shadow: 0 20px 60px #0002;
-      margin-bottom: 65px;
-    }
-
-    .policy-card section + section {
-      border-top: 1px solid var(--line);
-      margin-top: 28px;
-      padding-top: 28px;
-    }
-
-    .policy-card h2 {
-      margin: 0 0 12px;
-      font-size: 20px;
-      line-height: 1.2;
-      letter-spacing: -.02em;
-    }
-
-    .policy-card p, .policy-card ul {
-      color: var(--muted);
-      margin: 0 0 12px;
-    }
-
-    .policy-card ul {
-      padding-left: 20px;
-    }
-
-    .policy-card li {
-      margin-bottom: 6px;
-    }
-
-    /* =========================================================================
-       7. ПОДВАЛ
-       ========================================================================== */
-    footer {
-      padding: 28px 0 40px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-    }
-
-    .foot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 20px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--card);
-    }
-
-    .foot-links {
-      margin-left: auto;
-    }
-
-    /* Адаптивность для мобильных устройств */
-    @media (max-width: 768px) {
-      .highlights-grid {
-        grid-template-columns: 1fr;
-      }
-      .policy-card {
-        padding: 22px;
-      }
-    }
-  </style>
+  
+  <link rel="stylesheet" href="assets/theme-fixes.css">
+  <link rel="stylesheet" href="assets/responsive.css">
 </head>
 <body>
 
   <!-- =========================================================================
     1. ШАПКА САЙТА (HEADER)
   ========================================================================== -->
-  <header class="wrap nav">
+    <header class="wrap nav">
     <a class="brand" href="index.html">
-      <span class="mark">✦</span>BalanceCleaner
+      <img class="brand-icon" src="assets/icons/x1024.svg" alt="BalanceCleaner icon">
+      <span>BalanceCleaner</span>
     </a>
+    <nav class="links nav-center">
+      <a href="index.html#" data-i18n="top">Home</a>
+      <a href="index.html#story" data-i18n="about">About</a>
+      <a href="index.html#screens" data-i18n="screens">Screens</a>
+      <a href="index.html#video" data-i18n="video">Video</a>
+      <a href="index.html#features" data-i18n="features">Features</a>
+    </nav>
 
-    <div class="nav-right">
-      <a class="back" href="index.html">← Back to home</a>
-      <button class="theme" id="theme" aria-label="Toggle theme">☼</button>
+    <nav class="links">
+      <a href="support.html" data-i18n="support">Support</a>
+      <a href="privacy.html" data-i18n="privacy" class="active">Privacy</a>
+    </nav>
+    </nav>
+    <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobileNav').classList.add('open')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="actions">
+      <div class="custom-lang">
+        <button class="lang-btn" aria-label="Select language">
+          <span class="lang-label">EN</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
+        </button>
+        <div class="lang-menu lang-menu-down">
+          <button data-val="en">🇬🇧 English</button>
+          <button data-val="ru">🇷🇺 Русский</button>
+          <button data-val="fr">🇫🇷 Français</button>
+          <button data-val="de">🇩🇪 Deutsch</button>
+          <button data-val="es">🇪🇸 Español</button>
+          <button data-val="it">🇮🇹 Italiano</button>
+          <button data-val="hy">🇦🇲 Հայերեն</button>
+        </div>
+      </div>
+      <button class="theme" type="button" aria-label="Toggle theme">
+        <span class="theme-icon">☼</span>
+      </button>
     </div>
   </header>
 
-  <!-- =========================================================================
+  
+  
+
+<!-- =========================================================================
     2. ОСНОВНОЙ КОНТЕНТ (MAIN)
   ========================================================================== -->
   <main class="wrap">
@@ -298,18 +80,18 @@
     <div class="highlights-grid">
       <div class="highlight-card">
         <span class="icon">🍎</span>
-        <h3>Apple StoreKit Secure</h3>
-        <p>All balance clearing operations run through official Apple In-App Purchase APIs.</p>
+        <h3 data-i18n="privCard1Title">Apple StoreKit Secure</h3>
+        <p data-i18n="privCard1Desc">All balance clearing operations run through official Apple In-App Purchase APIs.</p>
       </div>
       <div class="highlight-card">
         <span class="icon">🛡️</span>
-        <h3>Zero Payment Access</h3>
-        <p>We never see, collect, or store your Apple ID password, credit cards, or billing info.</p>
+        <h3 data-i18n="privCard2Title">Zero Payment Access</h3>
+        <p data-i18n="privCard2Desc">We never see, collect, or store your Apple ID password, credit cards, or billing info.</p>
       </div>
       <div class="highlight-card">
         <span class="icon">🔒</span>
-        <h3>No Data Sales</h3>
-        <p>Your personal details are never sold, rented, or shared with third-party advertisers.</p>
+        <h3 data-i18n="privCard3Title">No Data Sales</h3>
+        <p data-i18n="privCard3Desc">Your personal details are never sold, rented, or shared with third-party advertisers.</p>
       </div>
     </div>
 
@@ -371,12 +153,12 @@
 
         <section>
           <h2>6. Your Rights & Data Deletion</h2>
-          <p>Under GDPR and CCPA, you have the right to access, inspect, or request permanent deletion of any support communications sent to us. Contact us at <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a> to submit a request.</p>
+          <p>Under GDPR and CCPA, you have the right to access, inspect, or request permanent deletion of any support communications sent to us. Contact us at <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a> to submit a request.</p>
         </section>
 
         <section>
           <h2>7. Contact Us</h2>
-          <p>If you have any questions regarding this Privacy Policy, please email us at <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+          <p>If you have any questions regarding this Privacy Policy, please email us at <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
         </section>
       </div>
 
@@ -413,7 +195,7 @@
 
         <section>
           <h2>5. Права пользователей</h2>
-          <p>Вы имеете право запросить полный доступ или полное удаление истории переписки с поддержкой. Свяжитесь с нами по адресу <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+          <p>Вы имеете право запросить полный доступ или полное удаление истории переписки с поддержкой. Свяжитесь с нами по адресу <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
         </section>
       </div>
 
@@ -436,7 +218,7 @@
 
         <section>
           <h2>4. Contact</h2>
-          <p>Pour toute question ou demande de suppression de données: <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+          <p>Pour toute question ou demande de suppression de données: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
         </section>
       </div>
 
@@ -459,7 +241,7 @@
 
         <section>
           <h2>4. Kontakt</h2>
-          <p>Bei Fragen zum Datenschutz kontaktieren Sie uns unter: <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+          <p>Bei Fragen zum Datenschutz kontaktieren Sie uns unter: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
         </section>
       </div>
 
@@ -482,7 +264,7 @@
 
         <section>
           <h2>4. Contacto</h2>
-          <p>Para consultas o eliminación de datos, escríbanos a: <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+          <p>Para consultas o eliminación de datos, escríbanos a: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
         </section>
       </div>
 
@@ -505,7 +287,7 @@
 
         <section>
           <h2>4. Contatti</h2>
-          <p>Per domande o richieste di cancellazione dei dati: <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>.</p>
+          <p>Per domande o richieste di cancellazione dei dati: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
         </section>
       </div>
 
@@ -528,7 +310,7 @@
 
         <section>
           <h2>4. Կապ մեզ հետ</h2>
-          <p>Հարցերի կամ տվյալների հեռացման հարցումների համար գրեք մեզ. <a href="mailto:support@balancecleaner.app">support@balancecleaner.app</a>:</p>
+          <p>Հարցերի կամ տվյալների հեռացման հարցումների համար գրեք մեզ. <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>:</p>
         </section>
       </div>
 
@@ -539,60 +321,46 @@
   <!-- =========================================================================
     3. ПОДВАЛ САЙТА (FOOTER)
   ========================================================================== -->
-  <footer>
-    <div class="wrap foot">
-      <span>© 2026 BalanceCleaner</span>
-      <span class="foot-links">
-        <a href="preview.html">Open all demos</a> · 
-        <a href="support.html">Support</a>
-      </span>
+  
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-left">
+        <strong>BalanceCleaner</strong>
+        <span>© 2026</span>
+        <a href="privacy.html" data-i18n="privacy">Privacy</a>
+      </div>
+      <div class="footer-right">
+        <a href="#" aria-label="Twitter/X" class="social-icon">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.7 2.13 2.94 4 2.98-1.33 1.02-3.23 1.66-5.28 1.66-.34 0-.68-.02-1.02-.06C3.25 20.29 5.57 21 8.08 21c8.08 0 12.5-6.69 12.5-12.5 0-.19 0-.38-.01-.57.86-.62 1.6-1.39 2.19-2.26z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="social-icon">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.67 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.25-.15-4.77-1.69-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.85 3.9 2.31 7.15 2.16c1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-4.27.19-6.78 2.7-6.97 6.98C.01 8.33 0 8.74 0 12s.01 3.67.08 4.95c.19 4.28 2.7 6.79 6.97 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.27-.19 6.78-2.7 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.19-4.28-2.7-6.79-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-11.53a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+        </a>
+        <div class="custom-lang">
+          <button class="lang-btn" aria-label="Select language">
+            <span class="lang-label">EN</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
+          </button>
+          <div class="lang-menu lang-menu-up">
+            <button data-val="en">🇬🇧 EN</button>
+            <button data-val="ru">🇷🇺 RU</button>
+            <button data-val="fr">🇫🇷 FR</button>
+            <button data-val="de">🇩🇪 DE</button>
+            <button data-val="es">🇪🇸 ES</button>
+            <button data-val="it">🇮🇹 IT</button>
+            <button data-val="hy">🇦🇲 HY</button>
+        </div>
+        </div>
+        <button class="theme" type="button" aria-label="Toggle theme">
+          <span class="theme-icon">☼</span>
+        </button>
+      </div>
     </div>
   </footer>
 
-  <!-- =========================================================================
-    4. ИНТЕРАКТИВНЫЕ СКРИПТЫ (JAVASCRIPT)
-  ========================================================================== -->
-  <script>
-    // 1. Управление темой оформления (Light / Dark)
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('theme');
 
-    function setTheme(theme) {
-      root.classList.toggle('light', theme === 'light');
-      themeBtn.textContent = theme === 'light' ? '☾' : '☼';
-      localStorage.setItem('balance-theme', theme);
-    }
-
-    setTheme(localStorage.getItem('balance-theme') || 'dark');
-    themeBtn.onclick = () => setTheme(root.classList.contains('light') ? 'dark' : 'light');
-
-    // 2. Интерактивный переключатель языковых табов (7 языков)
-    const langTabs = document.querySelectorAll('.lang-tab');
-    const policyContents = document.querySelectorAll('.policy-content');
-
-    function switchLanguage(lang) {
-      langTabs.forEach(tab => {
-        tab.classList.toggle('active', tab.getAttribute('data-lang') === lang);
-      });
-
-      policyContents.forEach(content => {
-        content.classList.toggle('active', content.id === `lang-${lang}`);
-      });
-
-      localStorage.setItem('balance-lang', lang);
-    }
-
-    langTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const lang = tab.getAttribute('data-lang');
-        switchLanguage(lang);
-      });
-    });
-
-    // Восстановление выбранного языка при загрузке
-    const savedLang = localStorage.getItem('balance-lang') || 'en';
-    switchLanguage(savedLang);
-  </script>
+  <script src="assets/main.js"></script>
 
 </body>
+
 </html>

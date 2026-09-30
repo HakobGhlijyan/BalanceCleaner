@@ -3,436 +3,292 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BalanceCleaner iPhone device previews.">
-  <title>BalanceCleaner — iPhone device preview</title>
-  
+  <meta name="theme-color" content="#07110d">
+  <title>Device Preview — BalanceCleaner</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/theme-fixes.css">
+  <link rel="stylesheet" href="assets/responsive.css">
   <style>
-    /* =========================================================================
-       1. ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И СТИЛИ СБРОСА
-       ========================================================================== */
-    :root {
-      color-scheme: dark;
-      --bg: #07110d;
-      --surface: #101b17e8;
-      --text: #effff7;
-      --muted: #91aaa0;
-      --line: #d5f7e51c;
-      --green: #57d99f;
-      --deep: #1d8060;
-      font-family: Inter, system-ui, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at 50% -5%, #1d806055, transparent 38%), var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    .wrap {
-      width: min(1180px, calc(100% - 32px));
-      margin: auto;
-    }
-
-    a {
-      color: var(--green);
-      text-decoration: none;
-    }
-
-    /* =========================================================================
-       2. ШАПКА И СЕКЦИЯ HERO
-       ========================================================================== */
-    .nav {
+    .device-grid {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
+      flex-direction: column;
+      gap: 60px;
+      padding: 40px 0 80px;
     }
-
-    .brand {
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 70px 0 36px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 6.8rem);
-      line-height: .9;
-      letter-spacing: -.08em;
-      margin: 16px auto;
-      max-width: 850px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 650px;
-      margin: auto;
-    }
-
-    /* =========================================================================
-       3. ТАБЫ-ПЕРЕКЛЮЧАТЕЛИ МОДЕЛЕЙ (SWITCHER)
-       ========================================================================== */
-    .switcher {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 28px 0 55px;
-    }
-
-    .switcher button {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--surface);
-      color: var(--muted);
-      padding: 10px 15px;
-      cursor: pointer;
-    }
-
-    .switcher button.active,
-    .switcher button:hover {
-      background: var(--green);
-      border-color: var(--green);
-      color: #06150e;
-      font-weight: 800;
-    }
-
-    /* =========================================================================
-       4. СЕТКА КАРТОЧЕК И CSS-FRAME УСТРОЙСТВ
-       ========================================================================== */
-    .stage {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      align-items: start;
-      padding-bottom: 100px;
-    }
-
-    .device-card {
-      text-align: center;
-    }
-
-    .device-card h2 {
-      font-size: 17px;
-      margin: 18px 0 5px;
-    }
-
-    .device-card p {
+    .device-group { display: flex; flex-direction: column; gap: 24px; }
+    .device-group-title {
       font-size: 13px;
+      font-weight: 700;
       color: var(--muted);
-      margin: 0 auto;
-      max-width: 250px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
     }
-
-    /* CSS Корпус iPhone */
-    .phone {
-      position: relative;
-      width: min(100%, 285px);
-      aspect-ratio: .492;
-      margin: auto;
-      padding: 10px;
-      border: 2px solid #53635d;
-      border-radius: 46px;
-      background: linear-gradient(145deg, #29332f, #080b0a 45%, #303b35);
-      box-shadow: 0 28px 70px #0009, inset 0 0 0 2px #000, inset 5px 5px 18px #ffffff18;
-      transition: .35s;
+    .device-screen-scroll {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 0 40px 20px 40px; /* Padding so cards aren't flush against edge */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
     }
-
-    .phone:hover {
-      transform: translateY(-8px) rotate(-1deg);
-    }
-
-    /* Экран смартфона */
-    .phone-screen {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      border-radius: 37px;
-      background: #08100c;
-    }
-
-    .phone-screen img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-    }
-
-    /* Вырез Notch (Чёлка) */
-    .notch {
-      position: absolute;
-      z-index: 2;
-      top: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 105px;
-      height: 27px;
-      border-radius: 0 0 17px 17px;
-      background: #020403;
-      box-shadow: 0 2px 4px #000;
-    }
-
-    /* Dynamic Island (Динамический остров) */
-    .island {
-      position: absolute;
-      z-index: 2;
-      top: 17px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 92px;
-      height: 27px;
-      border-radius: 20px;
-      background: #020403;
-      box-shadow: 0 2px 4px #000;
-    }
-
-    /* Боковые физические кнопки */
-    .side {
-      position: absolute;
-      left: -5px;
-      top: 130px;
-      width: 4px;
-      height: 62px;
-      border-radius: 4px 0 0 4px;
-      background: #66756e;
-      box-shadow: 0 76px 0 #66756e, 0 110px 0 #66756e;
-    }
-
-    /* Заглушка для экранов без скриншота */
-    .empty {
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, #132b20, #07100b);
-      color: #fff;
-      font-size: 14px;
-      text-align: center;
-      padding: 28px;
-    }
-
-    .empty strong {
-      font-size: 20px;
-      display: block;
-      margin-bottom: 7px;
-    }
-
-    .device-card.hidden {
+    .device-screen-scroll::-webkit-scrollbar {
       display: none;
     }
+    .device-screen-scroll::before, .device-screen-scroll::after {
+      content: '';
+      flex: 0 0 1px; /* Extra space to ensure full scroll reach */
+    }
 
-    /* =========================================================================
-       5. СНОСКА / ПРИМЕЧАНИЕ (LEGEND)
-       ========================================================================== */
-    .legend {
-      margin: 0 auto 80px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--surface);
+    .device-screen-scroll::-webkit-scrollbar { height: 4px; }
+    .device-screen-scroll::-webkit-scrollbar-track { background: var(--surface2); border-radius: 2px; }
+    .device-screen-scroll::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 2px; }
+    .device-card {
+      position: relative;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      width: 260px;
+    }
+    .device-card .frame { width: 100%; display: block; position: relative; z-index: 2; pointer-events: none; }
+    .device-card .screen {
+      position: absolute;
+      z-index: 1;
+      object-fit: cover;
+      background: #fff;
+    }
+    .device-card .screen-placeholder {
+      position: absolute;
+      z-index: 1;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--muted);
+      font-size: 14px;
       text-align: center;
-      max-width: 760px;
     }
+    /* iPhone 18 Pro positioning */
+    .frame-18pro .screen,
+    .frame-18pro .screen-placeholder { top: 2.5%; left: 6.5%; width: 87%; height: 95%; border-radius: 26px; }
+    /* iPhone 17 */
+    .frame-17 .screen,
+    .frame-17 .screen-placeholder { top: 2%; left: 5%; width: 90%; height: 96%; border-radius: 26px; }
+    /* iPhone 16 Pro */
+    .frame-16pro .screen,
+    .frame-16pro .screen-placeholder { top: 2.5%; left: 6.5%; width: 87%; height: 95%; border-radius: 26px; }
+    /* iPhone SE */
+    .frame-se .screen,
+    .frame-se .screen-placeholder { top: 12%; left: 7%; width: 86%; height: 76%; border-radius: 6px; }
 
-    .legend strong {
-      color: var(--text);
-    }
-
-    /* Адаптивные медиа-запросы */
-    @media(max-width: 850px) {
-      .stage {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media(max-width: 560px) {
-      .stage {
-        grid-template-columns: 1fr;
-      }
-      .phone {
-        max-width: 290px;
-      }
-      .nav {
-        gap: 12px;
-      }
-      .nav a:last-child {
-        font-size: 13px;
-      }
+    .placeholder-label {
+      padding: 8px;
+      line-height: 1.4;
+      font-size: 10px;
     }
   </style>
 </head>
 <body>
 
-  <!-- =========================================================================
-    1. ШАПКА САЙТА (HEADER)
-  ========================================================================== -->
   <header class="wrap nav">
-    <a class="brand" href="index.html">BalanceCleaner</a>
-    <a href="preview.html">← Back to demos</a>
+    <a class="brand" href="index.html">
+      <img class="brand-icon" src="assets/icons/x1024.svg" alt="BalanceCleaner icon">
+      <span>BalanceCleaner</span>
+    </a>
+    <nav class="links nav-center">
+      <a href="index.html#" data-i18n="top">Home</a>
+      <a href="index.html#story" data-i18n="about">About</a>
+      <a href="index.html#screens" data-i18n="screens">Screens</a>
+      <a href="index.html#video" data-i18n="video">Video</a>
+      <a href="index.html#features" data-i18n="features">Features</a>
+    </nav>
+
+    <nav class="links">
+      <a href="support.html" data-i18n="support">Support</a>
+      <a href="privacy.html" data-i18n="privacy">Privacy</a>
+    </nav>
+    <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobileNav').classList.add('open')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="actions">
+      <div class="custom-lang">
+        <button class="lang-btn" aria-label="Select language">
+          <span class="lang-label">EN</span>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
+        </button>
+        <div class="lang-menu lang-menu-down">
+          <button data-val="en">🇬🇧 EN</button>
+          <button data-val="ru">🇷🇺 RU</button>
+          <button data-val="fr">🇫🇷 FR</button>
+          <button data-val="de">🇩🇪 DE</button>
+          <button data-val="es">🇪🇸 ES</button>
+          <button data-val="it">🇮🇹 IT</button>
+          <button data-val="hy">🇦🇲 HY</button>
+        </div>
+      </div>
+      <button class="theme" type="button" aria-label="Toggle theme">
+        <span class="theme-icon">☼</span>
+      </button>
+    </div>
   </header>
 
-  <!-- =========================================================================
-    2. ОСНОВНОЙ КОНТЕНТ (MAIN)
-  ========================================================================== -->
-  <main class="wrap">
-    
-    <!-- Главный баннер страницы предпросмотра -->
-    <section class="hero">
-      <div class="eyebrow">Device presentation</div>
-      <h1>One product.<br>Three iOS frames.</h1>
-      <p>These are presentation mockups only. The current uploaded screens are shown inside the iPhone 17e frame; replace them later with final device captures.</p>
-    </section>
-
-    <!-- Переключатель категорий устройств (Фильтр) -->
-    <div class="switcher" role="tablist" aria-label="Device variants">
-      <button class="active" data-device="all">All variants</button>
-      <button data-device="iphone-13">iPhone 13 · notch</button>
-      <button data-device="iphone-17e">iPhone 17e · demo</button>
-      <button data-device="iphone-18-pro">iPhone 18 Pro · Dynamic Island</button>
+  <main class="wrap" style="padding-top: 20px;">
+    <div class="heading">
+      <div>
+        <div class="eyebrow" data-i18n="devicePreview">Device Preview</div>
+        <h1 data-i18n="devicePreviewTitle">All screens, all models.</h1>
+      </div>
+      <p data-i18n="devicePreviewDesc">Scroll horizontally within each model to see all screenshots. iPhone 18 Pro shows real screenshots — others are ready for your assets.</p>
     </div>
 
-    <!-- Сетка предпросмотра мокапов устройств -->
-    <section class="stage">
-      
-      <!-- Мокап 1: iPhone 13 (Главный экран) -->
-      <article class="device-card" data-variant="iphone-13">
-        <div class="phone">
-          <div class="phone-screen">
-            <img src="assets/screenshots/dashboard_free.PNG" alt="BalanceCleaner dashboard in iPhone 13 mockup">
-            <!-- Элемент "Чёлка" -->
-            <div class="notch"></div>
+    <div class="device-grid">
+
+      <!-- ===== iPhone 18 Pro ===== -->
+      <div class="device-group">
+        <div class="device-group-title">iPhone 18 Pro</div>
+        <div class="device-screen-scroll">
+          <div class="device-card frame-18pro">
+            <img class="frame" src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro">
+            <video preload="metadata" class="screen" controls style="background:#fff;">
+              <source src="#" type="video/mp4">
+            </video>
           </div>
-          <!-- Боковые кнопки корпуса -->
-          <div class="side"></div>
-        </div>
-        <h2>iPhone 13</h2>
-        <p>Classic notch frame · current dashboard demo</p>
-      </article>
-
-      <!-- Мокап 2: iPhone 17e (Премиум экран) -->
-      <article class="device-card" data-variant="iphone-17e">
-        <div class="phone">
-          <div class="phone-screen">
-            <img src="assets/screenshots/dashboard_premium.PNG" alt="BalanceCleaner premium dashboard in iPhone 17e mockup">
-            <div class="notch"></div>
+          <div class="device-card frame-18pro">
+            <img class="frame" src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro">
+            <img class="screen" src="assets/screenshots/Screenshot iPhone 18 Pro 1.png" alt="Screen 1">
           </div>
-          <div class="side"></div>
-        </div>
-        <h2>iPhone 17e</h2>
-        <p>Current demo frame · uploaded screenshots shown here</p>
-      </article>
-
-      <!-- Мокап 3: iPhone 18 Pro (Очистка с Dynamic Island) -->
-      <article class="device-card" data-variant="iphone-18-pro">
-        <div class="phone">
-          <div class="phone-screen">
-            <img src="assets/screenshots/cleaning.PNG" alt="BalanceCleaner cleaning screen in iPhone 18 Pro mockup">
-            <!-- Элемент Dynamic Island -->
-            <div class="island"></div>
+          <div class="device-card frame-18pro">
+            <img class="frame" src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro">
+            <img class="screen" src="assets/screenshots/Screenshot iPhone 18 Pro 2.png" alt="Screen 2">
           </div>
-          <div class="side"></div>
-        </div>
-        <h2>iPhone 18 Pro</h2>
-        <p>Dynamic Island frame · temporary cleaning demo</p>
-      </article>
-
-      <!-- Мокап 4: iPhone 13 (Экран истории) -->
-      <article class="device-card" data-variant="iphone-13">
-        <div class="phone">
-          <div class="phone-screen">
-            <img src="assets/screenshots/history.PNG" alt="BalanceCleaner history screen in iPhone 13 mockup">
-            <div class="notch"></div>
+          <div class="device-card frame-18pro">
+            <img class="frame" src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro">
+            <img class="screen" src="assets/screenshots/Screenshot iPhone 18 Pro 3.png" alt="Screen 3">
           </div>
-          <div class="side"></div>
-        </div>
-        <h2>iPhone 13 · History</h2>
-        <p>Same classic notch, another app screen</p>
-      </article>
-
-      <!-- Мокап 5: iPhone 17e (Экран настроек) -->
-      <article class="device-card" data-variant="iphone-17e">
-        <div class="phone">
-          <div class="phone-screen">
-            <img src="assets/screenshots/settings.PNG" alt="BalanceCleaner settings screen in iPhone 17e mockup">
-            <div class="notch"></div>
+          <div class="device-card frame-18pro">
+            <img class="frame" src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro">
+            <img class="screen" src="assets/screenshots/Screenshot iPhone 18 Pro 4.png" alt="Screen 4">
           </div>
-          <div class="side"></div>
-        </div>
-        <h2>iPhone 17e · Settings</h2>
-        <p>Demo screen for the current presentation</p>
-      </article>
-
-      <!-- Мокап 6: iPhone 18 Pro (Плейсхолдер под будущий кадр) -->
-      <article class="device-card" data-variant="iphone-18-pro">
-        <div class="phone">
-          <div class="phone-screen empty">
-            <div>
-              <strong>Final capture</strong>
-              iPhone 18 Pro screen will be added here later.
-            </div>
-            <div class="island"></div>
+          <div class="device-card frame-18pro">
+            <img class="frame" src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro">
+            <img class="screen" src="assets/screenshots/Screenshot iPhone 18 Pro 5.png" alt="Screen 5">
           </div>
-          <div class="side"></div>
+          <div class="device-card frame-18pro">
+            <img class="frame" src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro">
+            <img class="screen" src="assets/screenshots/Screenshot iPhone 18 Pro 6.png" alt="Screen 6">
+          </div>
         </div>
-        <h2>iPhone 18 Pro · Future</h2>
-        <p>Reserved for the final Dynamic Island screenshots</p>
-      </article>
+      </div>
 
-    </section>
+      <!-- ===== iPhone 17 ===== -->
+      <div class="device-group">
+        <div class="device-group-title">iPhone 17</div>
+        <div class="device-screen-scroll">
+          <div class="device-card frame-17">
+            <img class="frame" src="assets/mockups/iPhone 17.png" alt="iPhone 17">
+            <video preload="metadata" class="screen" controls style="background:#fff;">
+              <source src="#" type="video/mp4">
+            </video>
+          </div>
+          <div class="device-card frame-17">
+            <img class="frame" src="assets/mockups/iPhone 17.png" alt="iPhone 17">
+            <div class="screen-placeholder placeholder-label" data-i18n="comingSoon">Coming soon</div>
+          </div>
+          <div class="device-card frame-17">
+            <img class="frame" src="assets/mockups/iPhone 17.png" alt="iPhone 17">
+            <div class="screen-placeholder placeholder-label" data-i18n="comingSoon">Coming soon</div>
+          </div>
+          <div class="device-card frame-17">
+            <img class="frame" src="assets/mockups/iPhone 17.png" alt="iPhone 17">
+            <div class="screen-placeholder placeholder-label" data-i18n="comingSoon">Coming soon</div>
+          </div>
+        </div>
+      </div>
 
-    <!-- Пояснительное примечание внизу страницы -->
-    <div class="legend">
-      <strong>Demo note:</strong> the phone shells are CSS presentation frames, not official Apple assets. The screenshots are your current demo materials and can be replaced independently in the assets folders.
+      <!-- ===== iPhone 16 Pro ===== -->
+      <div class="device-group">
+        <div class="device-group-title">iPhone 16 Pro</div>
+        <div class="device-screen-scroll">
+          <div class="device-card frame-16pro">
+            <img class="frame" src="assets/mockups/iPhone 16 pro.png" alt="iPhone 16 Pro">
+            <video preload="metadata" class="screen" controls style="background:#fff;">
+              <source src="#" type="video/mp4">
+            </video>
+          </div>
+          <div class="device-card frame-16pro">
+            <img class="frame" src="assets/mockups/iPhone 16 pro.png" alt="iPhone 16 Pro">
+            <div class="screen-placeholder placeholder-label" data-i18n="comingSoon">Coming soon</div>
+          </div>
+          <div class="device-card frame-16pro">
+            <img class="frame" src="assets/mockups/iPhone 16 pro.png" alt="iPhone 16 Pro">
+            <div class="screen-placeholder placeholder-label" data-i18n="comingSoon">Coming soon</div>
+          </div>
+          <div class="device-card frame-16pro">
+            <img class="frame" src="assets/mockups/iPhone 16 pro.png" alt="iPhone 16 Pro">
+            <div class="screen-placeholder placeholder-label" data-i18n="comingSoon">Coming soon</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== iPhone SE ===== -->
+      <div class="device-group">
+        <div class="device-group-title">iPhone SE</div>
+        <div class="device-screen-scroll">
+          <div class="device-card frame-se">
+            <img class="frame" src="assets/mockups/iPhone SE.png" alt="iPhone SE">
+            <video preload="metadata" class="screen" controls style="background:#fff;">
+              <source src="#" type="video/mp4">
+            </video>
+          </div>
+          <div class="device-card frame-se">
+            <img class="frame" src="assets/mockups/iPhone SE.png" alt="iPhone SE">
+            <div class="screen-placeholder placeholder-label" data-i18n="comingSoon">Coming soon</div>
+          </div>
+          <div class="device-card frame-se">
+            <img class="frame" src="assets/mockups/iPhone SE.png" alt="iPhone SE">
+            <div class="screen-placeholder placeholder-label" data-i18n="comingSoon">Coming soon</div>
+          </div>
+          <div class="device-card frame-se">
+            <img class="frame" src="assets/mockups/iPhone SE.png" alt="iPhone SE">
+            <div class="screen-placeholder placeholder-label" data-i18n="comingSoon">Coming soon</div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
   </main>
 
-  <!-- =========================================================================
-    3. ИНТЕРАКТИВНЫЙ СКРИПТ (JAVASCRIPT)
-    Фильтрация карточек устройств при нажатии на кнопки переключения.
-  ========================================================================== -->
-  <script>
-    /**
-     * Логика фильтрации мокапов по категориям устройств:
-     * - При клике на кнопку таба обновляется активное состояние (.active).
-     * - Сравнивается data-device кнопки с data-variant карточки.
-     * - Если выбирается 'all' — показываются все устройства, иначе скрываются неподходящие (.hidden).
-     */
-    document.querySelectorAll('.switcher button').forEach(button => {
-      button.onclick = () => {
-        // Сбрасываем активный класс у всех кнопок и добавляем текущей
-        document.querySelectorAll('.switcher button').forEach(b => b.classList.remove('active'));
-        button.classList.add('active');
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-left">
+        <strong>BalanceCleaner</strong>
+        <span>© 2026</span>
+        <a href="privacy.html" data-i18n="privacy">Privacy</a>
+      </div>
+      <div class="footer-right">
+        <div class="custom-lang">
+          <button class="lang-btn" aria-label="Select language">
+            <span class="lang-label">EN</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
+          </button>
+          <div class="lang-menu lang-menu-up">
+            <button data-val="en">🇬🇧 EN</button>
+            <button data-val="ru">🇷🇺 RU</button>
+            <button data-val="fr">🇫🇷 FR</button>
+            <button data-val="de">🇩🇪 DE</button>
+            <button data-val="es">🇪🇸 ES</button>
+            <button data-val="it">🇮🇹 IT</button>
+            <button data-val="hy">🇦🇲 HY</button>
+        </div>
+        </div>
+        <button class="theme" type="button" aria-label="Toggle theme">
+          <span class="theme-icon">☼</span>
+        </button>
+      </div>
+    </div>
+  </footer>
 
-        // Получаем идентификатор выбранного устройства
-        const selectedDevice = button.dataset.device;
-
-        // Фильтруем карточки
-        document.querySelectorAll('.device-card').forEach(card => {
-          const isMatch = selectedDevice === 'all' || card.dataset.variant === selectedDevice;
-          card.classList.toggle('hidden', !isMatch);
-        });
-      };
-    });
-  </script>
+  <script src="assets/main.js"></script>
 </body>
 </html>

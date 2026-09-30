@@ -1,181 +1,20 @@
-# BalanceCleaner
+# BalanceCleaner Website
 
-## Модуль 1 — сайт
+A static landing page for the **BalanceCleaner** iOS application.
 
-Одностраничный сайт-презентация BalanceCleaner в тёмном premium-стиле с красными акцентами, анимированным фоном, floating glass header, App Preview, поддержкой и футером.
+## Overview
+BalanceCleaner allows users to clear their remaining Apple ID balance down to zero using calculated In-App Purchases, enabling them to change their App Store region freely.
 
-## Страницы
+## Tech Stack
+- HTML5 / CSS3 / Vanilla JavaScript
+- Zero dependencies, no frameworks, no build tools
+- Custom Coverflow Carousel and ScrollSpy logic
+- i18n support via simple JSON dictionaries
 
-- `index.html` — главная страница, hero, preview-заглушки, функции и футер.
-- `support.html` — публичная страница поддержки для App Store Connect Support URL.
-- `privacy.html` — политика конфиденциальности.
-- `LICENSE` — Apache License 2.0.
-
-## Папки и форматы
-
-```text
-assets/
-├── screenshots/   # PNG/JPG: реальные экраны приложения
-├── videos/        # MP4/H.264 или WebM + preview-poster.jpg
-├── icons/         # SVG; PNG 512×512 или 1024×1024 с прозрачностью
-├── images/        # WebP/JPG/PNG для маркетинговых материалов
-└── app-store/     # локализованные материалы App Store Connect
-    ├── en-US/
-    ├── fr-FR/
-    ├── es-ES/
-    ├── it-IT/
-    ├── de-DE/
-    └── ru-RU/
-```
-
-В секции Preview сейчас стоят заглушки. Позже добавьте:
-
-- `assets/screenshots/dashboard.png` — обзор;
-- `assets/screenshots/cleaning.png` — очистка;
-- `assets/screenshots/insights.png` — аналитика.
-
-Имена файлов лучше писать в нижнем регистре через дефис. Не загружайте реальные персональные данные пользователей.
-
-## Поддержка и App Store Connect
-
-После публикации по HTTPS используйте:
-
-```text
-https://ваш-домен/support.html
-https://ваш-домен/privacy.html
-```
-
-`support.html` содержит контакт разработчика, форму с именем, фамилией, email и сообщением, а также ссылку на политику. Перед публикацией проверьте адрес `support@balancecleaner.app`, активацию FormSubmit и соответствие App Privacy фактическому поведению приложения.
-
-## Ветки
-
-- `main` — текущая стабильная версия;
-- `module-1-initial-website-state` — резервная точка модуля 1.
-
-## Лицензия
-
-Apache License 2.0. Подробности — в `LICENSE`.
-=======
-## Что это за проект
-
-BalanceCleaner — адаптивный сайт-презентация приложения с тёмным интерфейсом, зелёно-синими акцентами, анимированным фоном, переключением темы, выбором языка и формой обратной связи.
-
-## Основные страницы
-
-- `index.html` — главная страница, App Preview, описание функций и форма обратной связи.
-- `support.html` — отдельная страница поддержки для публичного **Support URL** в App Store Connect.
-- `privacy.html` — политика конфиденциальности. Её необходимо поддерживать в соответствии с реальными функциями приложе��ия и формой.
-- `LICENSE` — Apache License 2.0 для исходного кода проекта.
-
-## Структура папок
-
-```text
-BalanceCleaner/
-├── index.html
-├── support.html
-├── privacy.html
-├── README.md
-├── LICENSE
-└── assets/
-    ├── screenshots/
-    ├── videos/
-    ├── icons/
-    ├── images/
-    └── app-store/
-        ├── en-US/
-        ├── fr-FR/
-        ├── es-ES/
-        ├── it-IT/
-        ├── de-DE/
-        └── ru-RU/
-```
-
-### `assets/screenshots/`
-
-Сюда добавляются реальные скриншоты интерфейса приложения, которые используются в блоке App Preview.
-
-Рекомендуемые имена:
-
-- `dashboard.png` — главный экран или обзор;
-- `cleaning.png` — экран очистки;
-- `insights.png` — статистика и аналитика.
-
-Используйте PNG или JPG. Не добавляйте личные данные пользователей. Все изображения лучше делать в одном стиле и с одинаковым размером устройства.
-
-### `assets/videos/`
-
-Сюда помещаются демонстрационные видео приложения и анимации.
-
-Рекомендуемые форматы:
-
-- MP4 с кодеком H.264 — основной вариант;
-- WebM — вариант для веба;
-- `preview-poster.jpg` — постер, который показывается до запуска видео.
-
-Видео должны быть короткими, оптимизированными для мобильных устройств и не должны содержать приватные данные.
-
-### `assets/icons/`
-
-Сюда помещаются иконки приложения и иконки функций.
-
-Рекомендуется:
-
-- SVG — для иконок сайта;
-- PNG с прозрачным фоном — запасной вариант;
-- квадратные PNG размером 512×512 или 1024×1024;
-- имена файлов в нижнем регистре через дефис: `app-icon.svg`, `feature-cleaning.svg`.
-
-### `assets/images/`
-
-Сюда помещаются маркетинговые изображения и фотографии:
-
-- WebP — предпочтительно для фотографий;
-- JPG — для непрозрачных изображений;
-- PNG — если нужна прозрачность.
-
-### `assets/app-store/`
-
-Здесь хранятся финальные локализованные материалы для App Store Connect. Для каждого языка используется отдельная папка: `en-US`, `fr-FR`, `es-ES`, `it-IT`, `de-DE`, `ru-RU`.
-
-Не путайте эти материалы с превью сайта: в App Store Connect нужно загружать реальные скриншоты приложения, а не CSS-макет сайта.
-
-## Форма обратной связи
-
-Форма собирает имя, фамилию, email и сообщение именно в этом порядке. Сейчас используется FormSubmit, отправляющий обращения на `support@balancecleaner.app`.
-
-Перед публикацией:
-
-1. Убедитесь, что почтовый ящик существует.
-2. Отправьте тестовую форму.
-3. Завершите активацию FormSubmit, если она будет запрошена.
-4. Проверьте политику конфиденциальности FormSubmit.
-5. Обновите `privacy.html`, если изменится сервис, получатель или список полей.
-
-## App Store Connect
-
-Для App Store Connect подготовьте:
-
-- публичный URL политики конфиденциальности: `/privacy.html`;
-- публичный Support URL: `/support.html`;
-- рабочий контакт разработчика;
-- точные сведения в разделе App Privacy;
-- реальные скриншоты приложения для нужных размеров устройств;
-- описания и материалы для поддерживаемых языков.
-
-Пример URL после публикации сайта:
-
-```text
-https://your-domain.example/support.html
-https://your-domain.example/privacy.html
-```
-
-Это статический сайт. Для HTTPS и публичного доступа его можно разместить через GitHub Pages, Netlify, Vercel или другой хостинг. Перед добавлением URL в App Store Connect обязательно проверьте, что обе страницы открываются без авторизации.
-
-## Ветки
-
-- `main` — основная версия сайта;
-- `module-1-initial-website-state` — резервная точка модуля 1, к которой можно вернуться.
-
-## Лицензия
-
-Проект распространяется по Apache License 2.0. Подробности находятся в файле `LICENSE`.
+## Structure
+- `index.html`: Main landing page
+- `privacy.html`: Privacy policy
+- `support.html`: Support and contact form
+- `device-preview.html`: Device mockup carousel
+- `assets/`: Contains `main.js`, `site.css`, fonts, images, and translations.
+- `assets/app-store/`: Contains localized App Store Connect metadata.

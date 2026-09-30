@@ -516,15 +516,6 @@ document.addEventListener('click', function(e) {
 // LANGUAGE SWITCHER DROPDOWNS (multiple on page)
 // =========================================================================
 
-  // Handle privacy page custom tabs to update global language
-  document.querySelectorAll('.lang-tab').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const code = btn.getAttribute('data-lang');
-      if (code) applyLanguage(code);
-    });
-  });
-
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.lang-btn');
   if (btn) {

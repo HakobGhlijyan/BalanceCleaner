@@ -148,7 +148,7 @@
 
       // Сохраняем выбор в localStorage
       localStorage.setItem('balance-language', code);
-      langSelect.value = code;
+      const ls = document.getElementById("language"); if(ls) ls.value = code;
     }
 
     // Инициализация языка при загрузке

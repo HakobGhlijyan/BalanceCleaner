@@ -946,9 +946,10 @@ footer a:hover {
 }
 
 
-.links a.active {
+.links a.active,
+.nav-center a.active {
   color: var(--green) !important;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 
@@ -1362,21 +1363,4 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(87, 217, 159, 0.15);
 }
 
-.nav-capsule {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 32px;
-  background: rgba(87, 217, 159, 0.15);
-  border-radius: 16px;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0;
-}
-.links a {
-  position: relative;
-  z-index: 1;
-  padding: 6px 12px;
-  margin: -6px -12px; /* counteract padding so layout doesn't change */
-}
+

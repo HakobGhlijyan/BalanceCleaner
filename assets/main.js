@@ -637,38 +637,67 @@ class Coverflow {
 
 document.addEventListener('DOMContentLoaded', () => { if (document.querySelector('.coverflow-container')) new Coverflow(); });
 
-
-
-
 // =========================================================================
 // ACTIVE NAV STATE ON SCROLL
 // =========================================================================
+function setActiveLink(href) {
+  document.querySelectorAll('.links a, .nav-center a').forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === href);
+  });
+}
+
 function setupScrollSpy() {
-  const sections = document.querySelectorAll('main > section');
+  // Only run on index page
+  if (!document.querySelector('main > section')) return;
+
+  const homeLink = document.querySelector('.links a[href="#"], .links a[href="index.html"], .nav-center a[href="#"], .nav-center a[href="index.html"]');
+  const sections = Array.from(document.querySelectorAll('main > section[id]'));
   if (!sections.length) return;
-  const navLinks = document.querySelectorAll('.links a[href^="index.html#"], .links a[href^="#"]');
-  
-  if (sections.length === 0 || navLinks.length === 0) return;
+
+  // Mark Home active when near top
+  function checkTop() {
+    if (window.scrollY < 80) {
+      document.querySelectorAll('.links a, .nav-center a').forEach(l => l.classList.remove('active'));
+      if (homeLink) homeLink.classList.add('active');
+      return true;
+    }
+    return false;
+  }
 
   const observer = new IntersectionObserver((entries) => {
+    if (checkTop()) return;
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        let id = entry.target.getAttribute('id');
-        if (!id) return;
-        
-        navLinks.forEach(link => {
-          link.classList.remove('active');
+        const id = entry.target.getAttribute('id');
+        const matchHref = '#' + id;
+        const altHref = 'index.html#' + id;
+        document.querySelectorAll('.links a, .nav-center a').forEach(link => {
           const href = link.getAttribute('href');
-          if (href === '#' + id || href === 'index.html#' + id) {
-            link.classList.add('active');
-          }
+          link.classList.toggle('active', href === matchHref || href === altHref);
         });
-        updateNavCapsules();
       }
     });
   }, { rootMargin: '-50% 0px -50% 0px' });
 
   sections.forEach(sec => observer.observe(sec));
+
+  window.addEventListener('scroll', () => { checkTop(); }, { passive: true });
+
+  // Set initial state
+  checkTop() || (() => {
+    // If not at top, find first visible section
+    for (const sec of sections) {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
+        const id = sec.getAttribute('id');
+        document.querySelectorAll('.links a, .nav-center a').forEach(link => {
+          const href = link.getAttribute('href');
+          link.classList.toggle('active', href === '#' + id || href === 'index.html#' + id);
+        });
+        break;
+      }
+    }
+  })();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -687,35 +716,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
   if (path.includes('support.html')) {
     const link = document.querySelector('.links a[href="support.html"]');
-    if (link) { link.classList.add('active'); updateNavCapsules(); }
+    if (link) link.classList.add('active');
   } else if (path.includes('privacy.html')) {
     const link = document.querySelector('.links a[href="privacy.html"]');
-    if (link) { link.classList.add('active'); updateNavCapsules(); }
+    if (link) link.classList.add('active');
   }
 });
-
-
-// =========================================================================
-// NAV CAPSULE
-// =========================================================================
-function updateNavCapsules() {
-  document.querySelectorAll('nav.links').forEach(nav => {
-    let capsule = nav.querySelector('.nav-capsule');
-    if (!capsule) {
-      capsule = document.createElement('div');
-      capsule.className = 'nav-capsule';
-      nav.appendChild(capsule);
-    }
-    const active = nav.querySelector('a.active');
-    if (active) {
-      capsule.style.width = active.offsetWidth + 'px';
-      capsule.style.left = active.offsetLeft + 'px';
-      capsule.style.opacity = '1';
-    } else {
-      capsule.style.opacity = '0';
-      capsule.style.width = '0px';
-    }
-  });
-}
-window.addEventListener('resize', updateNavCapsules);
-document.addEventListener('DOMContentLoaded', () => { setTimeout(updateNavCapsules, 100); });

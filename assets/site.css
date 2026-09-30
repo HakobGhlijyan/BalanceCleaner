@@ -961,18 +961,6 @@ footer a:hover {
 
 
 
-}
-
-
-
-
-@media (max-width: 1024px) {
-  
-}
-@media (max-width: 600px) {
-  
-}
-
 /* Policy visibility */
 .policy-content {
   display: none;

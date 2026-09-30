@@ -8,6 +8,7 @@
   <title>BalanceCleaner</title>
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/theme-fixes.css">
+  <link rel="stylesheet" href="assets/responsive.css">
 </head>
 <body>
 
@@ -29,6 +30,10 @@
       <a href="privacy.html" data-i18n="privacy">Privacy</a>
     </nav>
 
+    <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobileNav').classList.add('open')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
     <div class="actions">
       <div class="custom-lang">
         <button class="lang-btn" aria-label="Select language">
@@ -49,6 +54,17 @@
       </button>
     </div>
   </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <button class="mobile-nav-close" onclick="this.parentElement.classList.remove('open')">&times;</button>
+    <a href="#story" data-i18n="about" onclick="this.parentElement.classList.remove('open')">About</a>
+    <a href="#screens" data-i18n="screens" onclick="this.parentElement.classList.remove('open')">Screens</a>
+    <a href="#video" data-i18n="video" onclick="this.parentElement.classList.remove('open')">Video</a>
+    <a href="#features" data-i18n="features" onclick="this.parentElement.classList.remove('open')">Features</a>
+    <a href="support.html" data-i18n="support">Support</a>
+    <a href="privacy.html" data-i18n="privacy">Privacy</a>
+  </div>
 
 
   <!-- =========================================================================

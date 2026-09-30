@@ -50,7 +50,13 @@ const dictionaries = {
     faq4q: 'Do I need an account?',
     faq4a: 'No account is required. Download and start immediately.',
     faq5q: 'What is Pro?',
-    faq5a: 'Pro unlocks full transaction history, PDF export, and advanced settings. The core cleaner is free for everyone.'
+    faq5a: 'Pro unlocks full transaction history, PDF export, and advanced settings. The core cleaner is free for everyone.',
+    faq6q: 'What is the Region Checklist?',
+    faq6a: 'A step-by-step guide to prepare your account for a region change. It checks if your Apple ID balance is zero, subscriptions are canceled, and Family Sharing is left.',
+    faq7q: 'What Pro customization is available?',
+    faq7a: 'Pro users can change the App background to Starfield and customize the Amount Ring Apple Glow Intent Design.',
+    proFeaturesTitle: 'Premium Features',
+    proFeaturesDesc: 'Unlock full transaction history, export records to PDF, customize the Amount Ring glow, and set a Starfield background.'
   }
 };
 
@@ -222,7 +228,7 @@ document.addEventListener('click', function(e) {
     'transform:translate(-50%,-50%)',
     'z-index:9999',
     'pointer-events:none',
-    'transition:width 2s ease, height 2s ease'
+    'transition:width 0.8s ease, height 0.8s ease, opacity 0.4s ease 0.4s'
   ].join(';');
   document.body.appendChild(overlay);
 
@@ -233,8 +239,9 @@ document.addEventListener('click', function(e) {
   overlay.style.height = maxDim;
 
   // Apply theme mid-transition for smooth feel
-  setTimeout(() => applyTheme(next), 600);
-  setTimeout(() => overlay.remove(), 2100);
+  setTimeout(() => applyTheme(next), 300);
+  setTimeout(() => { overlay.style.opacity = '0'; }, 400);
+  setTimeout(() => overlay.remove(), 850);
 });
 
 // =========================================================================
@@ -362,3 +369,67 @@ class Coverflow {
 }
 
 document.addEventListener('DOMContentLoaded', () => new Coverflow());
+
+
+// =========================================================================
+// SPA SECTION TOGGLING (For index.html)
+// =========================================================================
+function activateSection(id) {
+  const target = document.getElementById(id);
+  if (!target || !target.classList.contains('section')) return;
+  
+  // Hide all sections, apple banner, hero
+  document.querySelectorAll('main > section').forEach(sec => {
+    sec.style.display = 'none';
+  });
+  
+  // Show target
+  target.style.display = 'flex';
+  
+  // Update nav active states
+  document.querySelectorAll('.links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+  });
+  
+  // Trigger reveal on the newly visible section
+  target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Only apply on index.html where these sections exist
+  if (!document.querySelector('main > section.hero')) return;
+
+  // Logo brings back to home
+  const brand = document.querySelector('.brand');
+  if (brand && window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+    brand.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelectorAll('main > section').forEach(sec => {
+        sec.style.display = 'block';
+      });
+      // But keep our display:flex for regular sections?
+      // Actually let's just reload the page for Home to be safe and reset state
+      window.location.href = 'index.html';
+    });
+  }
+
+
+  const links = document.querySelectorAll('.links a[href^="#"]');
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const id = link.getAttribute('href').substring(1);
+      activateSection(id);
+    });
+  });
+
+  // Handle 'Explore the product' in Hero
+  const exploreBtn = document.querySelector('a[href="#screens"]');
+  if (exploreBtn) {
+    exploreBtn.addEventListener('click', e => {
+      e.preventDefault();
+      activateSection('screens');
+    });
+  }
+});

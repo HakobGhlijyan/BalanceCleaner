@@ -205,6 +205,10 @@ a {
    6. ОБЩИЕ СЕКЦИИ И ЗАГОЛОВКИ (SECTIONS & HEADINGS)
    ========================================================================== */
 .section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 88px 0;
   border-top: 1px solid var(--line);
 }
@@ -301,7 +305,7 @@ a {
 
 .card img {
   aspect-ratio: 9/16;
-  object-fit: cover;
+  object-fit: contain; background: #000;
   display: block;
   width: 100%;
   height: 255px;
@@ -337,7 +341,7 @@ a {
 
 .video video {
   aspect-ratio: 9/16;
-  object-fit: cover;
+  object-fit: contain; background: #000;
   display: block;
   width: 100%;
   max-height: 620px;
@@ -574,7 +578,7 @@ footer a:hover {
 .coverflow-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; background: #000;
 }
 
 .coverflow-controls {
@@ -742,6 +746,8 @@ footer a:hover {
    SUB-HEADER BANNER
    ========================================================================== */
 .sub-header-banner {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -774,8 +780,19 @@ footer a:hover {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
+.footer-left, .footer-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-right .custom-lang, .footer-right .theme, .footer-right .social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .footer-left {
   display: flex;
   align-items: center;
@@ -841,7 +858,8 @@ footer a:hover {
 }
 .mockup-wrap {
   position: relative;
-  width: 200px;
+  width: 280px;
+  max-width: 100%;
 }
 .mockup-frame {
   width: 100%;
@@ -858,7 +876,7 @@ footer a:hover {
   height: var(--vid-h);
   z-index: 1;
   border-radius: var(--vid-radius);
-  object-fit: cover;
+  object-fit: contain; background: #000;
   background: #000;
 }
 
@@ -889,4 +907,40 @@ footer a:hover {
 /* But don't affect transforms/sizes for animations */
 .coverflow-item, .reveal, .lang-menu, .social-icon {
   transition-property: transform, opacity, background-color, border-color, color;
+}
+
+
+/* FAQ Redesign */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-item {
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px 24px;
+  transition: all 0.3s ease;
+}
+.faq-item summary {
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  outline: none;
+  position: relative;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-content {
+  margin-top: 16px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.faq-item[open] {
+  border-color: var(--green);
 }

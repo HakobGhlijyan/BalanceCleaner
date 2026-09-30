@@ -1,4 +1,15 @@
-<!doctype html>
+import re
+
+with open('privacy.html', 'r') as f:
+    html = f.read()
+
+# Extract main content
+main_regex = r'<main.*?</main>'
+match = re.search(main_regex, html, re.DOTALL)
+main_content = match.group(0) if match else '<main class="wrap" style="padding-top: 20px;"><h1>Privacy Policy</h1><p>See PRIVACY.md</p></main>'
+
+# We will just rewrite the file with the same standard shell as support.html
+new_html = f'''<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -8,31 +19,31 @@
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/theme-fixes.css">
   <style>
-    .privacy-content {
+    .privacy-content {{
       background: var(--surface2);
       border: 1px solid var(--line);
       border-radius: 16px;
       padding: 40px;
       text-align: left;
-    }
-    .privacy-content h2 { margin-top: 30px; margin-bottom: 15px; font-size: 20px; }
-    .privacy-content p, .privacy-content li { color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
-    .privacy-content ul { padding-left: 20px; margin-bottom: 20px; }
+    }}
+    .privacy-content h2 {{ margin-top: 30px; margin-bottom: 15px; font-size: 20px; }}
+    .privacy-content p, .privacy-content li {{ color: var(--muted); line-height: 1.6; margin-bottom: 10px; }}
+    .privacy-content ul {{ padding-left: 20px; margin-bottom: 20px; }}
     /* Language Tabs */
-    .lang-tabs {
+    .lang-tabs {{
       display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px;
       padding-bottom: 20px; border-bottom: 1px solid var(--line);
-    }
-    .lang-tabs button {
+    }}
+    .lang-tabs button {{
       padding: 8px 16px; border-radius: 20px; background: transparent;
       border: 1px solid var(--line); color: var(--muted); cursor: pointer;
       font-size: 14px; transition: all 0.2s;
-    }
-    .lang-tabs button.active, .lang-tabs button:hover {
+    }}
+    .lang-tabs button.active, .lang-tabs button:hover {{
       background: var(--text); color: var(--bg); border-color: var(--text);
-    }
-    .policy-section { display: none; }
-    .policy-section.active { display: block; }
+    }}
+    .policy-section {{ display: none; }}
+    .policy-section.active {{ display: block; }}
   </style>
 </head>
 <body>
@@ -71,55 +82,7 @@
     </div>
   </header>
 
-  <main class="wrap" style="padding-top: 20px;">
-  <section class="hero" style="text-align: center;">
-    <div class="eyebrow">Privacy</div>
-    <h1>Privacy Policy</h1>
-  </section>
-  <div class="privacy-content">
-    <div class="lang-tabs">
-  <button data-lang="en" class="active">English</button>
-  <button data-lang="ru">Русский</button>
-  <button data-lang="fr">Français</button>
-  <button data-lang="de">Deutsch</button>
-  <button data-lang="es">Español</button>
-  <button data-lang="it">Italiano</button>
-</div>
-
-
-    <div id="policy-en" class="policy-section active">
-<p><strong>Last updated:</strong> September 2026
-
-#</p>
-</div>
-<div id="policy-ru" class="policy-section">
-<p><strong>Последнее обновление:</strong> Сентябрь 2026
-
-#</p>
-</div>
-<div id="policy-fr" class="policy-section">
-<p><strong>Dernière mise à jour :</strong> Septembre 2026
-
-#</p>
-</div>
-<div id="policy-de" class="policy-section">
-<p><strong>Letzte Aktualisierung:</strong> September 2026
-
-#</p>
-</div>
-<div id="policy-es" class="policy-section">
-<p><strong>Última actualización:</strong> Septiembre 2026
-
-#</p>
-</div>
-<div id="policy-it" class="policy-section">
-<p><strong>Ultimo aggiornamento:</strong> Settembre 2026
-
-#</p>
-</div>
-
-  </div>
-</main>
+  {main_content}
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
@@ -158,14 +121,20 @@
 
   <script src="assets/main.js"></script>
   <script>
-    document.querySelectorAll('.lang-tabs button').forEach(btn => {
-      btn.addEventListener('click', () => {
+    document.querySelectorAll('.lang-tabs button').forEach(btn => {{
+      btn.addEventListener('click', () => {{
         document.querySelectorAll('.lang-tabs button').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.policy-section').forEach(s => s.classList.remove('active'));
         btn.classList.add('active');
         document.getElementById('policy-' + btn.dataset.lang).classList.add('active');
-      });
-    });
+      }});
+    }});
   </script>
 </body>
 </html>
+'''
+
+with open('privacy.html', 'w') as f:
+    f.write(new_html)
+
+print("privacy.html rewritten")

@@ -91,7 +91,8 @@ const dictionaries = {
     privCard3Title: 'No Data Sales',
     privCard3Desc: 'Your personal details are never sold, rented, or shared with third-party advertisers.',
     proFeaturesTitle: 'Premium Features',
-    proFeaturesDesc: 'Unlock full transaction history, export records to PDF, customize the Amount Ring glow, and set a Starfield background.'
+    proFeaturesDesc: 'Unlock full transaction history, export records to PDF, customize the Amount Ring glow, and set a Starfield background.',
+    devicePreview: 'Device Preview', devicePreviewTitle: 'All screens, all models.', devicePreviewDesc: 'Scroll horizontally within each model to see all screenshots. iPhone 18 Pro shows real screenshots — others are ready for your assets.', comingSoon: 'Coming soon'
   }
 };
 
@@ -175,7 +176,8 @@ fill('ru', {
   privCard2Title: 'Нет доступа к платежам',
   privCard2Desc: 'Мы никогда не видим, не собираем и не храним ваш пароль Apple ID, данные карт или платёжную информацию.',
   privCard3Title: 'Данные не продаются',
-  privCard3Desc: 'Ваши личные данные никогда не передаются третьим лицам и рекламодателям.',
+  privCard3Desc: 'Ваши личные данные никогда не передаются третьим лицам и рекламодателям.',,
+  devicePreview: 'Предпросмотр устройств', devicePreviewTitle: 'Все экраны, все модели.', devicePreviewDesc: 'Прокручивайте горизонтально, чтобы посмотреть все скриншоты. На iPhone 18 Pro показаны реальные снимки — остальные готовы для ваших материалов.', comingSoon: 'Скоро'
 });
 
 fill('fr', {
@@ -201,7 +203,8 @@ fill('fr', {
   privacyTitle: 'Politique de confidentialité',
   privCard1Title: 'Apple StoreKit Sécurisé',
   privCard2Title: 'Zéro accès aux paiements',
-  privCard3Title: 'Aucune vente de données',
+  privCard3Title: 'Aucune vente de données',,
+  devicePreview: 'Aperçu des appareils', devicePreviewTitle: 'Tous les écrans, tous les modèles.', devicePreviewDesc: 'Faites défiler horizontalement pour voir toutes les captures d\'écran. L\'iPhone 18 Pro affiche de vraies captures.', comingSoon: 'Bientôt'
 });
 
 fill('de', {
@@ -227,7 +230,8 @@ fill('de', {
   privacyTitle: 'Datenschutzerklärung',
   privCard1Title: 'Apple StoreKit-Sicherheit',
   privCard2Title: 'Kein Zahlungszugriff',
-  privCard3Title: 'Keine Datenweitergabe',
+  privCard3Title: 'Keine Datenweitergabe',,
+  devicePreview: 'Geräte Vorschau', devicePreviewTitle: 'Alle Bildschirme, alle Modelle.', devicePreviewDesc: 'Scrollen Sie horizontal, um alle Screenshots zu sehen. iPhone 18 Pro zeigt echte Bilder.', comingSoon: 'Demnächst'
 });
 
 fill('es', {
@@ -253,7 +257,8 @@ fill('es', {
   privacyTitle: 'Política de privacidad',
   privCard1Title: 'Apple StoreKit seguro',
   privCard2Title: 'Sin acceso a pagos',
-  privCard3Title: 'Sin venta de datos',
+  privCard3Title: 'Sin venta de datos',,
+  devicePreview: 'Vista previa de dispositivos', devicePreviewTitle: 'Todas las pantallas, todos los modelos.', devicePreviewDesc: 'Desplácese horizontalmente para ver las capturas. El iPhone 18 Pro muestra capturas reales.', comingSoon: 'Próximamente'
 });
 
 fill('it', {
@@ -279,7 +284,8 @@ fill('it', {
   privacyTitle: 'Informativa sulla privacy',
   privCard1Title: 'Apple StoreKit sicuro',
   privCard2Title: 'Nessun accesso ai pagamenti',
-  privCard3Title: 'Nessuna vendita di dati',
+  privCard3Title: 'Nessuna vendita di dati',,
+  devicePreview: 'Anteprima dispositivi', devicePreviewTitle: 'Tutti gli schermi, tutti i modelli.', devicePreviewDesc: 'Scorri orizzontalmente per vedere tutti gli screenshot. iPhone 18 Pro mostra veri screenshot.', comingSoon: 'In arrivo'
 });
 
 fill('hy', {
@@ -355,7 +361,8 @@ fill('hy', {
     privCard2Title: 'Վճարումների հասանելիություն չկա',
     privCard2Desc: 'Մենք երբեք չենք տեսնում և չենք պահպանում ձեր քարտերի տվյալները:',
     privCard3Title: 'Տվյալների վաճառք չկա',
-    privCard3Desc: 'Ձեր անձնական տվյալները երբեք չեն փոխանցվում երրորդ կողմերին:'
+    privCard3Desc: 'Ձեր անձնական տվյալները երբեք չեն փոխանցվում երրորդ կողմերին:',
+  devicePreview: 'Սարքի դիտում', devicePreviewTitle: 'Բոլոր էկրանները, բոլոր մոդելները.', devicePreviewDesc: 'Ոլորեք հորիզոնական՝ բոլոր սքրինշոթերը տեսնելու համար: iPhone 18 Pro-ն ցույց է տալիս իրական սքրինշոթեր:', comingSoon: 'Շուտով'
 });
 
 // =========================================================================

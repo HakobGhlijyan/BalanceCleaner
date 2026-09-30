@@ -1,181 +1,112 @@
 # BalanceCleaner
 
-## Модуль 1 — сайт
+> Smart Balance Cleaner for iPhone — clear your Apple ID balance before switching regions.
 
-Одностраничный сайт-презентация BalanceCleaner в тёмном premium-стиле с красными акцентами, анимированным фоном, floating glass header, App Preview, поддержкой и футером.
+[![App Store](https://img.shields.io/badge/App_Store-Coming_Soon-0D96F6?logo=apple)](https://apps.apple.com)
 
-## Страницы
+---
 
-- `index.html` — главная страница, hero, preview-заглушки, функции и футер.
-- `support.html` — публичная страница поддержки для App Store Connect Support URL.
-- `privacy.html` — политика конфиденциальности.
-- `LICENSE` — Apache License 2.0.
+## What is BalanceCleaner?
 
-## Папки и форматы
+**BalanceCleaner** is a privacy-first iOS app that helps you easily select or enter the exact custom amount you want to zero out in your Apple ID account balance — with no account registration required.
 
-```text
-assets/
-├── screenshots/   # PNG/JPG: реальные экраны приложения
-├── videos/        # MP4/H.264 или WebM + preview-poster.jpg
-├── icons/         # SVG; PNG 512×512 или 1024×1024 с прозрачностью
-├── images/        # WebP/JPG/PNG для маркетинговых материалов
-└── app-store/     # локализованные материалы App Store Connect
-    ├── en-US/
-    ├── fr-FR/
-    ├── es-ES/
-    ├── it-IT/
-    ├── de-DE/
-    └── ru-RU/
+Designed for users who need to clear a leftover App Store credit (e.g., before switching to a different App Store region), BalanceCleaner provides a transparent, step-by-step experience built around clarity, control, and respect for your data.
+
+---
+
+## Features
+
+### Free Tier
+- **Smart Balance Cleaner** — select or enter the exact amount to clear
+- **Calculate & Split** — see the precise breakdown before confirming
+- **Transaction History** — basic log of all balance operations
+- **Privacy Dashboard** — overview of what data exists locally
+
+### Pro (optional upgrade)
+- Full transaction history (unlimited)
+- PDF export of all operations
+- Advanced settings & customization
+- Priority support
+
+---
+
+## Onboarding Screens
+
+| Screen | Title | Description |
+|--------|-------|-------------|
+| 1 | Smart Balance Cleaner | Choose the exact amount to zero out your Apple account balance |
+| 2 | Calculate & Split | Preview the precise breakdown of remaining balance parts |
+| 3 | Track Every Cleared Balance | Full history of all past operations in one place |
+| 4 | How It Works & Support | Review conditions and how clears work |
+| 5 | Free Tier Features | Standard tools available to all users |
+| 6 | Unlock Pro & Export | PDF export, full history, and advanced settings |
+
+---
+
+## Privacy
+
+BalanceCleaner is privacy-first by design:
+
+- ✅ No account required
+- ✅ No personal data collected
+- ✅ No analytics transmitted
+- ✅ No advertising SDKs
+- ✅ All data stored locally on-device (UserDefaults + Core Data)
+- ✅ All transactions processed by Apple's StoreKit
+
+Full policy: [PRIVACY.md](./PRIVACY.md) | [balancecleaner.app/privacy](https://balancecleaner.app/privacy)
+
+---
+
+## Project Structure
+
 ```
-
-В секции Preview сейчас стоят заглушки. Позже добавьте:
-
-- `assets/screenshots/dashboard.png` — обзор;
-- `assets/screenshots/cleaning.png` — очистка;
-- `assets/screenshots/insights.png` — аналитика.
-
-Имена файлов лучше писать в нижнем регистре через дефис. Не загружайте реальные персональные данные пользователей.
-
-## Поддержка и App Store Connect
-
-После публикации по HTTPS используйте:
-
-```text
-https://ваш-домен/support.html
-https://ваш-домен/privacy.html
-```
-
-`support.html` содержит контакт разработчика, форму с именем, фамилией, email и сообщением, а также ссылку на политику. Перед публикацией проверьте адрес `support@balancecleaner.app`, активацию FormSubmit и соответствие App Privacy фактическому поведению приложения.
-
-## Ветки
-
-- `main` — текущая стабильная версия;
-- `module-1-initial-website-state` — резервная точка модуля 1.
-
-## Лицензия
-
-Apache License 2.0. Подробности — в `LICENSE`.
-=======
-## Что это за проект
-
-BalanceCleaner — адаптивный сайт-презентация приложения с тёмным интерфейсом, зелёно-синими акцентами, анимированным фоном, переключением темы, выбором языка и формой обратной связи.
-
-## Основные страницы
-
-- `index.html` — главная страница, App Preview, описание функций и форма обратной связи.
-- `support.html` — отдельная страница поддержки для публичного **Support URL** в App Store Connect.
-- `privacy.html` — политика конфиденциальности. Её необходимо поддерживать в соответствии с реальными функциями приложе��ия и формой.
-- `LICENSE` — Apache License 2.0 для исходного кода проекта.
-
-## Структура папок
-
-```text
 BalanceCleaner/
-├── index.html
-├── support.html
-├── privacy.html
-├── README.md
-├── LICENSE
+├── index.html              # Main landing page
+├── support.html            # Contact & support form
+├── privacy.html            # Privacy policy (multi-language)
+├── device-preview.html     # All iPhone mockups grid
+├── preview.html            # Screenshot gallery
+├── PRIVACY.md              # Privacy policy source (all 6 languages)
+├── README.md               # This file
 └── assets/
-    ├── screenshots/
-    ├── videos/
-    ├── icons/
-    ├── images/
-    └── app-store/
-        ├── en-US/
-        ├── fr-FR/
-        ├── es-ES/
-        ├── it-IT/
-        ├── de-DE/
-        └── ru-RU/
+    ├── site.css            # Global design system
+    ├── theme-fixes.css     # Light/dark theme tokens
+    ├── main.js             # i18n, theme, carousel, reveal
+    ├── app-store/          # App Store badge SVGs (6 languages)
+    ├── icons/              # App icon (x1024.svg)
+    ├── images/             # Tier/feature images
+    ├── mockups/            # iPhone mockup PNGs (18 Pro, 17, 16 Pro, SE)
+    ├── screenshots/        # App Store screenshots (Page 1–5) & iPhone 18 Pro (1–6)
+    ├── translations/       # JSON translation files (en, ru, fr, de, es, it)
+    └── videos/             # Demo video placeholder (add your .mp4 here)
 ```
 
-### `assets/screenshots/`
+---
 
-Сюда добавляются реальные скриншоты интерфейса приложения, которые используются в блоке App Preview.
+## Supported Languages
 
-Рекомендуемые имена:
+| Code | Language  |
+|------|-----------|
+| en   | English   |
+| ru   | Русский   |
+| fr   | Français  |
+| de   | Deutsch   |
+| es   | Español   |
+| it   | Italiano  |
 
-- `dashboard.png` — главный экран или обзор;
-- `cleaning.png` — экран очистки;
-- `insights.png` — статистика и аналитика.
+---
 
-Используйте PNG или JPG. Не добавляйте личные данные пользователей. Все изображения лучше делать в одном стиле и с одинаковым размером устройства.
+## Development Notes
 
-### `assets/videos/`
+- **Video**: Add your screen recording as `assets/videos/demo.mp4` — the video mockup section will pick it up automatically.
+- **Device Preview**: Add screenshots for iPhone 17, 16 Pro and SE to `assets/screenshots/` and update `device-preview.html`.
+- **Apple Banner**: Generate your smart banner at [Apple Marketing Toolbox](https://toolbox.marketingtools.apple.com/en-us/app-store/us) and paste the HTML into the `#banner` section in `index.html`.
+- **App Store URL**: When live, replace `href="#"` in the Download buttons with your real App Store link.
 
-Сюда помещаются демонстрационные видео приложения и анимации.
+---
 
-Рекомендуемые форматы:
+## License
 
-- MP4 с кодеком H.264 — основной вариант;
-- WebM — вариант для веба;
-- `preview-poster.jpg` — постер, который показывается до запуска видео.
-
-Видео должны быть короткими, оптимизированными для мобильных устройств и не должны содержать приватные данные.
-
-### `assets/icons/`
-
-Сюда помещаются иконки приложения и иконки функций.
-
-Рекомендуется:
-
-- SVG — для иконок сайта;
-- PNG с прозрачным фоном — запасной вариант;
-- квадратные PNG размером 512×512 или 1024×1024;
-- имена файлов в нижнем регистре через дефис: `app-icon.svg`, `feature-cleaning.svg`.
-
-### `assets/images/`
-
-Сюда помещаются маркетинговые изображения и фотографии:
-
-- WebP — предпочтительно для фотографий;
-- JPG — для непрозрачных изображений;
-- PNG — если нужна прозрачность.
-
-### `assets/app-store/`
-
-Здесь хранятся финальные локализованные материалы для App Store Connect. Для каждого языка используется отдельная папка: `en-US`, `fr-FR`, `es-ES`, `it-IT`, `de-DE`, `ru-RU`.
-
-Не путайте эти материалы с превью сайта: в App Store Connect нужно загружать реальные скриншоты приложения, а не CSS-макет сайта.
-
-## Форма обратной связи
-
-Форма собирает имя, фамилию, email и сообщение именно в этом порядке. Сейчас используется FormSubmit, отправляющий обращения на `support@balancecleaner.app`.
-
-Перед публикацией:
-
-1. Убедитесь, что почтовый ящик существует.
-2. Отправьте тестовую форму.
-3. Завершите активацию FormSubmit, если она будет запрошена.
-4. Проверьте политику конфиденциальности FormSubmit.
-5. Обновите `privacy.html`, если изменится сервис, получатель или список полей.
-
-## App Store Connect
-
-Для App Store Connect подготовьте:
-
-- публичный URL политики конфиденциальности: `/privacy.html`;
-- публичный Support URL: `/support.html`;
-- рабочий контакт разработчика;
-- точные сведения в разделе App Privacy;
-- реальные скриншоты приложения для нужных размеров устройств;
-- описания и материалы для поддерживаемых языков.
-
-Пример URL после публикации сайта:
-
-```text
-https://your-domain.example/support.html
-https://your-domain.example/privacy.html
-```
-
-Это статический сайт. Для HTTPS и публичного доступа его можно разместить через GitHub Pages, Netlify, Vercel или другой хостинг. Перед добавлением URL в App Store Connect обязательно проверьте, что обе страницы открываются без авторизации.
-
-## Ветки
-
-- `main` — основная версия сайта;
-- `module-1-initial-website-state` — резервная точка модуля 1, к которой можно вернуться.
-
-## Лицензия
-
-Проект распространяется по Apache License 2.0. Подробности находятся в файле `LICENSE`.
+© 2026 BalanceCleaner. All rights reserved.  
+See [LICENSE](./LICENSE) for details.

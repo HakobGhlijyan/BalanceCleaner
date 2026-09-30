@@ -279,15 +279,39 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="assets/theme-fixes.css">
 </head>
 <body>
 
   <!-- =========================================================================
     1. ШАПКА САЙТА (HEADER)
   ========================================================================== -->
-  <header class="wrap nav">
-    <a class="brand" href="index.html">BalanceCleaner</a>
-    <a href="preview.html">← Back to demos</a>
+    <header class="wrap nav">
+    <a class="brand" href="index.html">
+      <img class="brand-icon" src="assets/icons/x1024.svg" alt="BalanceCleaner icon">
+      <span>BalanceCleaner</span>
+    </a>
+    <nav class="links">
+      <a href="index.html#story" data-i18n="about">About</a>
+      <a href="index.html#screens" data-i18n="screens">Screens</a>
+      <a href="index.html#video" data-i18n="video">Video</a>
+      <a href="index.html#features" data-i18n="features">Features</a>
+      <a href="support.html" data-i18n="support">Support</a>
+      <a href="privacy.html" data-i18n="privacy">Privacy</a>
+    </nav>
+    <div class="actions">
+      <select class="select" id="language" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+        <option value="es">ES</option>
+        <option value="it">IT</option>
+        <option value="de">DE</option>
+        <option value="ru">RU</option>
+      </select>
+      <button class="theme" id="theme" type="button" aria-label="Toggle theme">
+        <span class="theme-icon">☼</span>
+      </button>
+    </div>
   </header>
 
   <!-- =========================================================================
@@ -434,5 +458,6 @@
       };
     });
   </script>
+  <script src="assets/main.js"></script>
 </body>
 </html>

@@ -58,27 +58,39 @@
       cursor: pointer;
     }
   </style>
+  <link rel="stylesheet" href="assets/theme-fixes.css">
 </head>
 <body>
 
   <!-- =========================================================================
     1. ШАПКА САЙТА (HEADER)
   ========================================================================== -->
-  <header class="wrap nav">
+    <header class="wrap nav">
     <a class="brand" href="index.html">
-      <span class="mark">✦</span>BalanceCleaner
+      <img class="brand-icon" src="assets/icons/x1024.svg" alt="BalanceCleaner icon">
+      <span>BalanceCleaner</span>
     </a>
-
-    <!-- Навигационные ссылки -->
     <nav class="links">
-      <a href="index.html#screens">Screens</a>
-      <a href="index.html#video">Video</a>
-      <a href="device-preview.html">Devices</a>
-      <a href="support.html">Support</a>
-      <a href="privacy.html">Privacy</a>
+      <a href="index.html#story" data-i18n="about">About</a>
+      <a href="index.html#screens" data-i18n="screens">Screens</a>
+      <a href="index.html#video" data-i18n="video">Video</a>
+      <a href="index.html#features" data-i18n="features">Features</a>
+      <a href="support.html" data-i18n="support">Support</a>
+      <a href="privacy.html" data-i18n="privacy">Privacy</a>
     </nav>
-
-    <a class="button" href="index.html">Back home</a>
+    <div class="actions">
+      <select class="select" id="language" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+        <option value="es">ES</option>
+        <option value="it">IT</option>
+        <option value="de">DE</option>
+        <option value="ru">RU</option>
+      </select>
+      <button class="theme" id="theme" type="button" aria-label="Toggle theme">
+        <span class="theme-icon">☼</span>
+      </button>
+    </div>
   </header>
 
   <!-- =========================================================================
@@ -222,5 +234,6 @@
     const root = document.documentElement;
     root.classList.toggle('light', localStorage.getItem('balance-theme') === 'light');
   </script>
+  <script src="assets/main.js"></script>
 </body>
 </html>

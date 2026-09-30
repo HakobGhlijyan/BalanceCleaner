@@ -624,8 +624,8 @@ footer a:hover {
 
 /* Scroll Reveal */
 .reveal {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 0;
+    transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .reveal.active {

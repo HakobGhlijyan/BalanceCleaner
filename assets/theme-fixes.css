@@ -72,3 +72,24 @@
     transition-duration: .01ms !important;
   }
 }
+
+/* =========================================================================
+   Update 7: иконки темы (SVG) и логотип в светлой теме
+   ========================================================================== */
+.theme-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.theme-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+/* Логотип белый — в светлой теме кладём его на зелёную плитку */
+:root.light .brand-icon {
+  background: linear-gradient(135deg, var(--green), var(--deep));
+  padding: 5px;
+  box-sizing: border-box;
+}

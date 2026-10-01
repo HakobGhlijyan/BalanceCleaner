@@ -25,38 +25,57 @@
       border-bottom: 1px solid var(--line);
       padding-bottom: 8px;
     }
+    /* Update 5: аналог SwiftUI scrollPosition(anchor: .center) + scrollClipDisabled.
+       Лента на всю ширину окна (не обрезается по краям колонки). Первая карточка
+       стоит по ЦЕНТРУ окна, при скролле уезжает к краю, каждая карточка
+       «примагничивается» по центру. Последняя тоже может встать по центру.
+       Update 5: like SwiftUI scrollPosition(anchor: .center) — full-bleed strip,
+       first card centered, cards snap to center while scrolling. */
+    body { overflow-x: clip; } /* убирает горизонтальный скролл страницы / no page-level x-scroll */
+    .device-group { container-type: inline-size; }
     .device-screen-scroll {
+      --card-w: 260px;                         /* ширина карточки / card width */
+      --gutter: calc(50vw - 50cqw);            /* расстояние от края окна до колонки */
+      --center-pad: calc(50vw - var(--card-w) / 2); /* отступ, при котором карточка по центру */
       display: flex;
       gap: 24px;
       overflow-x: auto;
+      margin-inline: calc(-1 * var(--gutter)); /* выходим за колонку до краёв окна */
+      padding: 0 var(--center-pad) 20px;
       scroll-snap-type: x mandatory;
-      padding: 0 40px 20px 40px; /* Padding so cards aren't flush against edge */
+      overscroll-behavior-x: contain;          /* не триггерит жест «назад» в Safari */
       scrollbar-width: none; /* Firefox */
       -ms-overflow-style: none; /* IE/Edge */
     }
-    .device-screen-scroll::-webkit-scrollbar {
-      display: none;
-    }
-    .device-screen-scroll::before, .device-screen-scroll::after {
-      content: '';
-      flex: 0 0 1px; /* Extra space to ensure full scroll reach */
-    }
+    .device-screen-scroll::-webkit-scrollbar { display: none; }
+    @media (max-width: 768px) { .device-screen-scroll { --card-w: 140px; } }
+    @media (max-width: 560px) { .device-screen-scroll { --card-w: 120px; } }
+    /* responsive.css задаёт padding и width с !important — перебиваем, чтобы центр был точным */
+    .device-screen-scroll { padding-inline: var(--center-pad) !important; }
+    .device-card { width: var(--card-w) !important; scroll-snap-align: center !important; }
 
-    .device-screen-scroll::-webkit-scrollbar { height: 4px; }
-    .device-screen-scroll::-webkit-scrollbar-track { background: var(--surface2); border-radius: 2px; }
-    .device-screen-scroll::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 2px; }
     .device-card {
       position: relative;
       flex-shrink: 0;
-      scroll-snap-align: start;
-      width: 260px;
     }
     .device-card .frame { width: 100%; display: block; position: relative; z-index: 2; pointer-events: none; }
+    /* Update 2: экран обрезается PNG-маской (tools/make_screen_masks.py),
+       а не border-radius. / Screen is clipped by a PNG mask, not border-radius. */
+    .device-card .screen,
+    .device-card .screen-placeholder {
+      -webkit-mask-size: 100% 100%;
+              mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+              mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+              mask-position: center;
+      transform: translateZ(0); /* Safari */
+    }
     .device-card .screen {
       position: absolute;
       z-index: 1;
       object-fit: cover;
-      background: #fff;
+      background: #000;
     }
     .device-card .screen-placeholder {
       position: absolute;
@@ -69,18 +88,34 @@
       font-size: 14px;
       text-align: center;
     }
-    /* iPhone 18 Pro positioning */
+    /* iPhone 18 Pro */
     .frame-18pro .screen,
-    .frame-18pro .screen-placeholder { top: 2.5%; left: 6.5%; width: 87%; height: 95%; border-radius: 26px; }
+    .frame-18pro .screen-placeholder {
+      top: 2.319%; left: 4.963%; width: 90.074%; height: 95.362%;
+      -webkit-mask-image: url("assets/mockups/masks/iPhone-18-Pro-mask.png");
+              mask-image: url("assets/mockups/masks/iPhone-18-Pro-mask.png");
+    }
     /* iPhone 17 */
     .frame-17 .screen,
-    .frame-17 .screen-placeholder { top: 2%; left: 5%; width: 90%; height: 96%; border-radius: 26px; }
+    .frame-17 .screen-placeholder {
+      top: 2.397%; left: 5.667%; width: 88.833%; height: 95.207%;
+      -webkit-mask-image: url("assets/mockups/masks/iPhone-17-mask.png");
+              mask-image: url("assets/mockups/masks/iPhone-17-mask.png");
+    }
     /* iPhone 16 Pro */
     .frame-16pro .screen,
-    .frame-16pro .screen-placeholder { top: 2.5%; left: 6.5%; width: 87%; height: 95%; border-radius: 26px; }
+    .frame-16pro .screen-placeholder {
+      top: 1.790%; left: 4.167%; width: 91.500%; height: 96.338%;
+      -webkit-mask-image: url("assets/mockups/masks/iPhone-16-pro-mask.png");
+              mask-image: url("assets/mockups/masks/iPhone-16-pro-mask.png");
+    }
     /* iPhone SE */
     .frame-se .screen,
-    .frame-se .screen-placeholder { top: 12%; left: 7%; width: 86%; height: 76%; border-radius: 6px; }
+    .frame-se .screen-placeholder {
+      top: 11.488%; left: 6.446%; width: 86.942%; height: 77.025%;
+      -webkit-mask-image: url("assets/mockups/masks/iPhone-SE-mask.png");
+              mask-image: url("assets/mockups/masks/iPhone-SE-mask.png");
+    }
 
     .placeholder-label {
       padding: 8px;
@@ -118,13 +153,13 @@
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
         </button>
         <div class="lang-menu lang-menu-down">
-          <button data-val="en">🇬🇧 EN</button>
-          <button data-val="ru">🇷🇺 RU</button>
-          <button data-val="fr">🇫🇷 FR</button>
-          <button data-val="de">🇩🇪 DE</button>
-          <button data-val="es">🇪🇸 ES</button>
-          <button data-val="it">🇮🇹 IT</button>
-          <button data-val="hy">🇦🇲 HY</button>
+          <button data-val="en">🇬🇧 English</button>
+          <button data-val="ru">🇷🇺 Русский</button>
+          <button data-val="fr">🇫🇷 Français</button>
+          <button data-val="de">🇩🇪 Deutsch</button>
+          <button data-val="es">🇪🇸 Español</button>
+          <button data-val="it">🇮🇹 Italiano</button>
+          <button data-val="hy">🇦🇲 Հայերեն</button>
         </div>
       </div>
       <button class="theme" type="button" aria-label="Toggle theme">
@@ -150,7 +185,7 @@
         <div class="device-screen-scroll">
           <div class="device-card frame-18pro">
             <img class="frame" src="assets/mockups/iPhone 18 Pro.png" alt="iPhone 18 Pro">
-            <video preload="metadata" class="screen" controls style="background:#fff;">
+            <video preload="metadata" class="screen" controls playsinline>
               <source src="#" type="video/mp4">
             </video>
           </div>
@@ -187,7 +222,7 @@
         <div class="device-screen-scroll">
           <div class="device-card frame-17">
             <img class="frame" src="assets/mockups/iPhone 17.png" alt="iPhone 17">
-            <video preload="metadata" class="screen" controls style="background:#fff;">
+            <video preload="metadata" class="screen" controls playsinline>
               <source src="#" type="video/mp4">
             </video>
           </div>
@@ -212,7 +247,7 @@
         <div class="device-screen-scroll">
           <div class="device-card frame-16pro">
             <img class="frame" src="assets/mockups/iPhone 16 pro.png" alt="iPhone 16 Pro">
-            <video preload="metadata" class="screen" controls style="background:#fff;">
+            <video preload="metadata" class="screen" controls playsinline>
               <source src="#" type="video/mp4">
             </video>
           </div>
@@ -237,7 +272,7 @@
         <div class="device-screen-scroll">
           <div class="device-card frame-se">
             <img class="frame" src="assets/mockups/iPhone SE.png" alt="iPhone SE">
-            <video preload="metadata" class="screen" controls style="background:#fff;">
+            <video preload="metadata" class="screen" controls playsinline>
               <source src="#" type="video/mp4">
             </video>
           </div>
@@ -273,14 +308,14 @@
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1L5 5L9 1"/></svg>
           </button>
           <div class="lang-menu lang-menu-up">
-            <button data-val="en">🇬🇧 EN</button>
-            <button data-val="ru">🇷🇺 RU</button>
-            <button data-val="fr">🇫🇷 FR</button>
-            <button data-val="de">🇩🇪 DE</button>
-            <button data-val="es">🇪🇸 ES</button>
-            <button data-val="it">🇮🇹 IT</button>
-            <button data-val="hy">🇦🇲 HY</button>
-        </div>
+            <button data-val="en">🇬🇧 English</button>
+            <button data-val="ru">🇷🇺 Русский</button>
+            <button data-val="fr">🇫🇷 Français</button>
+            <button data-val="de">🇩🇪 Deutsch</button>
+            <button data-val="es">🇪🇸 Español</button>
+            <button data-val="it">🇮🇹 Italiano</button>
+            <button data-val="hy">🇦🇲 Հայերեն</button>
+          </div>
         </div>
         <button class="theme" type="button" aria-label="Toggle theme">
           <span class="theme-icon">☼</span>

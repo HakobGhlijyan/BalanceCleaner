@@ -671,7 +671,7 @@ footer a:hover {
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
-  min-width: 80px;
+  min-width: 168px; /* полные названия языков / full language names */
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
@@ -688,6 +688,7 @@ footer a:hover {
   border: none;
   color: var(--text);
   padding: 10px 16px;
+  white-space: nowrap;
   text-align: left;
   cursor: pointer;
   font-family: inherit;
@@ -869,24 +870,43 @@ footer a:hover {
   position: relative;
   width: 100%;
   max-width: 100%;
+  isolation: isolate;
 }
+/* Рамка сверху / Bezel on top */
 .mockup-frame {
-  width: 100%;
   position: relative;
-  z-index: 10;
-  pointer-events: none;
+  z-index: 2;
   display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
 }
-.mockup-video {
+/* Экран снизу: форма берётся из PNG-маски (tools/make_screen_masks.py),
+   а не из border-radius. / Screen below: shape comes from a PNG mask. */
+.mockup-screen {
   position: absolute;
+  z-index: 1;
   top: var(--vid-top);
   left: var(--vid-left);
   width: var(--vid-w);
   height: var(--vid-h);
-  z-index: 1;
-  border-radius: var(--vid-radius);
+  overflow: hidden;
+  background: #000;
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  transform: translateZ(0); /* Safari */
+}
+.mockup-video {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  background: #fff;
+  background: #000;
 }
 
 /* =========================================================================

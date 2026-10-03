@@ -35,7 +35,6 @@
       <a href="support.html" data-i18n="support">Support</a>
       <a href="privacy.html" data-i18n="privacy" class="active">Privacy</a>
     </nav>
-    </nav>
     <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobileNav').classList.add('open')">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
@@ -73,7 +72,7 @@
     <section class="hero" style="padding: 60px 0 30px;">
       <div class="eyebrow">Your privacy matters</div>
       <h1 class="hero-title">Privacy Policy</h1>
-      <div class="muted">Last updated: September 24, 2026</div>
+      <div class="muted">Last updated: October 3, 2026</div>
     </section>
 
     <!-- UI Highlight Cards (Краткая выжимка) -->
@@ -111,15 +110,15 @@
     <!-- Основная карточка с документацией -->
     <article class="policy-card">
 
-      <!-- ==================== 1. ENGLISH ==================== -->
+      <!-- ==================== EN ==================== -->
       <div class="policy-content active" id="lang-en">
         <section>
-          <h2>1. Overview & Scope</h2>
-          <p>This Privacy Policy applies to the <strong>BalanceCleaner</strong> iOS application and related web services. BalanceCleaner helps users reset or clear remaining Apple ID account balances (e.g., prior to changing App Store regions) by utilizing tailored In-App Purchases.</p>
+          <h2>1. Overview &amp; Scope</h2>
+          <p>This Privacy Policy applies to the <strong>BalanceCleaner</strong> iOS application and its website. BalanceCleaner helps users reset or clear remaining Apple ID account balances (e.g., prior to changing App Store regions) by utilizing tailored In-App Purchases.</p>
         </section>
 
         <section>
-          <h2>2. Apple ID & Transaction Processing</h2>
+          <h2>2. Apple ID &amp; Transaction Processing</h2>
           <p>BalanceCleaner operates strictly within Apple’s StoreKit framework. When clearing your Apple ID balance:</p>
           <ul>
             <li>Transactions are processed directly and securely by Apple Inc.</li>
@@ -129,189 +128,371 @@
         </section>
 
         <section>
-          <h2>3. Information We Collect</h2>
-          <p>We follow a strict data minimization policy:</p>
-          <ul>
-            <li><strong>Support Contacts:</strong> If you voluntarily reach out via email, we store your email address, name, and message content solely to assist you.</li>
-            <li><strong>Diagnostics & Crash Reports:</strong> Anonymous crash logs provided automatically by iOS (if enabled in your device settings) to fix software errors.</li>
-          </ul>
+          <h2>3. Information We Collect (App)</h2>
+          <p>The BalanceCleaner app does not collect your personal information. It contains no advertising and no third-party analytics or tracking tools. We do not receive your Apple ID, payment details, or your cleanup history.</p>
         </section>
 
         <section>
-          <h2>4. On-Device Data & Local Storage</h2>
-          <p>Application preferences (such as language or theme choices) are stored locally on your device via <code>UserDefaults</code> or browser <code>localStorage</code>. These settings are never transmitted to external servers.</p>
+          <h2>4. On-Device Data &amp; iCloud Sync</h2>
+          <p>Your cleanup history and app settings are stored on your device.</p>
+          <p><strong>iCloud sync (optional).</strong> If you are signed in to iCloud, BalanceCleaner can sync your cleanup history between your devices using Apple's iCloud (CloudKit). This data is stored in your private iCloud database under your Apple ID. The developer has no access to it, and it is handled by Apple under Apple's own privacy terms. You can turn syncing off or delete this data at any time in iOS Settings → [your name] → iCloud.</p>
         </section>
 
         <section>
-          <h2>5. Third-Party Services</h2>
+          <h2>5. Website &amp; Support Form</h2>
+          <p>This website uses your browser's <code>localStorage</code> to remember your language and theme choices; this stays on your device.</p>
+          <p>If you contact us through the support form on this website, we receive the name, email address, and message you enter. We use them only to reply to you. The form is processed by FormSubmit, which forwards the message to our email.</p>
+        </section>
+
+        <section>
+          <h2>6. Third-Party Services</h2>
           <p>We rely on trusted infrastructure providers:</p>
           <ul>
-            <li><strong>Apple Inc.:</strong> Processes In-App Purchases and store infrastructure.</li>
-            <li><strong>FormSubmit:</strong> Handles support form inquiries via email encryption.</li>
+            <li><strong>Apple Inc.:</strong> Processes In-App Purchases and provides iCloud.</li>
+            <li><strong>FormSubmit:</strong> Forwards messages sent through the website support form to our email (website only, not used inside the app).</li>
           </ul>
         </section>
 
         <section>
-          <h2>6. Your Rights & Data Deletion</h2>
+          <h2>7. Your Rights &amp; Data Deletion</h2>
           <p>Under GDPR and CCPA, you have the right to access, inspect, or request permanent deletion of any support communications sent to us. Contact us at <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a> to submit a request.</p>
         </section>
 
         <section>
-          <h2>7. Contact Us</h2>
+          <h2>8. Contact Us</h2>
           <p>If you have any questions regarding this Privacy Policy, please email us at <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
         </section>
+
       </div>
 
-      <!-- ==================== 2. РУССКИЙ ==================== -->
+      <!-- ==================== RU ==================== -->
       <div class="policy-content" id="lang-ru">
         <section>
           <h2>1. Область действия</h2>
-          <p>Настоящая Политика конфиденциальности распространяется на iOS-приложение <strong>BalanceCleaner</strong> и веб-сайт. Приложение помогает пользователям обнулить остаток средств на балансе Apple ID (например, перед сменой региона App Store) с помощью встроенных покупок.</p>
+          <p>Настоящая Политика конфиденциальности распространяется на iOS-приложение <strong>BalanceCleaner</strong> и его веб-сайт. Приложение помогает пользователям обнулить остаток на балансе Apple ID (например, перед сменой региона App Store) с помощью встроенных покупок.</p>
         </section>
 
         <section>
           <h2>2. Обработка операций Apple ID</h2>
-          <p>BalanceCleaner работает строго в рамках фреймворка Apple StoreKit. При списывании баланса:</p>
+          <p>BalanceCleaner работает строго в рамках фреймворка Apple StoreKit. При обнулении баланса:</p>
           <ul>
-            <li>Все транзакции обрабатываются напрямую компанией Apple Inc.</li>
-            <li>Мы <strong>не получаем</strong> доступ к вашему паролю Apple ID, банковским картам и платёжным реквизитам.</li>
-            <li>Списание проходит как стандартная встроенная покупка под управлением операционной системы iOS.</li>
+            <li>Все транзакции обрабатываются напрямую и безопасно компанией Apple Inc.</li>
+            <li>Мы <strong>не получаем</strong> доступ к вашему паролю Apple ID, банковским картам и полной истории платежей.</li>
+            <li>Списание проходит как стандартная встроенная покупка, полностью под управлением iOS.</li>
           </ul>
         </section>
 
         <section>
-          <h2>3. Собираемые данные</h2>
-          <p>Мы придерживаемся принципа минимального сбора информации:</p>
+          <h2>3. Собираемые данные (приложение)</h2>
+          <p>Приложение BalanceCleaner не собирает ваши персональные данные. В нём нет рекламы, а также сторонней аналитики и инструментов отслеживания. Мы не получаем ваш Apple ID, платёжные данные и историю ваших очисток.</p>
+        </section>
+
+        <section>
+          <h2>4. Данные на устройстве и синхронизация iCloud</h2>
+          <p>История очисток и настройки приложения хранятся на вашем устройстве.</p>
+          <p><strong>Синхронизация через iCloud (необязательно).</strong> Если вы вошли в iCloud, BalanceCleaner может синхронизировать историю очисток между вашими устройствами с помощью Apple iCloud (CloudKit). Эти данные хранятся в вашей приватной базе iCloud под вашим Apple ID. У разработчика нет к ним доступа, они обрабатываются Apple по её собственным условиям конфиденциальности. Вы можете отключить синхронизацию или удалить эти данные в любое время: Настройки iOS → [ваше имя] → iCloud.</p>
+        </section>
+
+        <section>
+          <h2>5. Веб-сайт и форма поддержки</h2>
+          <p>Сайт использует <code>localStorage</code> браузера, чтобы запомнить выбранные язык и тему; эти данные остаются на вашем устройстве.</p>
+          <p>Если вы пишете нам через форму поддержки на сайте, мы получаем имя, email и текст сообщения, которые вы ввели. Мы используем их только для ответа. Форма обрабатывается сервисом FormSubmit, который пересылает сообщение на нашу почту.</p>
+        </section>
+
+        <section>
+          <h2>6. Сторонние сервисы</h2>
+          <p>Мы используем надёжные сервисы:</p>
           <ul>
-            <li><strong>Обращения в поддержку:</strong> При отправке письма мы сохраняем имя, email и текст сообщения исключительно для ответа на запрос.</li>
-            <li><strong>Анонимная диагностика:</strong> Обезличенные отчеты о сбоях, предоставляемые системой iOS для исправления ошибок.</li>
+            <li><strong>Apple Inc.:</strong> обрабатывает встроенные покупки и предоставляет iCloud.</li>
+            <li><strong>FormSubmit:</strong> пересылает на нашу почту сообщения из формы поддержки на сайте (только сайт, в приложении не используется).</li>
           </ul>
         </section>
 
         <section>
-          <h2>4. Локальное хранение</h2>
-          <p>Настройки приложения (язык, тема оформления) хранятся локально на вашем устройстве через <code>UserDefaults</code> или <code>localStorage</code> и не передаются на сторонние сервера.</p>
+          <h2>7. Права пользователей и удаление данных</h2>
+          <p>В соответствии с GDPR и CCPA вы вправе запросить доступ к истории переписки с поддержкой или её полное удаление. Напишите нам: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
         </section>
 
         <section>
-          <h2>5. Права пользователей</h2>
-          <p>Вы имеете право запросить полный доступ или полное удаление истории переписки с поддержкой. Свяжитесь с нами по адресу <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+          <h2>8. Контакты</h2>
+          <p>По вопросам этой Политики конфиденциальности пишите: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
         </section>
+
       </div>
 
-      <!-- ==================== 3. FRANÇAIS ==================== -->
+      <!-- ==================== FR ==================== -->
       <div class="policy-content" id="lang-fr">
         <section>
           <h2>1. Aperçu et champ d'application</h2>
-          <p>Cette politique de confidentialité s'applique à l'application iOS <strong>BalanceCleaner</strong>. Elle aide les utilisateurs à réinitialiser ou vider le solde restant de leur compte Apple ID (par exemple avant de changer de région App Store) via des achats intégrés.</p>
+          <p>Cette politique de confidentialité s'applique à l'application iOS <strong>BalanceCleaner</strong> et à son site web. Elle aide les utilisateurs à réinitialiser le solde restant de leur compte Apple ID (par exemple avant de changer de région App Store) via des achats intégrés.</p>
         </section>
 
         <section>
           <h2>2. Traitement des transactions Apple ID</h2>
-          <p>BalanceCleaner fonctionne exclusivement via le framework StoreKit d'Apple. Nous n'avons jamais accès à vos mots de passe Apple ID, cartes bancaires ou informations de facturation. Toutes les transactions sont gérées par Apple Inc.</p>
+          <p>BalanceCleaner fonctionne exclusivement via le framework StoreKit d'Apple. Lorsque vous videz le solde de votre Apple ID :</p>
+          <ul>
+            <li>Les transactions sont traitées directement et en toute sécurité par Apple Inc.</li>
+            <li>Nous n'avons <strong>pas</strong> accès à votre mot de passe Apple ID, à vos cartes bancaires ni à votre historique de facturation complet.</li>
+            <li>Le débit du solde est un achat intégré iOS standard, entièrement géré par iOS.</li>
+          </ul>
         </section>
 
         <section>
-          <h2>3. Données collectées</h2>
-          <p>Nous ne collectons que les informations transmises volontairement lors d'un contact avec le support (nom, e-mail). Aucune donnée financière n'est stockée par nos soins.</p>
+          <h2>3. Données collectées (application)</h2>
+          <p>L'application BalanceCleaner ne collecte pas vos informations personnelles. Elle ne contient aucune publicité ni outil d'analyse ou de suivi tiers. Nous ne recevons ni votre identifiant Apple, ni vos données de paiement, ni votre historique de nettoyages.</p>
         </section>
 
         <section>
-          <h2>4. Contact</h2>
-          <p>Pour toute question ou demande de suppression de données: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+          <h2>4. Données sur l'appareil et synchronisation iCloud</h2>
+          <p>Votre historique de nettoyages et les réglages de l'application sont stockés sur votre appareil.</p>
+          <p><strong>Synchronisation iCloud (facultative).</strong> Si vous êtes connecté à iCloud, BalanceCleaner peut synchroniser votre historique de nettoyages entre vos appareils via iCloud (CloudKit) d'Apple. Ces données sont stockées dans votre base de données iCloud privée, liée à votre identifiant Apple. Le développeur n'y a pas accès ; elles sont gérées par Apple selon ses propres conditions de confidentialité. Vous pouvez désactiver la synchronisation ou supprimer ces données à tout moment dans Réglages iOS → [votre nom] → iCloud.</p>
         </section>
+
+        <section>
+          <h2>5. Site web et formulaire de support</h2>
+          <p>Ce site utilise le <code>localStorage</code> de votre navigateur pour mémoriser votre langue et votre thème ; ces informations restent sur votre appareil.</p>
+          <p>Si vous nous contactez via le formulaire de support du site, nous recevons le nom, l'adresse e-mail et le message que vous saisissez. Nous les utilisons uniquement pour vous répondre. Le formulaire est traité par FormSubmit, qui transmet le message à notre adresse e-mail.</p>
+        </section>
+
+        <section>
+          <h2>6. Services tiers</h2>
+          <p>Nous faisons appel à des prestataires de confiance :</p>
+          <ul>
+            <li><strong>Apple Inc. :</strong> traite les achats intégrés et fournit iCloud.</li>
+            <li><strong>FormSubmit :</strong> transmet à notre e-mail les messages envoyés via le formulaire de support du site (site web uniquement, non utilisé dans l'application).</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>7. Vos droits et suppression des données</h2>
+          <p>Conformément au RGPD et au CCPA, vous pouvez demander l'accès à vos échanges avec le support ou leur suppression définitive. Écrivez-nous à : <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+        </section>
+
+        <section>
+          <h2>8. Nous contacter</h2>
+          <p>Pour toute question concernant cette politique de confidentialité : <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+        </section>
+
       </div>
 
-      <!-- ==================== 4. DEUTSCH ==================== -->
+      <!-- ==================== DE ==================== -->
       <div class="policy-content" id="lang-de">
         <section>
-          <h2>1. Überblick & Geltungsbereich</h2>
-          <p>Diese Datenschutzrichtlinie gilt für die iOS-App <strong>BalanceCleaner</strong>. Die Anwendung hilft Benutzern, ihr verbleibendes Apple-ID-Guthaben (z. B. vor einem Wechsel der App Store-Region) über In-App-Käufe zurückzusetzen.</p>
+          <h2>1. Überblick &amp; Geltungsbereich</h2>
+          <p>Diese Datenschutzrichtlinie gilt für die iOS-App <strong>BalanceCleaner</strong> und die zugehörige Website. Die App hilft Nutzern, ihr verbleibendes Apple-ID-Guthaben (z. B. vor einem Wechsel der App-Store-Region) über In-App-Käufe zurückzusetzen.</p>
         </section>
 
         <section>
-          <h2>2. Apple ID & Transaktionsabwicklung</h2>
-          <p>BalanceCleaner nutzt das offizielle Apple StoreKit-Framework. Wir haben keinen Zugriff auf Ihr Apple-ID-Passwort, Kreditkarten oder Zahlungsinformationen. Die Abwicklung erfolgt direkt durch Apple Inc.</p>
+          <h2>2. Apple ID &amp; Transaktionsabwicklung</h2>
+          <p>BalanceCleaner arbeitet ausschließlich mit Apples StoreKit-Framework. Beim Leeren Ihres Apple-ID-Guthabens:</p>
+          <ul>
+            <li>Transaktionen werden direkt und sicher von Apple Inc. verarbeitet.</li>
+            <li>Wir haben <strong>keinen</strong> Zugriff auf Ihr Apple-ID-Passwort, Ihre Zahlungskarten oder Ihren vollständigen Abrechnungsverlauf.</li>
+            <li>Die Abbuchung erfolgt als normaler In-App-Kauf, der vollständig von iOS abgewickelt wird.</li>
+          </ul>
         </section>
 
         <section>
-          <h2>3. Erfasste Daten</h2>
-          <p>Wir speichern nur Daten, die Sie uns bei Supportanfragen senden (E-Mail, Name, Nachricht). Es werden keine persönlichen Finanzdaten gesammelt.</p>
+          <h2>3. Erhobene Daten (App)</h2>
+          <p>Die App BalanceCleaner erhebt keine personenbezogenen Daten. Sie enthält keine Werbung und keine Analyse- oder Tracking-Tools von Drittanbietern. Wir erhalten weder Ihre Apple-ID noch Zahlungsdaten oder Ihren Bereinigungsverlauf.</p>
         </section>
 
         <section>
-          <h2>4. Kontakt</h2>
-          <p>Bei Fragen zum Datenschutz kontaktieren Sie uns unter: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+          <h2>4. Daten auf dem Gerät &amp; iCloud-Synchronisierung</h2>
+          <p>Ihr Bereinigungsverlauf und die App-Einstellungen werden auf Ihrem Gerät gespeichert.</p>
+          <p><strong>iCloud-Synchronisierung (optional).</strong> Wenn Sie bei iCloud angemeldet sind, kann BalanceCleaner Ihren Bereinigungsverlauf über Apples iCloud (CloudKit) zwischen Ihren Geräten synchronisieren. Diese Daten liegen in Ihrer privaten iCloud-Datenbank unter Ihrer Apple-ID. Der Entwickler hat keinen Zugriff darauf; sie werden von Apple gemäß dessen eigenen Datenschutzbestimmungen verarbeitet. Sie können die Synchronisierung jederzeit deaktivieren oder diese Daten löschen: iOS-Einstellungen → [Ihr Name] → iCloud.</p>
         </section>
+
+        <section>
+          <h2>5. Website &amp; Support-Formular</h2>
+          <p>Diese Website nutzt den <code>localStorage</code> Ihres Browsers, um Sprache und Design zu speichern; diese Angaben bleiben auf Ihrem Gerät.</p>
+          <p>Wenn Sie uns über das Support-Formular der Website kontaktieren, erhalten wir den von Ihnen eingegebenen Namen, die E-Mail-Adresse und die Nachricht. Wir verwenden sie ausschließlich, um Ihnen zu antworten. Das Formular wird von FormSubmit verarbeitet, das die Nachricht an unsere E-Mail-Adresse weiterleitet.</p>
+        </section>
+
+        <section>
+          <h2>6. Drittanbieter</h2>
+          <p>Wir nutzen vertrauenswürdige Dienstleister:</p>
+          <ul>
+            <li><strong>Apple Inc.:</strong> verarbeitet In-App-Käufe und stellt iCloud bereit.</li>
+            <li><strong>FormSubmit:</strong> leitet Nachrichten aus dem Support-Formular der Website an unsere E-Mail weiter (nur Website, nicht in der App).</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>7. Ihre Rechte &amp; Datenlöschung</h2>
+          <p>Gemäß DSGVO und CCPA können Sie Auskunft über Ihre Support-Korrespondenz oder deren endgültige Löschung verlangen. Schreiben Sie uns an: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+        </section>
+
+        <section>
+          <h2>8. Kontakt</h2>
+          <p>Bei Fragen zu dieser Datenschutzrichtlinie erreichen Sie uns unter: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+        </section>
+
       </div>
 
-      <!-- ==================== 5. ESPAÑOL ==================== -->
+      <!-- ==================== ES ==================== -->
       <div class="policy-content" id="lang-es">
         <section>
-          <h2>1. Descripción general</h2>
-          <p>Esta Política de privacidad se aplica a la aplicación iOS <strong>BalanceCleaner</strong>. BalanceCleaner ayuda a los usuarios a limpiar o vaciar el saldo restante de su Apple ID (por ejemplo, antes de cambiar de región en App Store) mediante compras dentro de la aplicación.</p>
+          <h2>1. Descripción general y alcance</h2>
+          <p>Esta Política de privacidad se aplica a la aplicación iOS <strong>BalanceCleaner</strong> y a su sitio web. La aplicación ayuda a los usuarios a poner a cero el saldo restante de su Apple ID (por ejemplo, antes de cambiar de región en App Store) mediante compras dentro de la aplicación.</p>
         </section>
 
         <section>
           <h2>2. Procesamiento de transacciones de Apple ID</h2>
-          <p>BalanceCleaner funciona estrictamente dentro del marco StoreKit de Apple. No tenemos acceso a su contraseña de Apple ID, tarjetas de crédito o datos financieros. Apple Inc. procesa todas las transacciones de forma segura.</p>
+          <p>BalanceCleaner funciona estrictamente dentro del marco StoreKit de Apple. Al vaciar el saldo de su Apple ID:</p>
+          <ul>
+            <li>Apple Inc. procesa las transacciones de forma directa y segura.</li>
+            <li><strong>No</strong> tenemos acceso a su contraseña de Apple ID, a sus tarjetas ni a su historial de facturación completo.</li>
+            <li>El descuento del saldo se realiza como una compra integrada estándar de iOS, gestionada íntegramente por iOS.</li>
+          </ul>
         </section>
 
         <section>
-          <h2>3. Datos recopilados</h2>
-          <p>Solo conservamos los datos enviados voluntariamente al contactar al soporte técnico (nombre, correo electrónico). No se recopilan ni venden datos personales.</p>
+          <h2>3. Datos recopilados (aplicación)</h2>
+          <p>La aplicación BalanceCleaner no recopila su información personal. No contiene publicidad ni herramientas de análisis o seguimiento de terceros. No recibimos su Apple ID, sus datos de pago ni su historial de limpiezas.</p>
         </section>
 
         <section>
-          <h2>4. Contacto</h2>
-          <p>Para consultas o eliminación de datos, escríbanos a: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+          <h2>4. Datos en el dispositivo y sincronización con iCloud</h2>
+          <p>Su historial de limpiezas y los ajustes de la aplicación se guardan en su dispositivo.</p>
+          <p><strong>Sincronización con iCloud (opcional).</strong> Si ha iniciado sesión en iCloud, BalanceCleaner puede sincronizar su historial de limpiezas entre sus dispositivos mediante iCloud (CloudKit) de Apple. Estos datos se almacenan en su base de datos privada de iCloud, bajo su Apple ID. El desarrollador no tiene acceso a ellos; Apple los gestiona según sus propios términos de privacidad. Puede desactivar la sincronización o eliminar estos datos en cualquier momento en Ajustes de iOS → [su nombre] → iCloud.</p>
         </section>
+
+        <section>
+          <h2>5. Sitio web y formulario de soporte</h2>
+          <p>Este sitio usa el <code>localStorage</code> de su navegador para recordar el idioma y el tema; esta información permanece en su dispositivo.</p>
+          <p>Si nos contacta mediante el formulario de soporte del sitio, recibimos el nombre, el correo electrónico y el mensaje que introduzca. Los usamos únicamente para responderle. El formulario es procesado por FormSubmit, que reenvía el mensaje a nuestro correo.</p>
+        </section>
+
+        <section>
+          <h2>6. Servicios de terceros</h2>
+          <p>Contamos con proveedores de infraestructura de confianza:</p>
+          <ul>
+            <li><strong>Apple Inc.:</strong> procesa las compras dentro de la aplicación y ofrece iCloud.</li>
+            <li><strong>FormSubmit:</strong> reenvía a nuestro correo los mensajes enviados con el formulario de soporte del sitio (solo sitio web, no se usa dentro de la aplicación).</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>7. Sus derechos y eliminación de datos</h2>
+          <p>Conforme al RGPD y a la CCPA, puede solicitar acceso a sus comunicaciones con el soporte o su eliminación definitiva. Escríbanos a: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+        </section>
+
+        <section>
+          <h2>8. Contacto</h2>
+          <p>Si tiene preguntas sobre esta Política de privacidad, escríbanos a: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+        </section>
+
       </div>
 
-      <!-- ==================== 6. ITALIANO ==================== -->
+      <!-- ==================== IT ==================== -->
       <div class="policy-content" id="lang-it">
         <section>
-          <h2>1. Panoramica</h2>
-          <p>Questa Informativa sulla privacy si applica all'applicazione iOS <strong>BalanceCleaner</strong>, ideata per aiutare gli utenti ad azzerare il saldo residuo dell'Apple ID (ad esempio prima di cambiare regione dell'App Store) tramite acquisti In-App.</p>
+          <h2>1. Panoramica e ambito</h2>
+          <p>Questa Informativa sulla privacy si applica all'app iOS <strong>BalanceCleaner</strong> e al relativo sito web. L'app aiuta gli utenti ad azzerare il saldo residuo dell'Apple ID (ad esempio prima di cambiare regione dell'App Store) tramite acquisti In-App.</p>
         </section>
 
         <section>
-          <h2>2. Transazioni e Apple ID</h2>
-          <p>BalanceCleaner opera tramite il framework ufficiale Apple StoreKit. Non abbiamo mai accesso alla password dell'Apple ID, alle carte di credito o ai dettagli di pagamento, gestiti interamente da Apple Inc.</p>
+          <h2>2. Apple ID ed elaborazione delle transazioni</h2>
+          <p>BalanceCleaner opera esclusivamente tramite il framework Apple StoreKit. Quando azzeri il saldo del tuo Apple ID:</p>
+          <ul>
+            <li>Le transazioni sono elaborate direttamente e in modo sicuro da Apple Inc.</li>
+            <li><strong>Non</strong> abbiamo accesso alla password del tuo Apple ID, alle carte di pagamento né alla cronologia di fatturazione completa.</li>
+            <li>L'addebito del saldo avviene come un normale acquisto In-App, gestito interamente da iOS.</li>
+          </ul>
         </section>
 
         <section>
-          <h2>3. Dati raccolti</h2>
-          <p>Raccogliamo solo le informazioni fornite volontariamente quando si contatta l'assistenza (nome, e-mail). Nessun dato viene venduto a terzi.</p>
+          <h2>3. Dati raccolti (app)</h2>
+          <p>L'app BalanceCleaner non raccoglie le tue informazioni personali. Non contiene pubblicità né strumenti di analisi o tracciamento di terze parti. Non riceviamo il tuo Apple ID, i dati di pagamento né la cronologia delle tue pulizie.</p>
         </section>
 
         <section>
-          <h2>4. Contatti</h2>
-          <p>Per domande o richieste di cancellazione dei dati: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+          <h2>4. Dati sul dispositivo e sincronizzazione iCloud</h2>
+          <p>La cronologia delle pulizie e le impostazioni dell'app sono memorizzate sul tuo dispositivo.</p>
+          <p><strong>Sincronizzazione iCloud (facoltativa).</strong> Se hai effettuato l'accesso a iCloud, BalanceCleaner può sincronizzare la cronologia delle pulizie tra i tuoi dispositivi tramite iCloud (CloudKit) di Apple. Questi dati sono archiviati nel tuo database iCloud privato, associato al tuo Apple ID. Lo sviluppatore non vi ha accesso; sono gestiti da Apple secondo le proprie condizioni sulla privacy. Puoi disattivare la sincronizzazione o eliminare questi dati in qualsiasi momento da Impostazioni iOS → [il tuo nome] → iCloud.</p>
         </section>
+
+        <section>
+          <h2>5. Sito web e modulo di assistenza</h2>
+          <p>Questo sito usa il <code>localStorage</code> del browser per ricordare lingua e tema; queste informazioni restano sul tuo dispositivo.</p>
+          <p>Se ci contatti tramite il modulo di assistenza del sito, riceviamo il nome, l'indirizzo e-mail e il messaggio che inserisci. Li usiamo solo per risponderti. Il modulo è elaborato da FormSubmit, che inoltra il messaggio al nostro indirizzo e-mail.</p>
+        </section>
+
+        <section>
+          <h2>6. Servizi di terze parti</h2>
+          <p>Ci affidiamo a fornitori di infrastruttura affidabili:</p>
+          <ul>
+            <li><strong>Apple Inc.:</strong> elabora gli acquisti In-App e fornisce iCloud.</li>
+            <li><strong>FormSubmit:</strong> inoltra alla nostra e-mail i messaggi inviati con il modulo di assistenza del sito (solo sito web, non usato nell'app).</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>7. I tuoi diritti e la cancellazione dei dati</h2>
+          <p>Ai sensi del GDPR e del CCPA puoi richiedere l'accesso alle comunicazioni con l'assistenza o la loro cancellazione definitiva. Scrivici a: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+        </section>
+
+        <section>
+          <h2>8. Contatti</h2>
+          <p>Per domande su questa Informativa sulla privacy: <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>.</p>
+        </section>
+
       </div>
 
-      <!-- ==================== 7. ՀԱՅԵՐԵՆ (ARMENIAN) ==================== -->
+      <!-- ==================== HY ==================== -->
       <div class="policy-content" id="lang-hy">
         <section>
-          <h2>1. Ընդհանուր դրույթներ</h2>
-          <p>Սույն Գաղտնիության քաղաքականությունը տարածվում է <strong>BalanceCleaner</strong> iOS հավելվածի վրա: Հավելվածն օգնում է օգտատերերին զրոյացնել Apple ID հաշվեկշռի մնացորդը (օրինակ՝ App Store-ի տարածաշրջանը փոխելուց առաջ) ներհավելվածային գնումների միջոցով:</p>
+          <h2>1. Ընդհանուր դրույթներ և շրջանակ</h2>
+          <p>Սույն Գաղտնիության քաղաքականությունը տարածվում է <strong>BalanceCleaner</strong> iOS հավելվածի և դրա կայքի վրա: Հավելվածն օգնում է օգտատերերին զրոյացնել Apple ID-ի մնացորդը (օրինակ՝ App Store-ի տարածաշրջանը փոխելուց առաջ) ներհավելվածային գնումների միջոցով:</p>
         </section>
 
         <section>
           <h2>2. Apple ID և գործարքների մշակում</h2>
-          <p>BalanceCleaner-ն աշխատում է բացառապես Apple-ի StoreKit համակարգի միջոցով: Մենք հասանելիություն <strong>չունենք</strong> Ձեր Apple ID-ի գաղտնաբառին, բանկային քարտերին կամ ֆինանսական տվյալներին: Բոլոր գործարքները մշակվում են Apple Inc.-ի կողմից:</p>
+          <p>BalanceCleaner-ն աշխատում է բացառապես Apple-ի StoreKit համակարգի միջոցով: Apple ID-ի մնացորդը մաքրելիս՝</p>
+          <ul>
+            <li>Գործարքները անմիջապես և անվտանգ մշակվում են Apple Inc.-ի կողմից:</li>
+            <li>Մենք <strong>հասանելիություն չունենք</strong> Ձեր Apple ID-ի գաղտնաբառին, բանկային քարտերին կամ վճարումների ամբողջական պատմությանը:</li>
+            <li>Մնացորդի գանձումը կատարվում է որպես iOS-ի ստանդարտ ներհավելվածային գնում, որն ամբողջությամբ կառավարվում է iOS-ի կողմից:</li>
+          </ul>
         </section>
 
         <section>
-          <h2>3. Հավաքագրվող տվյալներ</h2>
-          <p>Մենք պահպանում ենք միայն այն տվյալները, որոնք Դուք կամավոր ուղարկում եք աջակցման ծառայությանը (անուն, էլ. փոստ, հաղորդագրություն): Ձեր տվյալները երբեք չեն վաճառվում երրորդ անձանց:</p>
+          <h2>3. Հավաքագրվող տվյալներ (հավելված)</h2>
+          <p>BalanceCleaner հավելվածը չի հավաքագրում Ձեր անձնական տվյալները: Այն չի պարունակում գովազդ, ինչպես նաև երրորդ կողմի վերլուծական կամ հետևման գործիքներ: Մենք չենք ստանում Ձեր Apple ID-ն, վճարային տվյալները կամ մաքրումների պատմությունը:</p>
         </section>
 
         <section>
-          <h2>4. Կապ մեզ հետ</h2>
-          <p>Հարցերի կամ տվյալների հեռացման հարցումների համար գրեք մեզ. <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>:</p>
+          <h2>4. Տվյալներ սարքում և iCloud համաժամեցում</h2>
+          <p>Մաքրումների պատմությունը և հավելվածի կարգավորումները պահվում են Ձեր սարքում:</p>
+          <p><strong>iCloud համաժամեցում (ըստ ցանկության):</strong> Եթե մուտք եք գործել iCloud, BalanceCleaner-ը կարող է Apple-ի iCloud-ի (CloudKit) միջոցով համաժամեցնել մաքրումների պատմությունը Ձեր սարքերի միջև: Այս տվյալները պահվում են Ձեր Apple ID-ին կապված iCloud-ի անձնական տվյալների բազայում: Մշակողը դրանց հասանելիություն չունի. դրանք մշակվում են Apple-ի կողմից՝ նրա սեփական գաղտնիության պայմաններով: Համաժամեցումը կարող եք անջատել կամ այս տվյալները ջնջել ցանկացած պահի՝ iOS Կարգավորումներ → [Ձեր անունը] → iCloud:</p>
         </section>
+
+        <section>
+          <h2>5. Կայք և աջակցման ձև</h2>
+          <p>Այս կայքը օգտագործում է Ձեր զննարկչի <code>localStorage</code>-ը՝ լեզուն և թեման հիշելու համար. այս տվյալները մնում են Ձեր սարքում:</p>
+          <p>Եթե կապ եք հաստատում մեզ հետ կայքի աջակցման ձևի միջոցով, մենք ստանում ենք Ձեր մուտքագրած անունը, էլ. փոստը և հաղորդագրությունը: Դրանք օգտագործում ենք միայն Ձեզ պատասխանելու համար: Ձևը մշակվում է FormSubmit-ի կողմից, որը հաղորդագրությունը փոխանցում է մեր էլ. փոստին:</p>
+        </section>
+
+        <section>
+          <h2>6. Երրորդ կողմի ծառայություններ</h2>
+          <p>Մենք օգտվում ենք վստահելի ծառայություններից՝</p>
+          <ul>
+            <li><strong>Apple Inc.՝</strong> մշակում է ներհավելվածային գնումները և տրամադրում iCloud:</li>
+            <li><strong>FormSubmit՝</strong> կայքի աջակցման ձևով ուղարկված հաղորդագրությունները փոխանցում է մեր էլ. փոստին (միայն կայք, հավելվածում չի օգտագործվում):</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>7. Ձեր իրավունքները և տվյալների ջնջում</h2>
+          <p>GDPR-ի և CCPA-ի համաձայն՝ կարող եք պահանջել մուտք ունենալ աջակցման հետ Ձեր նամակագրությանը կամ ամբողջությամբ ջնջել այն: Գրեք մեզ՝ <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>:</p>
+        </section>
+
+        <section>
+          <h2>8. Կապ մեզ հետ</h2>
+          <p>Այս քաղաքականության վերաբերյալ հարցերի դեպքում գրեք՝ <a href="mailto:balancecleanerapp@gmail.com">balancecleanerapp@gmail.com</a>:</p>
+        </section>
+
       </div>
 
     </article>

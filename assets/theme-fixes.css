@@ -87,9 +87,7 @@
   height: 20px;
   display: block;
 }
-/* Логотип белый — в светлой теме кладём его на зелёную плитку */
-:root.light .brand-icon {
-  background: linear-gradient(135deg, var(--green), var(--deep));
-  padding: 5px;
-  box-sizing: border-box;
-}
+/* Логотип: тёмная тема — белый (x1024_light.svg), светлая тема — чёрный (x1024_dark.svg), без плитки */
+.brand-icon--light-theme { display: none; }
+:root.light .brand-icon--dark-theme { display: none; }
+:root.light .brand-icon--light-theme { display: block; }

@@ -48,6 +48,19 @@
       -ms-overflow-style: none; /* IE/Edge */
     }
     .device-screen-scroll::-webkit-scrollbar { display: none; }
+    /* Update 10: лента скроллится ТОЛЬКО по горизонтали. Из-за overflow-x:auto браузер
+       делал overflow-y:auto тоже — лента перехватывала вертикальный жест/колесо и
+       страница «залипала». Теперь вертикаль уходит странице.
+       Update 10: strip scrolls horizontally ONLY. overflow-x:auto implicitly made
+       overflow-y:auto, so the strip captured vertical wheel/touch and the page stuck.
+       Now vertical gestures pass through to the page. */
+    .device-screen-scroll {
+      overflow-y: hidden;
+      overscroll-behavior-y: auto;
+      touch-action: pan-x pan-y;
+      -webkit-overflow-scrolling: touch;
+      padding-top: 12px;
+    }
     @media (max-width: 768px) { .device-screen-scroll { --card-w: 140px; } }
     @media (max-width: 560px) { .device-screen-scroll { --card-w: 120px; } }
     /* responsive.css задаёт padding и width с !important — перебиваем, чтобы центр был точным */

@@ -725,4 +725,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const link = document.querySelector('.links a[href="privacy.html"]');
     if (link) link.classList.add('active');
   }
+
+  // Video play/pause toggle on click
+  const promoVideo = document.getElementById('promo-video');
+  if (promoVideo) {
+    promoVideo.addEventListener('click', (e) => {
+      // Игнорируем клики по панели управления (controls), чтобы не мешать кнопке Play/Pause
+      if (e.target !== promoVideo) return;
+
+      if (promoVideo.paused) {
+        promoVideo.play();
+      } else {
+        promoVideo.pause();
+      }
+    });
+  }
 });

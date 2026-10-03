@@ -14,6 +14,7 @@
   --green: #57d99f;
   --deep: #1d8060;
   --soft: #baf5d5;
+  --on-accent: #06150e; /* текст на зелёных кнопках / text on green accent */
 
   font-family: Inter, system-ui, sans-serif;
 }
@@ -31,6 +32,7 @@
   --green: #16885d;
   --deep: #0c6043;
   --soft: #0b6b49;
+  --on-accent: #ffffff; /* в светлой теме текст на зелёном — белый */
 }
 
 /* =========================================================================
@@ -97,7 +99,7 @@ a {
   margin-right: 8px;
   border-radius: 9px;
   background: linear-gradient(135deg, var(--green), var(--deep));
-  color: #06150e;
+  color: var(--on-accent);
 }
 
 .links {
@@ -149,7 +151,7 @@ a {
   border-radius: 11px;
   border: 1px solid #57d99f66;
   background: linear-gradient(135deg, var(--green), var(--deep));
-  color: #06150e;
+  color: var(--on-accent);
   font-size: 13px;
   font-weight: 800;
 }

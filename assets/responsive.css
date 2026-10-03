@@ -498,3 +498,60 @@
     gap: 6px !important;
   }
 }
+
+/* =========================================================================
+   Update 7: MOBILE — монеты 3×2 / 2×3, видео в колонку, баннер, футер
+   ========================================================================== */
+
+/* Монеты (tier-cards): планшет 3×2, телефон 2×3 */
+@media (max-width: 1024px) {
+  .tier-grid { grid-template-columns: repeat(3, 1fr) !important; }
+}
+@media (max-width: 600px) {
+  .tier-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; margin: 28px 0 24px; }
+  .tier-grid .tier-info { padding: 8px 10px 10px; }
+  .tier-grid .tier-name { font-size: 10px; }
+  .tier-grid .tier-price { font-size: 12px; }
+  .tier-grid .tier-desc { font-size: 11px; line-height: 1.35; }
+}
+
+@media (max-width: 768px) {
+  /* Product demo: по одному телефону в строку, сверху вниз */
+  .video-grid {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 40px !important;
+  }
+  .video-grid .video-mockup {
+    flex: 0 0 auto;
+    width: min(100%, 300px);
+  }
+  .mockup-label { font-size: 14px; }
+
+  /* Баннер App Store: одна строка — слева бейдж и текст, справа кнопка */
+  .sub-header-banner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+  .sub-header-left { gap: 8px; font-size: 13px; min-width: 0; }
+  .sub-header-banner .button { white-space: nowrap; flex: 0 0 auto; }
+
+  /* Футер: строка 1 — бренд / © / Privacy, строка 2 — соцсети слева, язык и тема справа */
+  .footer-inner { align-items: stretch; text-align: left; gap: 14px; }
+  .footer-left { width: 100%; justify-content: space-between; flex-wrap: nowrap; }
+  .footer-right {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-right .custom-lang { margin-left: auto; }
+
+  /* Иконка темы чуть компактнее */
+  .theme-icon svg { width: 18px; height: 18px; }
+}
